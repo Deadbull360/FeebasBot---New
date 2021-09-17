@@ -100,7 +100,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Right}");
                             nw.right();
-                            Thread.Sleep(time);
+                           // Thread.Sleep(time);
                         }
                         if (Setting.charx > ix)
                         {
@@ -109,7 +109,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Left}");
                             nw.left();
-                            Thread.Sleep(time);
+                            //Thread.Sleep(time);
                         }
                         if (Setting.chary > iy)
                         {
@@ -118,7 +118,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Up}");
                             nw.up();
-                            Thread.Sleep(time);
+                            //Thread.Sleep(time);
                         }
                         if (Setting.chary < iy)
                         {
@@ -127,7 +127,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Down}");
                             nw.down();
-                            Thread.Sleep(time);
+                            //Thread.Sleep(time);
                         }
                         Mem.Memory(); 
                     }
