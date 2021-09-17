@@ -149,20 +149,14 @@
             this.button10 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.tabLogin = new System.Windows.Forms.TabPage();
-            this.lCatch = new System.Windows.Forms.Label();
-            this.lTroca = new System.Windows.Forms.Label();
-            this.lCave = new System.Windows.Forms.Label();
-            this.bLogout = new System.Windows.Forms.Button();
-            this.lLooting = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.txtLogin = new System.Windows.Forms.TextBox();
-            this.bLogin = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.ManualConfig = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
+            this.result = new System.Windows.Forms.Label();
+            this.final = new System.Windows.Forms.TextBox();
+            this.offset = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabFunction.SuspendLayout();
@@ -214,11 +208,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Pokemon Solid", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(3, -7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 46);
+            this.label1.Size = new System.Drawing.Size(112, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Configurações";
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.basescreen_MouseDown);
@@ -1566,13 +1560,6 @@
             // 
             // tabLogin
             // 
-            this.tabLogin.Controls.Add(this.lCatch);
-            this.tabLogin.Controls.Add(this.lTroca);
-            this.tabLogin.Controls.Add(this.lCave);
-            this.tabLogin.Controls.Add(this.bLogout);
-            this.tabLogin.Controls.Add(this.lLooting);
-            this.tabLogin.Controls.Add(this.label10);
-            this.tabLogin.Controls.Add(this.label9);
             this.tabLogin.Controls.Add(this.panel7);
             this.tabLogin.Location = new System.Drawing.Point(4, 22);
             this.tabLogin.Name = "tabLogin";
@@ -1583,115 +1570,19 @@
             this.tabLogin.UseVisualStyleBackColor = true;
             this.tabLogin.Click += new System.EventHandler(this.tabLogin_Click);
             // 
-            // lCatch
-            // 
-            this.lCatch.AutoSize = true;
-            this.lCatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCatch.Location = new System.Drawing.Point(8, 67);
-            this.lCatch.Name = "lCatch";
-            this.lCatch.Size = new System.Drawing.Size(51, 20);
-            this.lCatch.TabIndex = 7;
-            this.lCatch.Text = "Catch";
-            // 
-            // lTroca
-            // 
-            this.lTroca.AutoSize = true;
-            this.lTroca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTroca.Location = new System.Drawing.Point(8, 47);
-            this.lTroca.Name = "lTroca";
-            this.lTroca.Size = new System.Drawing.Size(147, 20);
-            this.lTroca.TabIndex = 6;
-            this.lTroca.Text = "Trocar de Pokemon";
-            // 
-            // lCave
-            // 
-            this.lCave.AutoSize = true;
-            this.lCave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCave.Location = new System.Drawing.Point(8, 87);
-            this.lCave.Name = "lCave";
-            this.lCave.Size = new System.Drawing.Size(70, 20);
-            this.lCave.TabIndex = 5;
-            this.lCave.Text = "CaveBot";
-            // 
-            // bLogout
-            // 
-            this.bLogout.Location = new System.Drawing.Point(274, 205);
-            this.bLogout.Name = "bLogout";
-            this.bLogout.Size = new System.Drawing.Size(75, 23);
-            this.bLogout.TabIndex = 3;
-            this.bLogout.Text = "Deslogar";
-            this.bLogout.UseVisualStyleBackColor = true;
-            this.bLogout.Click += new System.EventHandler(this.bLogout_Click);
-            // 
-            // lLooting
-            // 
-            this.lLooting.AutoSize = true;
-            this.lLooting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lLooting.Location = new System.Drawing.Point(8, 27);
-            this.lLooting.Name = "lLooting";
-            this.lLooting.Size = new System.Drawing.Size(62, 20);
-            this.lLooting.TabIndex = 4;
-            this.lLooting.Text = "Looting";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(195, 7);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 20);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "label10";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(192, 20);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Funções disponiveis para:";
-            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.Controls.Add(this.txtLogin);
-            this.panel7.Controls.Add(this.bLogin);
-            this.panel7.Controls.Add(this.label8);
+            this.panel7.Controls.Add(this.button6);
+            this.panel7.Controls.Add(this.offset);
+            this.panel7.Controls.Add(this.final);
+            this.panel7.Controls.Add(this.result);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(349, 230);
             this.panel7.TabIndex = 1;
-            this.panel7.Visible = false;
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLogin.Location = new System.Drawing.Point(120, 100);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(100, 20);
-            this.txtLogin.TabIndex = 2;
-            // 
-            // bLogin
-            // 
-            this.bLogin.Location = new System.Drawing.Point(133, 126);
-            this.bLogin.Name = "bLogin";
-            this.bLogin.Size = new System.Drawing.Size(75, 23);
-            this.bLogin.TabIndex = 1;
-            this.bLogin.Text = "Login";
-            this.bLogin.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(140, 77);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Usuario:";
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // ManualConfig
             // 
@@ -1708,6 +1599,39 @@
             // 
             this.DrawPositions.Interval = 1;
             this.DrawPositions.Tick += new System.EventHandler(this.DrawPositions_Tick);
+            // 
+            // result
+            // 
+            this.result.AutoSize = true;
+            this.result.Location = new System.Drawing.Point(4, 4);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(35, 13);
+            this.result.TabIndex = 0;
+            this.result.Text = "label8";
+            // 
+            // final
+            // 
+            this.final.Location = new System.Drawing.Point(7, 20);
+            this.final.Name = "final";
+            this.final.Size = new System.Drawing.Size(100, 20);
+            this.final.TabIndex = 1;
+            // 
+            // offset
+            // 
+            this.offset.Location = new System.Drawing.Point(8, 46);
+            this.offset.Name = "offset";
+            this.offset.Size = new System.Drawing.Size(100, 20);
+            this.offset.TabIndex = 2;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(8, 72);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Configuracao
             // 
@@ -1760,7 +1684,6 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.tabLogin.ResumeLayout(false);
-            this.tabLogin.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.ResumeLayout(false);
@@ -1813,15 +1736,6 @@
         private System.Windows.Forms.CheckBox cPescar;
         private System.Windows.Forms.TabPage tabLogin;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.Button bLogin;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lCatch;
-        private System.Windows.Forms.Label lTroca;
-        private System.Windows.Forms.Label lCave;
-        private System.Windows.Forms.Label lLooting;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox gName;
         private System.Windows.Forms.CheckBox cNoStop;
@@ -1896,12 +1810,15 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button bLogout;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.CheckBox cChatStop;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.CheckBox cCaveChat;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.CheckBox cCavePlayer;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox offset;
+        private System.Windows.Forms.TextBox final;
+        private System.Windows.Forms.Label result;
     }
 }

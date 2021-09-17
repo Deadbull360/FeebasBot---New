@@ -12,14 +12,14 @@ namespace FeebasBot.Classes.Bot
     {
         public static void Memory()
         {
-            Process[] processes = Process.GetProcessesByName("otpdx_beta");
+            Process[] processes = Process.GetProcessesByName("otpgl");
             if (processes.Length > 0)
             {
                 IntPtr BaseAddress = IntPtr.Zero;
                 Process MYProc = processes[0];
                 foreach (ProcessModule module in MYProc.Modules)
                 {
-                    if (module.ModuleName.Contains("otpdx_beta"))
+                    if (module.ModuleName.Contains("otpgl"))
                     {
                         BaseAddress = module.BaseAddress;
                         //MessageBox.Show(BaseAddres.ToString());
@@ -28,11 +28,13 @@ namespace FeebasBot.Classes.Bot
 
                 if (BaseAddress != IntPtr.Zero)
                 {
-                    VAMemory memory = new VAMemory("otpdx_beta");
+                    VAMemory memory = new VAMemory("otpgl");
                     //x-y
-                    int finalAddress = memory.ReadInt32((IntPtr)BaseAddress + + 0x00384810);
-                    Setting.chary = memory.ReadInt32((IntPtr)finalAddress + 0x84C);
-                    Setting.charx = memory.ReadInt32((IntPtr)finalAddress + 0x848);
+                    int finalAddress = memory.ReadInt32((IntPtr)BaseAddress + 0x00116004);
+                    int finalaAddress = memory.ReadInt32((IntPtr)BaseAddress + 0x00693B00);
+                    Setting.charx = memory.ReadInt32((IntPtr)finalAddress + 0x1C);
+                    Setting.chary = memory.ReadInt32((IntPtr)finalAddress + 0x20);
+                    Setting.result = memory.ReadInt32((IntPtr)finalaAddress + 238 + 60 + 50 + 0xEC + 48 + 0xBF8);
                     ////pokehp
                     //int PokeAddr = memory.ReadInt32((IntPtr)BaseAddress + +0x00384810);
                     //Setting.chary = memory.ReadInt32((IntPtr)PokeAddr + 0x84C);

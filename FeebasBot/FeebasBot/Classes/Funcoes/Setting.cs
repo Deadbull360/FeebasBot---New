@@ -6,6 +6,9 @@ namespace FeebasBot.Classes
 {
     public sealed class Setting
     {
+        public static int result { get; set; }
+        public static int offsett { get; set; }
+        public static int final { get; set; }
         public static int PokeHP { get; set; }
         public static int CharHP { get; set; }
         public static int charx { get; set; }

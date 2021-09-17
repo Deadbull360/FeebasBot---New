@@ -29,11 +29,7 @@ namespace FeebasBot.Telas
             numericUpDown1.Value = Setting.attacktime;
             gName.Text = Setting.GameName;
             if (Setting.login == "" || Setting.login == null) { panel7.Visible = true; }
-            if (Setting.PodeUsarLooting == 1) { lLooting.ForeColor = Color.Green; } else { lLooting.ForeColor = Color.Red; }
-            if (Setting.PodeUsarTrocaDePokemon== 1) { cTrocaDePoke.Enabled = true; lTroca.ForeColor = Color.Green; } else { cTrocaDePoke.Enabled = false; lTroca.ForeColor = Color.Red; }
-            if (Setting.PodeCapturar == 1) { lCatch.ForeColor = Color.Green; cCatch.Enabled = true; } else { lCatch.ForeColor = Color.Red;cCatch.Enabled = false; }
-            if (Setting.PodeUsarCaveBot == 1) { lCave.ForeColor = Color.Green; } else { lCave.ForeColor = Color.Red; }
-            label10.Text = Setting.login;
+            
             if (Setting.Pescar == 1) { cPescar.Checked = true; cNoStop.Enabled = true; cRandom.Enabled = true; } else { cNoStop.Enabled = false; cRandom.Enabled = false; }
             if (Setting.randomfish == 1) { cRandom.Checked = true; }
             if (Setting.PescarSemParar == 1) cNoStop.Checked = true;
@@ -843,6 +839,16 @@ namespace FeebasBot.Telas
         private void cCaveChat_CheckedChanged(object sender, EventArgs e)
         {
             if (cCaveChat.Checked == true) { Setting.CaveChat = 1; } else { Setting.CaveChat = 0; }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            result.Text = Setting.result.ToString();
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
