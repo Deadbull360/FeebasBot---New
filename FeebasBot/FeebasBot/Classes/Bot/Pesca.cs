@@ -15,6 +15,7 @@ namespace FeebasBot.Classes.Bot
         {
             bool pescou = false;
             Mem.Memory();
+            Mem.Fish();
             if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
             {
                 IntPtr handle = win32.FindWindow("otPokemon", null);

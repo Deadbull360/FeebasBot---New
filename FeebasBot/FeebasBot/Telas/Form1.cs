@@ -43,7 +43,6 @@ namespace FeebasBot
             Mem.Memory();
             //label1.Text = Setting.result.ToString();
             IntPtr otpHandle = win32.FindWindow("otPokemon", null);
-            if (Setting.newversion != 2) { MessageBox.Show("Agora o bot pega sozinho o nome do jogo", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information); Setting.newversion = 2; }
             Setting.click = false;
             Setting.clicklock = false;
             //if (Setting.login != "") Login();

@@ -844,7 +844,7 @@ namespace FeebasBot.Telas
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Mem.Memory();
+            Mem.Fish();
             result.Text = Setting.fish.ToString();            
         }
 
