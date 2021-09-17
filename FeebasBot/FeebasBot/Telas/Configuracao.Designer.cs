@@ -151,12 +151,12 @@
             this.tabLogin = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.offset = new System.Windows.Forms.TextBox();
-            this.final = new System.Windows.Forms.TextBox();
-            this.result = new System.Windows.Forms.Label();
+            this.fish = new System.Windows.Forms.Label();
             this.ManualConfig = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
+            this.lx = new System.Windows.Forms.Label();
+            this.ly = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabFunction.SuspendLayout();
@@ -1566,17 +1566,17 @@
             this.tabLogin.Padding = new System.Windows.Forms.Padding(3);
             this.tabLogin.Size = new System.Drawing.Size(355, 236);
             this.tabLogin.TabIndex = 3;
-            this.tabLogin.Text = "Login";
+            this.tabLogin.Text = "Tests";
             this.tabLogin.UseVisualStyleBackColor = true;
             this.tabLogin.Click += new System.EventHandler(this.tabLogin_Click);
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.Controls.Add(this.ly);
+            this.panel7.Controls.Add(this.lx);
             this.panel7.Controls.Add(this.button6);
-            this.panel7.Controls.Add(this.offset);
-            this.panel7.Controls.Add(this.final);
-            this.panel7.Controls.Add(this.result);
+            this.panel7.Controls.Add(this.fish);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
@@ -1586,36 +1586,22 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(8, 72);
+            this.button6.Location = new System.Drawing.Point(7, 202);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(101, 23);
             this.button6.TabIndex = 3;
-            this.button6.Text = "button6";
+            this.button6.Text = "Test Memory";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // offset
+            // fish
             // 
-            this.offset.Location = new System.Drawing.Point(8, 46);
-            this.offset.Name = "offset";
-            this.offset.Size = new System.Drawing.Size(100, 20);
-            this.offset.TabIndex = 2;
-            // 
-            // final
-            // 
-            this.final.Location = new System.Drawing.Point(7, 20);
-            this.final.Name = "final";
-            this.final.Size = new System.Drawing.Size(100, 20);
-            this.final.TabIndex = 1;
-            // 
-            // result
-            // 
-            this.result.AutoSize = true;
-            this.result.Location = new System.Drawing.Point(4, 4);
-            this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(35, 13);
-            this.result.TabIndex = 0;
-            this.result.Text = "label8";
+            this.fish.AutoSize = true;
+            this.fish.Location = new System.Drawing.Point(5, 4);
+            this.fish.Name = "fish";
+            this.fish.Size = new System.Drawing.Size(35, 13);
+            this.fish.TabIndex = 0;
+            this.fish.Text = "label8";
             // 
             // ManualConfig
             // 
@@ -1632,6 +1618,24 @@
             // 
             this.DrawPositions.Interval = 1;
             this.DrawPositions.Tick += new System.EventHandler(this.DrawPositions_Tick);
+            // 
+            // lx
+            // 
+            this.lx.AutoSize = true;
+            this.lx.Location = new System.Drawing.Point(5, 17);
+            this.lx.Name = "lx";
+            this.lx.Size = new System.Drawing.Size(35, 13);
+            this.lx.TabIndex = 4;
+            this.lx.Text = "label8";
+            // 
+            // ly
+            // 
+            this.ly.AutoSize = true;
+            this.ly.Location = new System.Drawing.Point(4, 30);
+            this.ly.Name = "ly";
+            this.ly.Size = new System.Drawing.Size(35, 13);
+            this.ly.TabIndex = 5;
+            this.ly.Text = "label8";
             // 
             // Configuracao
             // 
@@ -1817,8 +1821,8 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.CheckBox cCavePlayer;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox offset;
-        private System.Windows.Forms.TextBox final;
-        private System.Windows.Forms.Label result;
+        private System.Windows.Forms.Label fish;
+        private System.Windows.Forms.Label lx;
+        private System.Windows.Forms.Label ly;
     }
 }

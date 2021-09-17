@@ -845,7 +845,10 @@ namespace FeebasBot.Telas
         private void button6_Click(object sender, EventArgs e)
         {
             Mem.Fish();
-            result.Text = Setting.fish.ToString();            
+            Mem.Memory();
+            fish.Text = Setting.fish.ToString();
+            lx.Text = Setting.charx.ToString();
+            ly.Text = Setting.chary.ToString();
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)

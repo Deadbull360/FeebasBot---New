@@ -1,6 +1,7 @@
 ﻿using FeebasBot.Classes.Funcoes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,6 +12,8 @@ namespace FeebasBot.Classes.Bot
 {
     class Pesca
     {
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        static extern int SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
         public static bool Pescar()
         {
             bool pescou = false;
@@ -75,11 +78,26 @@ namespace FeebasBot.Classes.Bot
                 win32.LeftClickLocked(0, 0);
                 //IntPtr now = win32.GetForegroundWindow();
                 //MessageBox.Show(now.ToString());
-                win32.SetForegroundWindow(handle);
-                win32.LeftClickOld(win32.FindWindow("otPokemon", null), Setting.RodX, Setting.RodY);//clicar na vara            
+                //win32.SetForegroundWindow(handle);
+                //win32.LeftClickOld(win32.FindWindow("otPokemon", null), Setting.RodX, Setting.RodY);//clicar na vara            
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.H, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.H, 0);
+                }
                 //win32.LeftClick(Setting.RodX, Setting.RodY);
                 Thread.Sleep(200);
-                win32.LeftClickOld(win32.FindWindow("otPokemon", null), wx, wy);//clicar na agua
+                //win32.LeftClickOld(win32.FindWindow("otPokemon", null), wx, wy);//clicar na agua
+                //win32.LeftClick(wx, wy);//clicar na agua
+
+                foreach (Process proc in Mem.processes)
+                {
+                    SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(Setting.WaterX, Setting.WaterY)); // clica na água
+                    nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
+                    nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
+                }
+                Thread.Sleep(200);
+
                 Mem.Memory();
                 Setting.LastX = Setting.charx;
                 Setting.LastY = Setting.chary;
@@ -114,8 +132,16 @@ namespace FeebasBot.Classes.Bot
                 if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
                 Mem.Memory();
                 if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
-                { 
-                    win32.LeftClick(Setting.FishX, Setting.FishY); 
+                {
+                    //win32.LeftClick(Setting.FishX, Setting.FishY); 
+                    foreach (Process proc in Mem.processes)
+                    {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.H, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.H, 0);
+                        SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(Setting.WaterX, Setting.WaterY)); // clica na água
+                        nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
+                        nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
+                    }
                 }
                 win32.MoveMouse(0, 0);
                 if (Setting.AtacarSemTarget == 1)

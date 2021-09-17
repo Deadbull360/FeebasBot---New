@@ -133,7 +133,7 @@ namespace FeebasBot
         }
         public static void LeftClickLocked(int x, int y)
         {
-            SetForegroundWindow(handle);
+            //SetForegroundWindow(handle);
             Setting.click = true;
             IntPtr hWindow = win32.FindWindow("otPokemon", null);
             int border_thickness = GetSystemMetrics(SystemMetric.SM_CYCAPTION);

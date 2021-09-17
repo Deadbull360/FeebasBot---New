@@ -344,5 +344,10 @@ namespace FeebasBot
         {
 
         }
+
+        private void Form1_Leave(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
