@@ -80,9 +80,9 @@ namespace FeebasBot.Forms
                     int iy = Convert.ToInt32(view.Rows[iexec].Cells[3].Value);
                     int nx, ny, lx, ly;
                     int max = 5;
+                    Mem.Memory();
                     while (Setting.charx != ix | Setting.chary != iy)
                     {
-                        Mem.Memory();
                         if (stop == true) { Thread.CurrentThread.Abort(); }
                         if (Setting.PausarNoTarget == 1)
                         {
