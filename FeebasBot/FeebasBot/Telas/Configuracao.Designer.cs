@@ -150,13 +150,13 @@
             this.label32 = new System.Windows.Forms.Label();
             this.tabLogin = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.offset = new System.Windows.Forms.TextBox();
+            this.final = new System.Windows.Forms.TextBox();
+            this.result = new System.Windows.Forms.Label();
             this.ManualConfig = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
-            this.result = new System.Windows.Forms.Label();
-            this.final = new System.Windows.Forms.TextBox();
-            this.offset = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabFunction.SuspendLayout();
@@ -650,7 +650,7 @@
             0,
             0});
             this.numericUpDown1.Minimum = new decimal(new int[] {
-            50,
+            200,
             0,
             0,
             0});
@@ -658,7 +658,7 @@
             this.numericUpDown1.Size = new System.Drawing.Size(44, 20);
             this.numericUpDown1.TabIndex = 0;
             this.numericUpDown1.Value = new decimal(new int[] {
-            100,
+            200,
             0,
             0,
             0});
@@ -1584,6 +1584,39 @@
             this.panel7.TabIndex = 1;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(8, 72);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // offset
+            // 
+            this.offset.Location = new System.Drawing.Point(8, 46);
+            this.offset.Name = "offset";
+            this.offset.Size = new System.Drawing.Size(100, 20);
+            this.offset.TabIndex = 2;
+            // 
+            // final
+            // 
+            this.final.Location = new System.Drawing.Point(7, 20);
+            this.final.Name = "final";
+            this.final.Size = new System.Drawing.Size(100, 20);
+            this.final.TabIndex = 1;
+            // 
+            // result
+            // 
+            this.result.AutoSize = true;
+            this.result.Location = new System.Drawing.Point(4, 4);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(35, 13);
+            this.result.TabIndex = 0;
+            this.result.Text = "label8";
+            // 
             // ManualConfig
             // 
             this.ManualConfig.Interval = 200;
@@ -1599,39 +1632,6 @@
             // 
             this.DrawPositions.Interval = 1;
             this.DrawPositions.Tick += new System.EventHandler(this.DrawPositions_Tick);
-            // 
-            // result
-            // 
-            this.result.AutoSize = true;
-            this.result.Location = new System.Drawing.Point(4, 4);
-            this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(35, 13);
-            this.result.TabIndex = 0;
-            this.result.Text = "label8";
-            // 
-            // final
-            // 
-            this.final.Location = new System.Drawing.Point(7, 20);
-            this.final.Name = "final";
-            this.final.Size = new System.Drawing.Size(100, 20);
-            this.final.TabIndex = 1;
-            // 
-            // offset
-            // 
-            this.offset.Location = new System.Drawing.Point(8, 46);
-            this.offset.Name = "offset";
-            this.offset.Size = new System.Drawing.Size(100, 20);
-            this.offset.TabIndex = 2;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(8, 72);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Configuracao
             // 

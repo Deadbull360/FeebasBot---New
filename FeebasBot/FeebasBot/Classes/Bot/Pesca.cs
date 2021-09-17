@@ -87,22 +87,27 @@ namespace FeebasBot.Classes.Bot
                 Thread.Sleep(200);
                 win32.LeftClickLocked(0, 0);
                 Setting.clicklock = false;
-                string startcolor = Verificacoes.FishColor();
-                string colornow = Verificacoes.FishColor();
-                while (colornow == startcolor)
+                //string startcolor = Verificacoes.FishColor();
+                //string colornow = Verificacoes.FishColor();
+                //while (colornow == startcolor)
+                //{
+                //    if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
+                //    Thread.Sleep(500);
+                //    if (time < 20)
+                //    {
+                //        //colornow = Convert.ToString(getpixel.GetPixel(getpixel.GetWindowDC(getpixel.GetDesktopWindow()), Setting.FishX, Setting.FishY));
+                //        colornow = Verificacoes.FishColor();
+                //        time++;
+                //    }
+                //    else
+                //    {
+                //        colornow = "0";
+                //    }
+                //}
+                while(Setting.fish != 1600)
                 {
-                    if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
-                    Thread.Sleep(500);
-                    if (time < 20)
-                    {
-                        //colornow = Convert.ToString(getpixel.GetPixel(getpixel.GetWindowDC(getpixel.GetDesktopWindow()), Setting.FishX, Setting.FishY));
-                        colornow = Verificacoes.FishColor();
-                        time++;
-                    }
-                    else
-                    {
-                        colornow = "0";
-                    }
+                    Mem.Fish();
+                    Thread.Sleep(200);
                 }
                 Chat.CheckChat();
                 if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }

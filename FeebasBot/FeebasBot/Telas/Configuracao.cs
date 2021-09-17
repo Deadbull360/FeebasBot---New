@@ -24,7 +24,7 @@ namespace FeebasBot.Telas
 
         private void basescreen_Load(object sender, EventArgs e)
         {
-            if (Setting.attacktime < 50) Setting.attacktime = 50;
+            if (Setting.attacktime < 200) Setting.attacktime = 200;
             if (Setting.PodeUsarLooting == 0) cLoot.Enabled = false;
             numericUpDown1.Value = Setting.attacktime;
             gName.Text = Setting.GameName;
@@ -841,9 +841,11 @@ namespace FeebasBot.Telas
             if (cCaveChat.Checked == true) { Setting.CaveChat = 1; } else { Setting.CaveChat = 0; }
         }
 
+
         private void button6_Click(object sender, EventArgs e)
         {
-            result.Text = Setting.result.ToString();
+            Mem.Memory();
+            result.Text = Setting.fish.ToString();            
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)

@@ -125,6 +125,8 @@
     <Compile Include="Classes\Bot\Chat.cs" />
     <Compile Include="Classes\Bot\Looting.cs" />
     <Compile Include="Classes\Bot\Mem.cs" />
+    <Compile Include="Classes\Bot\Memory.cs" />
+    <Compile Include="Classes\Bot\nw.cs" />
     <Compile Include="Classes\Bot\Pesca.cs" />
     <Compile Include="Classes\Bot\TrocaDePoke.cs" />
     <Compile Include="Classes\Funcoes\DalHelper.cs" />

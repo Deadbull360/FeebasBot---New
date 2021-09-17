@@ -3,8 +3,10 @@ using FeebasBot.Properties;
 using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Management.Instrumentation;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ namespace FeebasBot.Classes.Bot
 {
     class Ataque
     {
+        
         public static bool ConfigurarAtaque(int x, int y)
         {
             bool hp = false;
@@ -185,43 +188,94 @@ namespace FeebasBot.Classes.Bot
                 if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
                 Verificacoes.Targetar();
                 if (Verificacoes.PokeVivo() == false) { break; }
-                if (Setting.m1 == 1) { win32.SendKeys(Keys.F1); }
+                if (Setting.m1 == 1)
+                {
+                    foreach (Process proc in Mem.processes) {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F1, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F1, 0);
+                    }
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m2 == 1) { win32.SendKeys(Keys.F2); }
+                if (Setting.m2 == 1) { 
+                    foreach (Process proc in Mem.processes) {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F2, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F2, 0);
+                    }
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m3 == 1) { win32.SendKeys(Keys.F3); }
+                if (Setting.m3 == 1) {
+                    foreach (Process proc in Mem.processes) {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F3, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F3, 0);
+                    }
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m4 == 1) { win32.SendKeys(Keys.F4); }
+                if (Setting.m4 == 1) {
+                    foreach (Process proc in Mem.processes) {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F4, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F4, 0);
+                    }
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m5 == 1) { win32.SendKeys(Keys.F5); }
+                if (Setting.m5 == 1) {
+                    foreach (Process proc in Mem.processes) {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F5, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F5, 0);
+                    }
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m6 == 1) { win32.SendKeys(Keys.F6); }
+                if (Setting.m6 == 1) { 
+                    foreach (Process proc in Mem.processes) {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F6, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F6, 0);
+                    } 
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m7 == 1) { win32.SendKeys(Keys.F7); }
+                if (Setting.m7 == 1) { 
+                    foreach (Process proc in Mem.processes) {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F7, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F7, 0);
+                    }
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m8 == 1) { win32.SendKeys(Keys.F8); }
+                if (Setting.m8 == 1) { 
+                    foreach (Process proc in Mem.processes) { 
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F8, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F8, 0);
+                    } 
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m9 == 1) { win32.SendKeys(Keys.F9); }
+                if (Setting.m9 == 1) {
+                    foreach (Process proc in Mem.processes) { 
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F9, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F9, 0);
+                    }
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m10 == 1) { win32.SendKeys(Keys.F10); }
+                if (Setting.m10 == 1) { 
+                    foreach (Process proc in Mem.processes) {
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F10, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F10, 0);
+                    }
+                }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
             }

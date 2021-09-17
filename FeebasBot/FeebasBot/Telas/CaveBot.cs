@@ -47,10 +47,8 @@ namespace FeebasBot.Forms
 
         public void exec()
         {
-            if (stop == true) 
-            {
-                Thread.CurrentThread.Abort();
-            }
+
+            if (stop == true) { Thread.CurrentThread.Abort(); }
             int time = 200;
             view.Rows[iexec].Selected = true;
             string now = view.Rows[iexec].Cells[1].Value.ToString();
@@ -77,12 +75,15 @@ namespace FeebasBot.Forms
                 default:
                     break;
                 case "Waypoint":
+                    //nw.reset();
                     int ix = Convert.ToInt32(view.Rows[iexec].Cells[2].Value);
                     int iy = Convert.ToInt32(view.Rows[iexec].Cells[3].Value);
                     int nx, ny, lx, ly;
                     int max = 5;
                     while (Setting.charx != ix | Setting.chary != iy)
                     {
+                        Mem.Memory();
+                        if (stop == true) { Thread.CurrentThread.Abort(); }
                         if (Setting.PausarNoTarget == 1)
                         {
                             Verificacoes.Targetando();
@@ -95,105 +96,95 @@ namespace FeebasBot.Forms
                         if (Setting.charx < ix)
                         {
                             lx = Setting.charx;
-                            win32.SetForegroundWindow(otpHandle);
+                            //win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
-                            SendKeys.SendWait("{Right}");
+                            //SendKeys.SendWait("{Right}");
+                            nw.right();
                             Thread.Sleep(time);
-                            nx = Setting.charx;
-                            if (lx == nx)
-                            {
-                                //if(Rdn.Radn() == 0) SendKeys.SendWait("{Up}");
-                                //else SendKeys.SendWait("{Down}");
-                            }
                         }
                         if (Setting.charx > ix)
                         {
                             lx = Setting.charx;
-                            win32.SetForegroundWindow(otpHandle);
+                            //win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
-                            SendKeys.SendWait("{Left}");
+                            //SendKeys.SendWait("{Left}");
+                            nw.left();
                             Thread.Sleep(time);
-                            nx = Setting.charx;
-                            if (lx == nx)
-                            {
-                                //if (Rdn.Radn() == 0) SendKeys.SendWait("{Up}");
-                               // else SendKeys.SendWait("{Down}");
-                            }
                         }
                         if (Setting.chary > iy)
                         {
                             ly = Setting.charx;
-                            win32.SetForegroundWindow(otpHandle);
+                           // win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
-                            SendKeys.SendWait("{Up}");
+                            //SendKeys.SendWait("{Up}");
+                            nw.up();
                             Thread.Sleep(time);
-                            ny = Setting.charx;
-                            if (ly == ny)
-                            {
-                               // if (Rdn.Radn() == 0) SendKeys.SendWait("{Up}");
-                               // else SendKeys.SendWait("{Down}");
-                            }
                         }
                         if (Setting.chary < iy)
                         {
                             ly = Setting.charx;
-                            win32.SetForegroundWindow(otpHandle);
+                            //win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
-                            SendKeys.SendWait("{Down}");
+                            //SendKeys.SendWait("{Down}");
+                            nw.down();
                             Thread.Sleep(time);
-                            ny = Setting.charx;
-                            if (ly == ny)
-                            {
-                              //  if (Rdn.Radn() == 0) SendKeys.SendWait("{Left}");
-                            //    else SendKeys.SendWait("{Right}");
-                            }
                         }
+                        Mem.Memory(); 
                     }
                     break;
                 case "Left":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     win32.SetForegroundWindow(otpHandle);
                     //SendKeysA(Keys.Left);
                     SendKeys.SendWait("{Left}");
                     Thread.Sleep(time);
                     break;
                 case "Right":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     win32.SetForegroundWindow(otpHandle);
                     //SendKeysA(Keys.Right);
                     SendKeys.SendWait("{Right}");
                     Thread.Sleep(time);
                     break;
                 case "Up":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     win32.SetForegroundWindow(otpHandle);
                     //SendKeysA(Keys.Up);
                     SendKeys.SendWait("{Up}");
                     Thread.Sleep(time);
                     break;
                 case "Down":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     win32.SetForegroundWindow(otpHandle);
                     //SendKeysA(Keys.Down);
                     SendKeys.SendWait("{Down}");
                     Thread.Sleep(time);
                     break;
                 case "Wait":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
                     Thread.Sleep(Convert.ToInt32(view.Rows[iexec].Cells[4].Value)*1000);
                     break;
                 case "LClick":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
                     win32.LeftClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
                     Thread.Sleep(200);
                     break;
                 case "RClick":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
                     win32.RightClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
                     Thread.Sleep(200);
                     break;
                 case "Message":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
                     MessageBox.Show(Convert.ToString(view.Rows[iexec].Cells[4].Value));
                     Thread.Sleep(200);
                     break;
                 case "Goto Label":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     string labeltogo = view.Rows[iexec].Cells[4].Value.ToString();
                     for (int a = 0; a < view.RowCount; a++)
                     {
@@ -205,6 +196,7 @@ namespace FeebasBot.Forms
                     }
                     break;
                 case "If Color":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
                     int x = Convert.ToInt32(view.Rows[iexec].Cells[2].Value);
                     int y = Convert.ToInt32(view.Rows[iexec].Cells[3].Value);
@@ -240,6 +232,7 @@ namespace FeebasBot.Forms
                     }
                     break;
                 case "Else":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     for (int c = iexec; c < view.RowCount; c++)
                     {
                         if (view.Rows[c].Cells[1].Value.ToString() == "End")
@@ -258,6 +251,7 @@ namespace FeebasBot.Forms
                     }
                     break;
                 case "SAY":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     String s = Convert.ToString(view.Rows[iexec].Cells[4].Value);
                     SendKeys.SendWait("{Enter}");
                     var chars = s.ToCharArray();
@@ -277,6 +271,7 @@ namespace FeebasBot.Forms
                     SendKeys.SendWait("{Enter}");
                     break;
                 case "Pokemon":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
                     int diff = Setting.Poke2Y - Setting.Poke1Y;
                     int pokechange = Convert.ToInt32(view.Rows[iexec].Cells[4].Value);
@@ -295,6 +290,7 @@ namespace FeebasBot.Forms
                     Thread.Sleep(3000);
                     break;
                 case "Teleport":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     string tp = "!teleport Saffron";
                     var charstp = tp.ToCharArray();
                     SendKeys.SendWait("{Enter}");
@@ -315,6 +311,7 @@ namespace FeebasBot.Forms
                     Thread.Sleep(1000);
                     break;
                 case "Logout":
+                    if (stop == true) { Thread.CurrentThread.Abort(); }
                     while (z == 1)
                     {
                         string colornow = GrabPixel(Setting.RodX, Setting.RodY);

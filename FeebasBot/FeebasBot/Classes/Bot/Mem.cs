@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,41 +11,51 @@ namespace FeebasBot.Classes.Bot
 {
     class Mem
     {
-        public static void Memory()
+        public static Process[] processes = Process.GetProcessesByName("otpgl");
+        public static void startmem()
         {
-            Process[] processes = Process.GetProcessesByName("otpgl");
             if (processes.Length > 0)
             {
-                IntPtr BaseAddress = IntPtr.Zero;
+                Setting.BaseAddress = IntPtr.Zero;
                 Process MYProc = processes[0];
                 foreach (ProcessModule module in MYProc.Modules)
                 {
                     if (module.ModuleName.Contains("otpgl"))
                     {
-                        BaseAddress = module.BaseAddress;
+                        Setting.BaseAddress = module.BaseAddress;
                         //MessageBox.Show(BaseAddres.ToString());
                     }
                 }
+            }
 
-                if (BaseAddress != IntPtr.Zero)
-                {
+        }
+            
+        
+        public static void Memory()
+        {
+            if (Setting.BaseAddress != IntPtr.Zero)
+            {
                     VAMemory memory = new VAMemory("otpgl");
-                    //x-y
-                    int finalAddress = memory.ReadInt32((IntPtr)BaseAddress + 0x00116004);
-                    int finalaAddress = memory.ReadInt32((IntPtr)BaseAddress + 0x00693B00);
+                    int finalAddress = memory.ReadInt32((IntPtr)Setting.BaseAddress + 0x00116004);
                     Setting.charx = memory.ReadInt32((IntPtr)finalAddress + 0x1C);
                     Setting.chary = memory.ReadInt32((IntPtr)finalAddress + 0x20);
-                    Setting.result = memory.ReadInt32((IntPtr)finalaAddress + 238 + 60 + 50 + 0xEC + 48 + 0xBF8);
-                    ////pokehp
-                    //int PokeAddr = memory.ReadInt32((IntPtr)BaseAddress + +0x00384810);
-                    //Setting.chary = memory.ReadInt32((IntPtr)PokeAddr + 0x84C);
-                    //Setting.charx = memory.ReadInt32((IntPtr)PokeAddr + 0x848);
-                    ////charhp
-                    //int CharAddr= memory.ReadInt32((IntPtr)BaseAddress + +0x00384810);
-                    //Setting.chary = memory.ReadInt32((IntPtr)CharAddr + 0x84C);
-                    //Setting.charx = memory.ReadInt32((IntPtr)CharAddr + 0x848);
-                }
+                    Thread.Sleep(200);
             }
+        }
+        
+
+        public static void Fish()
+        {
+            
+                VAMemory memory = new VAMemory("otpgl");
+                var offsetArr = new int[] { 0x80, 0x2C, 0x0, 0x80, 0x8, 0x0, 0xD8 };
+                IntPtr pointer = IntPtr.Add((IntPtr)memory.ReadInt32(Setting.BaseAddress + 0x00A77CE4), offsetArr[0]);
+                for (int i = 1; i < offsetArr.Length; i++)
+                {
+                    pointer = IntPtr.Add((IntPtr)memory.ReadInt32(pointer), offsetArr[i]);
+                }
+                Setting.fish = memory.ReadInt32(pointer);
+                            
         }
     }
 }

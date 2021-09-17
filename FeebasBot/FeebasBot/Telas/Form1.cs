@@ -39,6 +39,7 @@ namespace FeebasBot
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Mem.startmem();
             Mem.Memory();
             //label1.Text = Setting.result.ToString();
             IntPtr otpHandle = win32.FindWindow("otPokemon", null);
@@ -49,7 +50,7 @@ namespace FeebasBot
             Setting.GameName = win32.GetActiveWindowTitle();
             //IntPtr bothandle = win32.FindWindow("otPokemon", null + "Bot");
             //if (bothandle != IntPtr.Zero) { MessageBox.Show("Renomeie o Client Anteior antes de abrir mais um bot!"); Application.Exit(); }
-            this.Text = Setting.GameName + "Chrome";
+            this.Text = "svchost";
             IntPtr otphandle = win32.FindWindow("otPokemon", null);
             //if (otphandle == IntPtr.Zero) { MessageBox.Show("otPokemon não está aberto!"); Application.Exit(); }
             ghk = new KeyHandler(Keys.Insert, this);
@@ -295,8 +296,8 @@ namespace FeebasBot
         }
         private void Open_Tick(object sender, EventArgs e)
         {
-            this.Text = Setting.GameName + "Chrome";
-            label1.Text = Setting.GameName;
+            this.Text = "svchost";
+            label1.Text = "Feebasbot";
             //if (Setting.GameName != "otPokemon") { label1.Text = Setting.GameName; }
             string a = "Clique duas vezes para abrir a janela do bot!\nChar: " + Setting.GameName;
             if (a.Length < 64)
@@ -338,6 +339,11 @@ namespace FeebasBot
                 Run.Stop();
                 bStart.BackColor = Color.Red;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
