@@ -1,11 +1,6 @@
-﻿using FeebasBot.Classes.Funcoes;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FeebasBot.Classes.Bot

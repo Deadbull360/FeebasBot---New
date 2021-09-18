@@ -5,18 +5,8 @@ using FeebasBot.Forms;
 using FeebasBot.Telas;
 //using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FeebasBot
@@ -234,7 +224,7 @@ namespace FeebasBot
         }
         void start()
         {
-            
+
             if (Setting.PescarSemParar == 1) { Setting.triestotal = 30; }
             else { Setting.triestotal = 7; }
             if (Setting.PlayerOnScreen == false)
@@ -260,7 +250,7 @@ namespace FeebasBot
             Chat.CheckChat();
         }
 
-        
+
 
         private void Run_Tick(object sender, EventArgs e)
         {
@@ -273,12 +263,12 @@ namespace FeebasBot
             Thread thread = new Thread(start);
             if (Setting.Running)
             {
-                Setting.Running = false; 
+                Setting.Running = false;
                 thread.Start();
             }
-            if (Setting.PlayerOnScreen == true) 
-            { 
-                Setting.Kill = true; 
+            if (Setting.PlayerOnScreen == true)
+            {
+                Setting.Kill = true;
                 Run.Stop();
                 Troca.Stop();
                 bStart.BackColor = Color.Red;
@@ -296,11 +286,11 @@ namespace FeebasBot
             }
             //Thread.Sleep(200);
         }
-        
+
         private void Open_Tick(object sender, EventArgs e)
         {
             Thread chatmem = new Thread(Mem.Chat);
-            if (!chatmem.IsAlive) chatmem.Start();            
+            if (!chatmem.IsAlive) chatmem.Start();
             this.Text = "svchost";
             //label1.Text = "Feebasbot";
             //if (Setting.GameName != "otPokemon") { label1.Text = Setting.GameName; }
@@ -314,13 +304,13 @@ namespace FeebasBot
         private void Troca_Tick(object sender, EventArgs e)
         {
             Thread thread = new Thread(TrocaDePoke.VerificarMorto);
-            if (Setting.verificandopoke == false) { thread.Start();Setting.verificandopoke = true; if (f == 0) Thread.Sleep(3000); f = 1; }
-            if (Setting.PlayerOnScreen == true) 
-            { 
-                Setting.Kill = true; 
-                Troca.Stop(); 
-                Run.Stop(); 
-                bStart.BackColor = Color.Red; 
+            if (Setting.verificandopoke == false) { thread.Start(); Setting.verificandopoke = true; if (f == 0) Thread.Sleep(3000); f = 1; }
+            if (Setting.PlayerOnScreen == true)
+            {
+                Setting.Kill = true;
+                Troca.Stop();
+                Run.Stop();
+                bStart.BackColor = Color.Red;
                 //FormsV.playSound("alarm.wav");
                 if (Setting.CaveChat == 1 || Setting.CavePlayer == 1)
                 {

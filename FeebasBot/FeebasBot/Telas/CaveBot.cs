@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SQLite;
-using csharp_Sqlite;
-using System.Threading;
+﻿using csharp_Sqlite;
 //using MySqlX.XDevAPI.Relational;
 using FeebasBot.Classes;
-using System.Runtime.InteropServices;
-using FeebasBot.Classes.Funcoes;
 using FeebasBot.Classes.Bot;
+using FeebasBot.Classes.Funcoes;
+using System;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace FeebasBot.Forms
 {
@@ -114,7 +106,7 @@ namespace FeebasBot.Forms
                         if (Setting.chary > iy)
                         {
                             ly = Setting.charx;
-                           // win32.SetForegroundWindow(otpHandle);
+                            // win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Up}");
                             nw.up();
@@ -129,7 +121,7 @@ namespace FeebasBot.Forms
                             nw.down();
                             Thread.Sleep(timee);
                         }
-                        Mem.Memory(); 
+                        Mem.Memory();
                     }
                     break;
                 case "Left":
@@ -163,7 +155,7 @@ namespace FeebasBot.Forms
                 case "Wait":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
-                    Thread.Sleep(Convert.ToInt32(view.Rows[iexec].Cells[4].Value)*1000);
+                    Thread.Sleep(Convert.ToInt32(view.Rows[iexec].Cells[4].Value) * 1000);
                     break;
                 case "LClick":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
@@ -334,7 +326,7 @@ namespace FeebasBot.Forms
                     Thread.Sleep(0);
                     Verificacoes.Targetando();
                 }
-            }            
+            }
             if (iexec < view.RowCount)
             { iexec++; }
             if (iexec >= view.RowCount)
@@ -365,7 +357,7 @@ namespace FeebasBot.Forms
             }
             for (int i = 0; i < view.RowCount; i++)
             {
-                idatual = Convert.ToInt32(view.Rows[i].Cells[0].Value)+1;
+                idatual = Convert.ToInt32(view.Rows[i].Cells[0].Value) + 1;
             }
             view.Columns["id"].Visible = false;
         }
@@ -499,7 +491,7 @@ namespace FeebasBot.Forms
 
         private void btnColor_MouseUp(object sender, MouseEventArgs e)
         {
-            int x = MousePosition.X+8;
+            int x = MousePosition.X + 8;
             int y = MousePosition.Y;
             DalHelper.Add(idatual, "If Color", x, y, GrabPixel(x, y));
             idatual++;
