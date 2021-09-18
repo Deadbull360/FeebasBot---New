@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Threading;
 
 namespace FeebasBot.Classes.Bot
 {
@@ -18,7 +11,7 @@ namespace FeebasBot.Classes.Bot
         {
             if (Setting.PodeUsarLooting == 1 && Setting.Lootear == 1 && Setting.LoggedIn == true)
             {
-                lootcolor = getpixel.GrabPixel(Setting.SlotX, Setting.SlotY);                
+                lootcolor = getpixel.GrabPixel(Setting.SlotX, Setting.SlotY);
                 Setting.clicklock = true;
                 if (Setting.p1 == 1) { win32.RightClickLocked(Setting.SQMX - position - 16, Setting.SQMY - position * 2); VerificarLoot(); }
                 if (Setting.p2 == 1) { win32.RightClickLocked(Setting.SQMX - 16, Setting.SQMY - position * 2); VerificarLoot(); }
@@ -51,7 +44,7 @@ namespace FeebasBot.Classes.Bot
         }
         public static void Posicionar()
         {
-            win32.LeftClickLocked(0,0);
+            win32.LeftClickLocked(0, 0);
             Thread.Sleep(100);
             win32.LeftClickLocked(Setting.OrderX, Setting.OrderY);
             Thread.Sleep(100);

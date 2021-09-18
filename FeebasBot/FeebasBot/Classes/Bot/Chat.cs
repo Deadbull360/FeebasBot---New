@@ -1,10 +1,4 @@
 ﻿using FeebasBot.Classes.Funcoes;
-using FeebasBot.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FeebasBot.Classes.Bot
@@ -13,7 +7,7 @@ namespace FeebasBot.Classes.Bot
     {
         static bool show = false;
         public static void ChatCoords(int x, int y)
-        {            
+        {
             #region left
             string color = getpixel.GrabPixel(x, y);
             int xn = x;
@@ -54,13 +48,13 @@ namespace FeebasBot.Classes.Bot
             show = false;
             //for (int i = Setting.ChatEsquerdaX; i < Setting.ChatDireitaX; i++)
             //{
-                //string color = getpixel.GrabPixel(i, Setting.ChatY);
-                //if (color == "5592575" && show == false)
-                if (Setting.Chat == 1216)
-                {
-                    FormsV.playSound("chat.wav");
-                    show = true;
-                }
+            //string color = getpixel.GrabPixel(i, Setting.ChatY);
+            //if (color == "5592575" && show == false)
+            if (Setting.Chat == 1216)
+            {
+                FormsV.playSound("chat.wav");
+                show = true;
+            }
             //}
             if (show == true)
             {

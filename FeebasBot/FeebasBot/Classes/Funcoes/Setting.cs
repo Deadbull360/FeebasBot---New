@@ -9,7 +9,7 @@ namespace FeebasBot.Classes
         public static int fish { get; set; }
         public static int Chat { get; set; }
         public static int pescados { get; set; }
-        public static IntPtr BaseAddress{ get; set; }
+        public static IntPtr BaseAddress { get; set; }
         public static int result { get; set; }
         public static int offsett { get; set; }
         public static int final { get; set; }
@@ -69,7 +69,7 @@ namespace FeebasBot.Classes
         public static int CloseX { get; set; }
         public static int CloseY { get; set; }
         public static int OrderX { get; set; }
-        public static int OrderY { get; set; }        
+        public static int OrderY { get; set; }
         public static bool Player { get; set; }
         #endregion
         #region Troca de poke
@@ -89,7 +89,7 @@ namespace FeebasBot.Classes
         public static int Poke6X { get; set; }
         public static int Poke6Y { get; set; }
         public static int poke { get; set; }
-        public static bool verificandopoke{ get; set; }
+        public static bool verificandopoke { get; set; }
         #endregion
         #region Moves
         public static int attacktime { get; set; }
@@ -126,7 +126,7 @@ namespace FeebasBot.Classes
         public static int PodeUsarCaveBot { get; set; }
         public static int PodeUsarLooting { get; set; }
         public static int PodeUsarTrocaDePokemon { get; set; }
-        public static int caverun { get; set; }               
+        public static int caverun { get; set; }
         public static int version { get; set; }
         public static int random { get; set; }
         public static string notes { get; set; }
@@ -140,7 +140,7 @@ namespace FeebasBot.Classes
 
         #endregion
 
-        
+
 
 
         public static void SaveSettings()
@@ -232,7 +232,7 @@ namespace FeebasBot.Classes
             }
         }
 
-            static readonly string SETTINGS = "./Settings.ini";
+        static readonly string SETTINGS = "./Settings.ini";
         static readonly Setting instance = new Setting();
         Setting() { }
         static Setting()

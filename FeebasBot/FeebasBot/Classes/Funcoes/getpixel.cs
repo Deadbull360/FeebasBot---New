@@ -1,9 +1,7 @@
 ﻿using FeebasBot.Classes;
 using System;
 using System.Drawing;
-using System.Drawing.Design;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace FeebasBot
 {
@@ -30,7 +28,7 @@ namespace FeebasBot
             int border_thickness = win32.GetSystemMetrics(win32.SystemMetric.SM_CYCAPTION);
             IntPtr hdc = GetWindowDC(Handle);
             Setting.offset = 8;
-            uint pixel = GetPixel(hdc, x, y+Setting.offset);//experimentar
+            uint pixel = GetPixel(hdc, x, y + Setting.offset);//experimentar
             //Cursor.Position = new System.Drawing.Point(x, y);
             ReleaseDC(Handle, hdc);
             Color color = Color.FromArgb((int)(pixel & 0x000000FF), (int)(pixel & 0x0000FF00) >> 8, (int)(pixel & 0x00FF0000) >> 16);
@@ -48,7 +46,7 @@ namespace FeebasBot
         public static string GrabPixel(int x, int y)
         {
             IntPtr Handle = win32.FindWindow("otPokemon", null);
-            return Convert.ToString(getpixel.GetColorAt(Handle, x, y)); 
+            return Convert.ToString(getpixel.GetColorAt(Handle, x, y));
         }
     }
 }

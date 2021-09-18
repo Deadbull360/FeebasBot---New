@@ -36,7 +36,7 @@ namespace FeebasBot.Forms
 
         private void Moves_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
         }
 
         private void cm1_CheckedChanged(object sender, EventArgs e)

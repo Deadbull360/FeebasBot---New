@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FeebasBot.Classes.Bot
@@ -15,8 +11,8 @@ namespace FeebasBot.Classes.Bot
         public static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
         public const uint WM_KEYDOWN = 0x0100;
         public const uint WM_KEYUP = 0x0101;
-        
-        
+
+
         public static void right()
         {
             foreach (Process proc in Mem.processes)

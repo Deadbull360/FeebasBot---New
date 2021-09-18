@@ -2,15 +2,8 @@
 using FeebasBot.Classes.Bot;
 //using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FeebasBot.Telas
@@ -29,7 +22,7 @@ namespace FeebasBot.Telas
             numericUpDown1.Value = Setting.attacktime;
             gName.Text = Setting.GameName;
             if (Setting.login == "" || Setting.login == null) { panel7.Visible = true; }
-            
+
             if (Setting.Pescar == 1) { cPescar.Checked = true; cNoStop.Enabled = true; cRandom.Enabled = true; } else { cNoStop.Enabled = false; cRandom.Enabled = false; }
             if (Setting.randomfish == 1) { cRandom.Checked = true; }
             if (Setting.PescarSemParar == 1) cNoStop.Checked = true;
@@ -39,7 +32,7 @@ namespace FeebasBot.Telas
             if (Setting.TrocarDePokemon == 1) cTrocaDePoke.Checked = true;
             if (Setting.catchpoke == 1) cCatch.Checked = true;
             if (Setting.ChatStop == 1) cChatStop.Checked = true;
-            if (Setting.PodeUsarCaveBot == 1) { cCaveChat.Enabled = true;cCavePlayer.Enabled = true; } else { cCaveChat.Enabled = false; cCavePlayer.Enabled = false; }
+            if (Setting.PodeUsarCaveBot == 1) { cCaveChat.Enabled = true; cCavePlayer.Enabled = true; } else { cCaveChat.Enabled = false; cCavePlayer.Enabled = false; }
             if (Setting.CaveChat == 1) cCaveChat.Checked = true;
             if (Setting.CavePlayer == 1) cCavePlayer.Checked = true;
             if (Setting.m1 == 1) cm1.Checked = true;
@@ -134,7 +127,7 @@ namespace FeebasBot.Telas
                 Ataque.ConfigurarAtaque(xn, yn);
 
             }
-            
+
         }
         #region ManualConfig
         private void cManualConfig1_CheckedChanged(object sender, EventArgs e)
@@ -148,11 +141,11 @@ namespace FeebasBot.Telas
             cManualConfig1.Checked = false;
             ManualConfig.Start();
         }
-        
+
         private void ManualConfig_Tick(object sender, EventArgs e)
         {
             win32.MoveMouse(Setting.BattleX, Setting.BattleY);
-            win32.MoveMouse(Setting.BattleX+1, Setting.BattleY);
+            win32.MoveMouse(Setting.BattleX + 1, Setting.BattleY);
             if (cManualConfig1.Checked)
             {
                 //pixelmiddle
@@ -208,12 +201,12 @@ namespace FeebasBot.Telas
                 ManualDown.BackColor = Color.Black;
                 ManualConfig.Stop();
             }
-            
+
         }
 
         private void ManualLeft_Click(object sender, EventArgs e)
         {
-            if(cManualConfig1.Checked)//configurando px1 
+            if (cManualConfig1.Checked)//configurando px1 
             {
                 Setting.TargetX--;
             }
@@ -385,7 +378,7 @@ namespace FeebasBot.Telas
         private void cPescar_CheckedChanged(object sender, EventArgs e)
         {
             if (cPescar.Checked == true) { Setting.Pescar = 1; cNoStop.Enabled = true; cRandom.Enabled = true; }
-            else { Setting.Pescar = 0; cNoStop.Enabled = false;cRandom.Enabled = false; }
+            else { Setting.Pescar = 0; cNoStop.Enabled = false; cRandom.Enabled = false; }
         }
 
         private void cAtacar_CheckedChanged(object sender, EventArgs e)
@@ -558,7 +551,7 @@ namespace FeebasBot.Telas
 
         private void DrawPositions_Tick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void bPlayer_MouseUp(object sender, MouseEventArgs e)
