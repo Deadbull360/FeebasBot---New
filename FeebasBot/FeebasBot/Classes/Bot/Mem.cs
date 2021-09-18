@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FeebasBot.Classes.Bot
@@ -102,7 +98,7 @@ namespace FeebasBot.Classes.Bot
                 Thread.Sleep(50);
             }
         }
-        
+
 
         public static void Fish()
         {
