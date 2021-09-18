@@ -1,22 +1,13 @@
 ﻿using FeebasBot.Classes.Funcoes;
-using FeebasBot.Properties;
-using Org.BouncyCastle.Asn1.X509;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Management.Instrumentation;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FeebasBot.Classes.Bot
 {
     class Ataque
     {
-        
+
         public static bool ConfigurarAtaque(int x, int y)
         {
             bool hp = false;
@@ -164,13 +155,13 @@ namespace FeebasBot.Classes.Bot
                     win32.LeftClick(Setting.BattleX, Setting.BattleY);
                     if (Setting.tries < Setting.triestotal)
                     {
-                        if (Setting.Pescar == 1 )
+                        if (Setting.Pescar == 1)
                         {
                             Setting.tries++;
-                        }                        
+                        }
                     }
                     else { Setting.PlayerOnScreen = true; }
-                    
+
                 }
                 Thread.Sleep(300);
                 if (targeting == true)
@@ -190,7 +181,8 @@ namespace FeebasBot.Classes.Bot
                 if (Verificacoes.PokeVivo() == false) { break; }
                 if (Setting.m1 == 1)
                 {
-                    foreach (Process proc in Mem.processes) {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F1, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F1, 0);
                     }
@@ -198,8 +190,10 @@ namespace FeebasBot.Classes.Bot
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m2 == 1) { 
-                    foreach (Process proc in Mem.processes) {
+                if (Setting.m2 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F2, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F2, 0);
                     }
@@ -207,8 +201,10 @@ namespace FeebasBot.Classes.Bot
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m3 == 1) {
-                    foreach (Process proc in Mem.processes) {
+                if (Setting.m3 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F3, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F3, 0);
                     }
@@ -216,8 +212,10 @@ namespace FeebasBot.Classes.Bot
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m4 == 1) {
-                    foreach (Process proc in Mem.processes) {
+                if (Setting.m4 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F4, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F4, 0);
                     }
@@ -225,8 +223,10 @@ namespace FeebasBot.Classes.Bot
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m5 == 1) {
-                    foreach (Process proc in Mem.processes) {
+                if (Setting.m5 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F5, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F5, 0);
                     }
@@ -234,17 +234,21 @@ namespace FeebasBot.Classes.Bot
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m6 == 1) { 
-                    foreach (Process proc in Mem.processes) {
+                if (Setting.m6 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F6, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F6, 0);
-                    } 
+                    }
                 }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m7 == 1) { 
-                    foreach (Process proc in Mem.processes) {
+                if (Setting.m7 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F7, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F7, 0);
                     }
@@ -252,17 +256,21 @@ namespace FeebasBot.Classes.Bot
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m8 == 1) { 
-                    foreach (Process proc in Mem.processes) { 
+                if (Setting.m8 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F8, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F8, 0);
-                    } 
+                    }
                 }
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m9 == 1) {
-                    foreach (Process proc in Mem.processes) { 
+                if (Setting.m9 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F9, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F9, 0);
                     }
@@ -270,8 +278,10 @@ namespace FeebasBot.Classes.Bot
                 if (Verificacoes.PokeVivo() == false) { break; }
                 Thread.Sleep(Setting.attacktime);
                 Verificacoes.Targetar();
-                if (Setting.m10 == 1) { 
-                    foreach (Process proc in Mem.processes) {
+                if (Setting.m10 == 1)
+                {
+                    foreach (Process proc in Mem.processes)
+                    {
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F10, 0);
                         nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F10, 0);
                     }
