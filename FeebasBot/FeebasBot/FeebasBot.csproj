@@ -168,12 +168,6 @@
     <Compile Include="Telas\Moves.Designer.cs">
       <DependentUpon>Moves.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\Updater.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Telas\Updater.Designer.cs">
-      <DependentUpon>Updater.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Telas\CaveBot.resx">
       <DependentUpon>CaveBot.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,9 +195,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Moves.resx">
       <DependentUpon>Moves.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Telas\Updater.resx">
-      <DependentUpon>Updater.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -249,7 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="349 Feebas.ico" />
-    <EmbeddedResource Include="chat.wav" />
+    <EmbeddedResource Include="chat.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\padrao.png" />
     <None Include="Resources\por.png" />
     <EmbeddedResource Include="alarm.wav">

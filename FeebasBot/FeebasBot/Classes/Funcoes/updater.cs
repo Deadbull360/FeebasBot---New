@@ -26,8 +26,12 @@ namespace FeebasBot.Classes.Funcoes
             File.Delete("up.txt");
             if (Setting.newversion > Setting.version)
             {
-                Updater updater = new Updater();
-                updater.Show();
+                Setting.version = Setting.newversion;
+                Setting.SaveSettings();
+                MessageBox.Show(Setting.newversion.ToString());
+                MessageBox.Show(Setting.version.ToString());
+                Process.Start("Updater.exe");
+                Application.Exit();
             }
         }
     }
