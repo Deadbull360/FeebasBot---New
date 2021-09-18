@@ -34,6 +34,9 @@
             this.X = new System.Windows.Forms.Label();
             this.Y = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.fish = new System.Windows.Forms.Label();
+            this.pescados = new System.Windows.Forms.Label();
+            this.chat = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CharHP
@@ -75,14 +78,44 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 200;
+            this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // fish
+            // 
+            this.fish.AutoSize = true;
+            this.fish.Location = new System.Drawing.Point(0, 55);
+            this.fish.Name = "fish";
+            this.fish.Size = new System.Drawing.Size(20, 13);
+            this.fish.TabIndex = 4;
+            this.fish.Text = "X: ";
+            // 
+            // pescados
+            // 
+            this.pescados.AutoSize = true;
+            this.pescados.Location = new System.Drawing.Point(0, 68);
+            this.pescados.Name = "pescados";
+            this.pescados.Size = new System.Drawing.Size(20, 13);
+            this.pescados.TabIndex = 5;
+            this.pescados.Text = "X: ";
+            // 
+            // chat
+            // 
+            this.chat.AutoSize = true;
+            this.chat.Location = new System.Drawing.Point(0, 81);
+            this.chat.Name = "chat";
+            this.chat.Size = new System.Drawing.Size(20, 13);
+            this.chat.TabIndex = 6;
+            this.chat.Text = "X: ";
             // 
             // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(121, 169);
+            this.Controls.Add(this.chat);
+            this.Controls.Add(this.pescados);
+            this.Controls.Add(this.fish);
             this.Controls.Add(this.Y);
             this.Controls.Add(this.X);
             this.Controls.Add(this.PokeHP);
@@ -92,6 +125,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Info";
             this.TopMost = true;
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Info_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,5 +138,8 @@
         private System.Windows.Forms.Label X;
         private System.Windows.Forms.Label Y;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label fish;
+        private System.Windows.Forms.Label pescados;
+        private System.Windows.Forms.Label chat;
     }
 }

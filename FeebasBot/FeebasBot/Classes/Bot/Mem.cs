@@ -22,12 +22,11 @@ namespace FeebasBot.Classes.Bot
         public static void startmem()
         {
             string ProcessName = "otpgl";
-            // Check if csgo.exe is running
             if (Process.GetProcessesByName(ProcessName).Length > 0)
                 m_Process = Process.GetProcessesByName(ProcessName)[0];
             else
             {
-                MessageBox.Show("Couldn't find Counter-Strike. Please start it first!", "Process not found!", MessageBoxButtons.OK);
+                MessageBox.Show("Apenas Cliente BETA OPENGL", "Process not found!", MessageBoxButtons.OK);
                 Environment.Exit(1);
             }
             m_pProcessHandle = OpenProcess(PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE, false, m_Process.Id); // Sets Our ProcessHandle
@@ -118,6 +117,22 @@ namespace FeebasBot.Classes.Bot
             }
             //Setting.fish = memory.ReadInt32(pointer);
             Setting.fish = ReadMemory<int>((int)pointer);
+        }
+
+        public static void Chat()
+        {
+            //VAMemory memory = new VAMemory("otpgl");
+            var offsetArr = new int[] { 0x4, 0x0, 0x70, 0x0, 0x14, 0x210, 0x1C, 0x8, 0x18, 0xD8 };
+            //IntPtr pointer = IntPtr.Add((IntPtr)memory.ReadInt32(Setting.BaseAddress + 0x00A77CE4), offsetArr[0]);
+            IntPtr pointer = IntPtr.Add((IntPtr)ReadMemory<int>((int)Setting.BaseAddress + 0x00A77424), offsetArr[0]);
+            for (int i = 1; i < offsetArr.Length; i++)
+            {
+                //pointer = IntPtr.Add((IntPtr)memory.ReadInt32(pointer), offsetArr[i]);
+                pointer = IntPtr.Add((IntPtr)ReadMemory<int>((int)pointer), offsetArr[i]);
+            }
+            //Setting.fish = memory.ReadInt32(pointer);
+            Setting.Chat = ReadMemory<int>((int)pointer);
+            Thread.Sleep(200);
         }
     }
 }

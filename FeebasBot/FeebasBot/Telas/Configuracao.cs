@@ -849,6 +849,8 @@ namespace FeebasBot.Telas
             fish.Text = Setting.fish.ToString();
             lx.Text = Setting.charx.ToString();
             ly.Text = Setting.chary.ToString();
+            Mem.Chat();
+            //MessageBox.Show(Setting.Chat.ToString());
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)

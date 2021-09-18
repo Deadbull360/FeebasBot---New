@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
@@ -39,7 +40,9 @@ namespace FeebasBot
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            updater.update();
             Mem.startmem();
+            Mem.Fish();
             Mem.Memory();
             //label1.Text = Setting.result.ToString();
             IntPtr otpHandle = win32.FindWindow("otPokemon", null);
@@ -279,7 +282,7 @@ namespace FeebasBot
                 Run.Stop();
                 Troca.Stop();
                 bStart.BackColor = Color.Red;
-                FormsV.playSound("alarm.wav");
+                //FormsV.playSound("alarm.wav");
                 if (Setting.CaveChat == 1 || Setting.CavePlayer == 1)
                 {
                     if (Setting.LoggedIn = true && Setting.PodeUsarCaveBot == 1)
@@ -293,10 +296,13 @@ namespace FeebasBot
             }
             //Thread.Sleep(200);
         }
+        
         private void Open_Tick(object sender, EventArgs e)
         {
+            Thread chatmem = new Thread(Mem.Chat);
+            if (!chatmem.IsAlive) chatmem.Start();            
             this.Text = "svchost";
-            label1.Text = "Feebasbot";
+            //label1.Text = "Feebasbot";
             //if (Setting.GameName != "otPokemon") { label1.Text = Setting.GameName; }
             string a = "Clique duas vezes para abrir a janela do bot!\nChar: " + Setting.GameName;
             if (a.Length < 64)
@@ -315,7 +321,7 @@ namespace FeebasBot
                 Troca.Stop(); 
                 Run.Stop(); 
                 bStart.BackColor = Color.Red; 
-                FormsV.playSound("alarm.wav");
+                //FormsV.playSound("alarm.wav");
                 if (Setting.CaveChat == 1 || Setting.CavePlayer == 1)
                 {
                     if (Setting.LoggedIn = true && Setting.PodeUsarCaveBot == 1)
@@ -348,6 +354,19 @@ namespace FeebasBot
         private void Form1_Leave(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void binfo_Click(object sender, EventArgs e)
+        {
+            Info info = new Info();
+            if (FormsV.CheckOpened("Info"))
+            {
+                info.Dispose();
+            }
+            else
+            {
+                info.Show();
+            }
         }
     }
 }

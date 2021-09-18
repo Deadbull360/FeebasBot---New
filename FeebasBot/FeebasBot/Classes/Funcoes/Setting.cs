@@ -7,6 +7,8 @@ namespace FeebasBot.Classes
     public sealed class Setting
     {
         public static int fish { get; set; }
+        public static int Chat { get; set; }
+        public static int pescados { get; set; }
         public static IntPtr BaseAddress{ get; set; }
         public static int result { get; set; }
         public static int offsett { get; set; }
@@ -161,6 +163,7 @@ namespace FeebasBot.Classes
                 "m9 : " + Setting.m9,
                 "m10 : " + Setting.m10,
                 "Pescar : " + Setting.Pescar,
+                "pescados : " + Setting.pescados,
                 "PescarSemParar : " + Setting.PescarSemParar,
                 "Atacar : " + Setting.Atacar,
                 "AtacarSemTarget : " + Setting.AtacarSemTarget,
@@ -218,7 +221,7 @@ namespace FeebasBot.Classes
                 "CaveChat : " + Setting.CaveChat,
                 "CavePlayer : " + Setting.CavePlayer,
                 "PausarNoTarget : " + Setting.PausarNoTarget,
-                "newversion : " + Setting.newversion,
+                "version : " + Setting.version,
             };
 
             // Write the string array to a new file named "WriteLines.txt".

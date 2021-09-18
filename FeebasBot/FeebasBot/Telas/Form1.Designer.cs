@@ -43,6 +43,7 @@
             this.Open = new System.Windows.Forms.Timer(this.components);
             this.Troca = new System.Windows.Forms.Timer(this.components);
             this.stop = new System.Windows.Forms.Timer(this.components);
+            this.binfo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(189, 39);
+            this.panel1.Size = new System.Drawing.Size(225, 39);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
@@ -64,7 +65,7 @@
             // 
             this.bMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.bMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bMinimize.Location = new System.Drawing.Point(141, 0);
+            this.bMinimize.Location = new System.Drawing.Point(177, 0);
             this.bMinimize.Name = "bMinimize";
             this.bMinimize.Size = new System.Drawing.Size(24, 39);
             this.bMinimize.TabIndex = 2;
@@ -76,7 +77,7 @@
             // 
             this.bClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.bClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bClose.Location = new System.Drawing.Point(165, 0);
+            this.bClose.Location = new System.Drawing.Point(201, 0);
             this.bClose.Name = "bClose";
             this.bClose.Size = new System.Drawing.Size(24, 39);
             this.bClose.TabIndex = 1;
@@ -91,17 +92,18 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(3, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 18);
+            this.label1.Size = new System.Drawing.Size(86, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "FeebasBotNew";
+            this.label1.Text = "FeebasBot";
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
             // bStart
             // 
+            this.bStart.Dock = System.Windows.Forms.DockStyle.Top;
             this.bStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bStart.Location = new System.Drawing.Point(0, 39);
             this.bStart.Name = "bStart";
-            this.bStart.Size = new System.Drawing.Size(189, 23);
+            this.bStart.Size = new System.Drawing.Size(225, 23);
             this.bStart.TabIndex = 1;
             this.bStart.Text = "Iniciar";
             this.bStart.UseVisualStyleBackColor = true;
@@ -109,10 +111,11 @@
             // 
             // bStop
             // 
+            this.bStop.Dock = System.Windows.Forms.DockStyle.Top;
             this.bStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bStop.Location = new System.Drawing.Point(0, 61);
+            this.bStop.Location = new System.Drawing.Point(0, 62);
             this.bStop.Name = "bStop";
-            this.bStop.Size = new System.Drawing.Size(189, 23);
+            this.bStop.Size = new System.Drawing.Size(225, 23);
             this.bStop.TabIndex = 2;
             this.bStop.Text = "Parar";
             this.bStop.UseVisualStyleBackColor = true;
@@ -127,10 +130,11 @@
             // 
             // bConfig
             // 
+            this.bConfig.Dock = System.Windows.Forms.DockStyle.Top;
             this.bConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bConfig.Location = new System.Drawing.Point(0, 105);
+            this.bConfig.Location = new System.Drawing.Point(0, 85);
             this.bConfig.Name = "bConfig";
-            this.bConfig.Size = new System.Drawing.Size(189, 23);
+            this.bConfig.Size = new System.Drawing.Size(225, 23);
             this.bConfig.TabIndex = 4;
             this.bConfig.Text = "Configurações";
             this.bConfig.UseVisualStyleBackColor = true;
@@ -138,10 +142,11 @@
             // 
             // bCave
             // 
+            this.bCave.Dock = System.Windows.Forms.DockStyle.Top;
             this.bCave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bCave.Location = new System.Drawing.Point(0, 83);
+            this.bCave.Location = new System.Drawing.Point(0, 108);
             this.bCave.Name = "bCave";
-            this.bCave.Size = new System.Drawing.Size(189, 23);
+            this.bCave.Size = new System.Drawing.Size(225, 23);
             this.bCave.TabIndex = 3;
             this.bCave.Text = "Cavebot";
             this.bCave.UseVisualStyleBackColor = true;
@@ -168,11 +173,24 @@
             this.stop.Enabled = true;
             this.stop.Tick += new System.EventHandler(this.stop_Tick);
             // 
+            // binfo
+            // 
+            this.binfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.binfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.binfo.Location = new System.Drawing.Point(0, 131);
+            this.binfo.Name = "binfo";
+            this.binfo.Size = new System.Drawing.Size(225, 23);
+            this.binfo.TabIndex = 5;
+            this.binfo.Text = "Informação";
+            this.binfo.UseVisualStyleBackColor = true;
+            this.binfo.Click += new System.EventHandler(this.binfo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(189, 128);
+            this.ClientSize = new System.Drawing.Size(225, 155);
+            this.Controls.Add(this.binfo);
             this.Controls.Add(this.bCave);
             this.Controls.Add(this.bConfig);
             this.Controls.Add(this.bStop);
@@ -208,6 +226,7 @@
         private System.Windows.Forms.Timer Open;
         private System.Windows.Forms.Timer Troca;
         private System.Windows.Forms.Timer stop;
+        private System.Windows.Forms.Button binfo;
     }
 }
 

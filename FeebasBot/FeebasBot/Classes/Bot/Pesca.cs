@@ -19,6 +19,7 @@ namespace FeebasBot.Classes.Bot
             bool pescou = false;
             Mem.Memory();
             Mem.Fish();
+            Chat.CheckChat();
             if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
             {
                 IntPtr handle = win32.FindWindow("otPokemon", null);
@@ -82,8 +83,8 @@ namespace FeebasBot.Classes.Bot
                 //win32.LeftClickOld(win32.FindWindow("otPokemon", null), Setting.RodX, Setting.RodY);//clicar na vara            
                 foreach (Process proc in Mem.processes)
                 {
-                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.H, 0);
-                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.H, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.Scroll, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.Scroll, 0);
                 }
                 //win32.LeftClick(Setting.RodX, Setting.RodY);
                 Thread.Sleep(200);
@@ -92,7 +93,7 @@ namespace FeebasBot.Classes.Bot
 
                 foreach (Process proc in Mem.processes)
                 {
-                    SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(Setting.WaterX, Setting.WaterY)); // clica na água
+                    SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(wx, wy)); // clica na água
                     nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
                     nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
                 }
@@ -123,22 +124,23 @@ namespace FeebasBot.Classes.Bot
                 //        colornow = "0";
                 //    }
                 //}
-                while(Setting.fish != 1600)
+                Mem.Fish();
+                while (Setting.fish != 1600)
                 {
                     Mem.Fish();
+                    if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
                     Thread.Sleep(200);
                 }
-                Chat.CheckChat();
-                if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
+                Setting.pescados += 1;
                 Mem.Memory();
                 if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
                 {
                     //win32.LeftClick(Setting.FishX, Setting.FishY); 
                     foreach (Process proc in Mem.processes)
                     {
-                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.H, 0);
-                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.H, 0);
-                        SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(Setting.WaterX, Setting.WaterY)); // clica na água
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.Scroll, 0);
+                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.Scroll, 0);
+                        SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(wx, wy)); // clica na água
                         nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
                         nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
                     }

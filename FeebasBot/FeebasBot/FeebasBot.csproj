@@ -75,6 +75,7 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net45\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
@@ -133,6 +134,7 @@
     <Compile Include="Classes\Funcoes\Rdn.cs" />
     <Compile Include="Classes\Funcoes\Setting.cs" />
     <Compile Include="Classes\Bot\Verificacoes.cs" />
+    <Compile Include="Classes\Funcoes\updater.cs" />
     <Compile Include="Telas\CaveBot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +168,12 @@
     <Compile Include="Telas\Moves.Designer.cs">
       <DependentUpon>Moves.cs</DependentUpon>
     </Compile>
+    <Compile Include="Telas\Updater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Updater.Designer.cs">
+      <DependentUpon>Updater.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Telas\CaveBot.resx">
       <DependentUpon>CaveBot.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Moves.resx">
       <DependentUpon>Moves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Updater.resx">
+      <DependentUpon>Updater.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -238,6 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="349 Feebas.ico" />
+    <EmbeddedResource Include="chat.wav" />
     <None Include="Resources\padrao.png" />
     <None Include="Resources\por.png" />
     <EmbeddedResource Include="alarm.wav">
