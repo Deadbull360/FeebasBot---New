@@ -33,7 +33,6 @@ namespace FeebasBot.Forms
         string colorrod = "0";
         string[] names = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", };
         int[] values = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
-        int ab = 0;
         int current = 0;
         bool stop = false;
         bool trueif = false;
@@ -75,6 +74,7 @@ namespace FeebasBot.Forms
                 default:
                     break;
                 case "Waypoint":
+                    int timee = 75;
                     //nw.reset();
                     int ix = Convert.ToInt32(view.Rows[iexec].Cells[2].Value);
                     int iy = Convert.ToInt32(view.Rows[iexec].Cells[3].Value);
@@ -100,7 +100,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Right}");
                             nw.right();
-                           // Thread.Sleep(time);
+                            Thread.Sleep(timee);
                         }
                         if (Setting.charx > ix)
                         {
@@ -109,7 +109,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Left}");
                             nw.left();
-                            //Thread.Sleep(time);
+                            Thread.Sleep(timee);
                         }
                         if (Setting.chary > iy)
                         {
@@ -118,7 +118,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Up}");
                             nw.up();
-                            //Thread.Sleep(time);
+                            Thread.Sleep(timee);
                         }
                         if (Setting.chary < iy)
                         {
@@ -127,7 +127,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Down}");
                             nw.down();
-                            //Thread.Sleep(time);
+                            Thread.Sleep(timee);
                         }
                         Mem.Memory(); 
                     }

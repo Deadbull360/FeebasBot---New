@@ -99,7 +99,7 @@ namespace FeebasBot.Classes.Bot
                 //Setting.chary = memory.ReadInt32((IntPtr)finalAddress + 0x20);
                 Setting.charx = ReadMemory<int>((int)finalAddress + 0x1C);
                 Setting.chary = ReadMemory<int>((int)finalAddress + 0x20);
-                Thread.Sleep(200);
+                Thread.Sleep(50);
             }
         }
         
