@@ -124,23 +124,31 @@ namespace FeebasBot.Classes.Bot
                 {
                     Mem.Fish();
                     if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
-                    Thread.Sleep(200);
-                }
-                Setting.pescados += 1;
-                Mem.Memory();
-                if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
-                {
-                    //win32.LeftClick(Setting.FishX, Setting.FishY); 
-                    foreach (Process proc in Mem.processes)
+                    Thread.Sleep(500);
+                    if (time < 20)
                     {
-                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.Scroll, 0);
-                        nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.Scroll, 0);
-                        SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(wx, wy)); // clica na água
-                        nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
-                        nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
+                        time++;
                     }
+                    else break;
                 }
-                win32.MoveMouse(0, 0);
+                if (time < 20)
+                {
+                    Setting.pescados += 1;
+                    Mem.Memory();
+                    if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
+                    {
+                        //win32.LeftClick(Setting.FishX, Setting.FishY); 
+                        foreach (Process proc in Mem.processes)
+                        {
+                            nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.Scroll, 0);
+                            nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.Scroll, 0);
+                            SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(wx, wy)); // clica na água
+                            nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
+                            nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
+                        }
+                    }
+                    win32.MoveMouse(0, 0);
+                }
                 if (Setting.AtacarSemTarget == 1)
                 { Ataque.MovesSemTarget(); }
                 pescou = true;

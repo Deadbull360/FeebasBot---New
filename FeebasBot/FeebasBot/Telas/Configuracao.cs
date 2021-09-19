@@ -21,7 +21,7 @@ namespace FeebasBot.Telas
             if (Setting.PodeUsarLooting == 0) cLoot.Enabled = false;
             numericUpDown1.Value = Setting.attacktime;
             gName.Text = Setting.GameName;
-            if (Setting.login == "" || Setting.login == null) { panel7.Visible = true; }
+            
 
             if (Setting.Pescar == 1) { cPescar.Checked = true; cNoStop.Enabled = true; cRandom.Enabled = true; } else { cNoStop.Enabled = false; cRandom.Enabled = false; }
             if (Setting.randomfish == 1) { cRandom.Checked = true; }
@@ -834,21 +834,5 @@ namespace FeebasBot.Telas
             if (cCaveChat.Checked == true) { Setting.CaveChat = 1; } else { Setting.CaveChat = 0; }
         }
 
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Mem.Fish();
-            Mem.Memory();
-            fish.Text = Setting.fish.ToString();
-            lx.Text = Setting.charx.ToString();
-            ly.Text = Setting.chary.ToString();
-            Mem.Chat();
-            //MessageBox.Show(Setting.Chat.ToString());
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
