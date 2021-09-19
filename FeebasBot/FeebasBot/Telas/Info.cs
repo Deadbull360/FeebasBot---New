@@ -1,13 +1,5 @@
 ﻿using FeebasBot.Classes;
-using FeebasBot.Classes.Bot;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FeebasBot.Telas
@@ -25,7 +17,7 @@ namespace FeebasBot.Telas
             Y.Text = "Char Y: " + Setting.chary;
             PokeHP.Text = "PokeHP: " + Setting.PokeHP;
             CharHP.Text = "CharHP: " + Setting.CharHP;
-            string f="";
+            string f = "";
             if (Setting.fish == 5632) f = "Oculto";
             if (Setting.fish == 1536) f = "Esperando";
             if (Setting.fish == 1600) f = "Pescou";

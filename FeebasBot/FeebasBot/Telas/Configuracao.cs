@@ -20,9 +20,6 @@ namespace FeebasBot.Telas
             if (Setting.attacktime < 200) Setting.attacktime = 200;
             if (Setting.PodeUsarLooting == 0) cLoot.Enabled = false;
             numericUpDown1.Value = Setting.attacktime;
-            gName.Text = Setting.GameName;
-            
-
             if (Setting.Pescar == 1) { cPescar.Checked = true; cNoStop.Enabled = true; cRandom.Enabled = true; } else { cNoStop.Enabled = false; cRandom.Enabled = false; }
             if (Setting.randomfish == 1) { cRandom.Checked = true; }
             if (Setting.PescarSemParar == 1) cNoStop.Checked = true;
@@ -35,6 +32,8 @@ namespace FeebasBot.Telas
             if (Setting.PodeUsarCaveBot == 1) { cCaveChat.Enabled = true; cCavePlayer.Enabled = true; } else { cCaveChat.Enabled = false; cCavePlayer.Enabled = false; }
             if (Setting.CaveChat == 1) cCaveChat.Checked = true;
             if (Setting.CavePlayer == 1) cCavePlayer.Checked = true;
+            if (Setting.FocusChat == 1) cFocusChat.Checked = true;
+            if (Setting.FocusMove == 1) cFocusMove.Checked = true;
             if (Setting.m1 == 1) cm1.Checked = true;
             if (Setting.m2 == 1) cm2.Checked = true;
             if (Setting.m3 == 1) cm3.Checked = true;
@@ -473,16 +472,6 @@ namespace FeebasBot.Telas
 
         }
 
-        private void gName_TextChanged(object sender, EventArgs e)
-        {
-            if (gName.Text != "")
-            {
-                IntPtr otpHandle = win32.FindWindow("otPokemon", null);
-                Setting.GameName = gName.Text;
-                win32.SetWindowText(otpHandle, Setting.GameName);
-            }
-        }
-
         private void tabAtk_Click(object sender, EventArgs e)
         {
 
@@ -826,7 +815,7 @@ namespace FeebasBot.Telas
 
         private void cCavePlayer_CheckedChanged(object sender, EventArgs e)
         {
-            if (cCavePlayer.Checked == true) { Setting.CavePlayer = 1; } else { Setting.CavePlayer = 0; }
+
         }
 
         private void cCaveChat_CheckedChanged(object sender, EventArgs e)
@@ -834,5 +823,14 @@ namespace FeebasBot.Telas
             if (cCaveChat.Checked == true) { Setting.CaveChat = 1; } else { Setting.CaveChat = 0; }
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cFocusChat.Checked == true) { Setting.FocusChat = 1; } else { Setting.FocusChat = 0; }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cFocusMove.Checked == true) { Setting.FocusMove = 1; } else { Setting.FocusMove = 0; }
+        }
     }
 }

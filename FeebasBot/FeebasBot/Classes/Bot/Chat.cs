@@ -5,7 +5,7 @@ namespace FeebasBot.Classes.Bot
 {
     class Chat
     {
-        static bool show = false;
+        static System.IntPtr otpHandle = win32.FindWindow("otPokemon", null);
         public static void ChatCoords(int x, int y)
         {
             #region left
@@ -45,25 +45,19 @@ namespace FeebasBot.Classes.Bot
         }
         public static void CheckChat()
         {
-            show = false;
-            //for (int i = Setting.ChatEsquerdaX; i < Setting.ChatDireitaX; i++)
-            //{
-            //string color = getpixel.GrabPixel(i, Setting.ChatY);
-            //if (color == "5592575" && show == false)
             if (Setting.Chat == 1216)
-            {
-                FormsV.playSound("chat.wav");
-                show = true;
-            }
-            //}
-            if (show == true)
             {
                 if (Setting.ChatStop == 1 || Setting.CaveChat == 1)
                 {
                     Setting.PlayerOnScreen = true;
                     Setting.Kill = true;
                 }
+                if (Setting.FocusChat == 1) win32.SetForegroundWindow(otpHandle);
             }
+        }
+        public static void CheckChat(bool audio)
+        {
+            if (Setting.Chat == 1216 && audio == true) FormsV.playSound("chat.wav");
         }
     }
 }

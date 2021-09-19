@@ -7,6 +7,7 @@ namespace FeebasBot.Classes.Bot
 {
     class Pesca
     {
+        static System.IntPtr otpHandle = win32.FindWindow("otPokemon", null);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         static extern int SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
         public static bool Pescar()
@@ -21,14 +22,8 @@ namespace FeebasBot.Classes.Bot
                 int dir = 8;
                 #region random
                 Random rnd = new Random();
-                if (Setting.randomfish == 1)
-                {
-                    dir = rnd.Next(0, 8);
-                }
-                else
-                {
-                    dir = 8;
-                }
+                if (Setting.randomfish == 1) { dir = rnd.Next(0, 8); }
+                else { dir = 8; }
 
                 int wx = Setting.WaterX, wy = Setting.WaterY;
                 switch (dir)
@@ -66,26 +61,19 @@ namespace FeebasBot.Classes.Bot
                 }
                 #endregion
                 int time = 0;
-                Chat.CheckChat();
+                Chat.CheckChat(true);
                 Thread.Sleep(500);
-
                 if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
-                Setting.clicklock = true;
-                win32.LeftClickLocked(0, 0);
-                //IntPtr now = win32.GetForegroundWindow();
-                //MessageBox.Show(now.ToString());
-                //win32.SetForegroundWindow(handle);
-                //win32.LeftClickOld(win32.FindWindow("otPokemon", null), Setting.RodX, Setting.RodY);//clicar na vara            
+                //resetar seleção
+                win32.LeftClick(0, 0);
+                //ativar vara
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.Scroll, 0);
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.Scroll, 0);
                 }
-                //win32.LeftClick(Setting.RodX, Setting.RodY);
                 Thread.Sleep(200);
-                //win32.LeftClickOld(win32.FindWindow("otPokemon", null), wx, wy);//clicar na agua
-                //win32.LeftClick(wx, wy);//clicar na agua
-
+                //clica na agua
                 foreach (Process proc in Mem.processes)
                 {
                     SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(wx, wy)); // clica na água
@@ -93,51 +81,39 @@ namespace FeebasBot.Classes.Bot
                     nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
                 }
                 Thread.Sleep(200);
-
+                //salva a posição do char
                 Mem.Memory();
                 Setting.LastX = Setting.charx;
                 Setting.LastY = Setting.chary;
-                //win32.LeftClick(wx, wy);
-                //win32.SetForegroundWindow(now);
                 Thread.Sleep(200);
-                win32.LeftClickLocked(0, 0);
-                Setting.clicklock = false;
-                //string startcolor = Verificacoes.FishColor();
-                //string colornow = Verificacoes.FishColor();
-                //while (colornow == startcolor)
-                //{
-                //    if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
-                //    Thread.Sleep(500);
-                //    if (time < 20)
-                //    {
-                //        //colornow = Convert.ToString(getpixel.GetPixel(getpixel.GetWindowDC(getpixel.GetDesktopWindow()), Setting.FishX, Setting.FishY));
-                //        colornow = Verificacoes.FishColor();
-                //        time++;
-                //    }
-                //    else
-                //    {
-                //        colornow = "0";
-                //    }
-                //}
+                //reseta seleção
+                win32.LeftClick(0, 0);
+                //detecta estado do peixe
                 Mem.Fish();
-                while (Setting.fish != 1600)
+                while (Setting.fish != 1600) //enquanto nao estiver verde
                 {
-                    Mem.Fish();
+                    Chat.CheckChat();
+                    Mem.Fish(); //lê o peixe continuamente
                     if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
                     Thread.Sleep(500);
+                    //tempo de pesca
                     if (time < 20)
                     {
                         time++;
                     }
+                    //se o tempo limite passar quebrar o loop
                     else break;
                 }
-                if (time < 20)
+                Mem.Memory();
+                //se a posicão do char for a mesma
+                if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
                 {
-                    Setting.pescados += 1;
-                    Mem.Memory();
-                    if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
+                    //se não tiver passado do tempo, puxar a vara
+                    if (time < 20)
                     {
-                        //win32.LeftClick(Setting.FishX, Setting.FishY); 
+                        //total de pescas
+                        Setting.pescados += 1;
+                        //ativar vara e clicar na agua
                         foreach (Process proc in Mem.processes)
                         {
                             nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.Scroll, 0);
@@ -147,13 +123,20 @@ namespace FeebasBot.Classes.Bot
                             nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
                         }
                     }
-                    win32.MoveMouse(0, 0);
                 }
+                //se tiver sido puxado
+                else
+                {
+                    Setting.PlayerOnScreen = true;
+                    if (Setting.FocusMove == 1) win32.SetForegroundWindow(otpHandle);
+                }
+                //se n precisar targetar
                 if (Setting.AtacarSemTarget == 1)
                 { Ataque.MovesSemTarget(); }
                 pescou = true;
             }
             else Setting.PlayerOnScreen = true;
+            Chat.CheckChat(true);
             return pescou;
         }
     }

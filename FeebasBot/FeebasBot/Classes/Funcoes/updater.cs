@@ -85,8 +85,8 @@ namespace FeebasBot.Classes.Funcoes
             using (var client = new WebClient())
             {
                 client.DownloadFile("http://atm6.duckdns.org:25565/feebas", "up.txt");
+                client.DownloadFile("http://atm6.duckdns.org:25565/Updater.exe", "Updater.exe");
             }
-
             Setting.newversion = int.Parse(File.ReadAllText("up.txt"));
             File.Delete("up.txt");
             if (Setting.newversion > Setting.version)

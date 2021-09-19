@@ -106,16 +106,16 @@ namespace csharp_Sqlite
                 throw ex;
             }
         }
-        public static void UpdateID(int idold,int idnew)
+        public static void UpdateID(int idold, int idnew)
         {
             try
             {
                 using (var cmd = new SQLiteCommand(DbConnection()))
                 {
-                        cmd.CommandText = "UPDATE cbot SET Id=@idnew WHERE Id=@idold";
-                        cmd.Parameters.AddWithValue("@idnew", idnew);
-                        cmd.Parameters.AddWithValue("@idold", idold);
-                        cmd.ExecuteNonQuery();
+                    cmd.CommandText = "UPDATE cbot SET Id=@idnew WHERE Id=@idold";
+                    cmd.Parameters.AddWithValue("@idnew", idnew);
+                    cmd.Parameters.AddWithValue("@idold", idold);
+                    cmd.ExecuteNonQuery();
                 };
             }
             catch (Exception ex)

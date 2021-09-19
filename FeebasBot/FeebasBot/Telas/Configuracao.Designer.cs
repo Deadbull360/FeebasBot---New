@@ -34,21 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bPlayer2 = new System.Windows.Forms.TabControl();
             this.tabFunction = new System.Windows.Forms.TabPage();
-            this.cChatStop = new System.Windows.Forms.CheckBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.cCaveChat = new System.Windows.Forms.CheckBox();
-            this.label34 = new System.Windows.Forms.Label();
             this.cCavePlayer = new System.Windows.Forms.CheckBox();
-            this.cCatch = new System.Windows.Forms.CheckBox();
-            this.cTrocaDePoke = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.gName = new System.Windows.Forms.TextBox();
-            this.cRandom = new System.Windows.Forms.CheckBox();
-            this.cSemTarget = new System.Windows.Forms.CheckBox();
-            this.cLoot = new System.Windows.Forms.CheckBox();
-            this.cNoStop = new System.Windows.Forms.CheckBox();
-            this.cAtacar = new System.Windows.Forms.CheckBox();
-            this.cPescar = new System.Windows.Forms.CheckBox();
             this.tabPesca = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -147,6 +135,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.cFocusMove = new System.Windows.Forms.CheckBox();
+            this.cFocusChat = new System.Windows.Forms.CheckBox();
+            this.cNoStop = new System.Windows.Forms.CheckBox();
+            this.cRandom = new System.Windows.Forms.CheckBox();
+            this.cPescar = new System.Windows.Forms.CheckBox();
+            this.cAtacar = new System.Windows.Forms.CheckBox();
+            this.cSemTarget = new System.Windows.Forms.CheckBox();
+            this.cLoot = new System.Windows.Forms.CheckBox();
+            this.cTrocaDePoke = new System.Windows.Forms.CheckBox();
+            this.cCatch = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cChatStop = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabFunction.SuspendLayout();
@@ -206,12 +206,12 @@
             // 
             // bPlayer2
             // 
-            this.bPlayer2.Controls.Add(this.tabFunction);
             this.bPlayer2.Controls.Add(this.tabPesca);
             this.bPlayer2.Controls.Add(this.tabAtk);
             this.bPlayer2.Controls.Add(this.tabLooting);
             this.bPlayer2.Controls.Add(this.tabTrocaPoke);
             this.bPlayer2.Controls.Add(this.tabCatch);
+            this.bPlayer2.Controls.Add(this.tabFunction);
             this.bPlayer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bPlayer2.Location = new System.Drawing.Point(0, 39);
             this.bPlayer2.Name = "bPlayer2";
@@ -227,184 +227,53 @@
             this.tabFunction.Name = "tabFunction";
             this.tabFunction.Size = new System.Drawing.Size(355, 236);
             this.tabFunction.TabIndex = 2;
-            this.tabFunction.Text = "Funções";
+            this.tabFunction.Text = "Cavebot";
             this.tabFunction.UseVisualStyleBackColor = true;
             this.tabFunction.Click += new System.EventHandler(this.tabFunction_Click);
-            // 
-            // cChatStop
-            // 
-            this.cChatStop.AutoSize = true;
-            this.cChatStop.Location = new System.Drawing.Point(3, 140);
-            this.cChatStop.Name = "cChatStop";
-            this.cChatStop.Size = new System.Drawing.Size(253, 17);
-            this.cChatStop.TabIndex = 7;
-            this.cChatStop.Text = "Parar Bot ao receber mensagem no chat padrão";
-            this.cChatStop.UseVisualStyleBackColor = true;
-            this.cChatStop.CheckedChanged += new System.EventHandler(this.cChatStop_CheckedChanged);
             // 
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.cChatStop);
+            this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.cCaveChat);
-            this.panel6.Controls.Add(this.label34);
             this.panel6.Controls.Add(this.cCavePlayer);
-            this.panel6.Controls.Add(this.cCatch);
-            this.panel6.Controls.Add(this.cTrocaDePoke);
-            this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.gName);
-            this.panel6.Controls.Add(this.cRandom);
-            this.panel6.Controls.Add(this.cSemTarget);
-            this.panel6.Controls.Add(this.cLoot);
-            this.panel6.Controls.Add(this.cNoStop);
-            this.panel6.Controls.Add(this.cAtacar);
-            this.panel6.Controls.Add(this.cPescar);
             this.panel6.Location = new System.Drawing.Point(7, 7);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(260, 161);
+            this.panel6.Size = new System.Drawing.Size(260, 198);
             this.panel6.TabIndex = 0;
             // 
             // cCaveChat
             // 
             this.cCaveChat.AutoSize = true;
-            this.cCaveChat.Location = new System.Drawing.Point(115, 117);
+            this.cCaveChat.Location = new System.Drawing.Point(6, 34);
             this.cCaveChat.Name = "cCaveChat";
-            this.cCaveChat.Size = new System.Drawing.Size(48, 17);
+            this.cCaveChat.Size = new System.Drawing.Size(118, 17);
             this.cCaveChat.TabIndex = 10;
-            this.cCaveChat.Text = "Chat";
+            this.cCaveChat.Text = "Mensagem no Chat";
             this.cCaveChat.UseVisualStyleBackColor = true;
             this.cCaveChat.CheckedChanged += new System.EventHandler(this.cCaveChat_CheckedChanged);
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(4, 117);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(50, 13);
-            this.label34.TabIndex = 9;
-            this.label34.Text = "Cavebot:";
             // 
             // cCavePlayer
             // 
             this.cCavePlayer.AutoSize = true;
-            this.cCavePlayer.Location = new System.Drawing.Point(54, 117);
+            this.cCavePlayer.Location = new System.Drawing.Point(6, 16);
             this.cCavePlayer.Name = "cCavePlayer";
-            this.cCavePlayer.Size = new System.Drawing.Size(55, 17);
+            this.cCavePlayer.Size = new System.Drawing.Size(90, 17);
             this.cCavePlayer.TabIndex = 8;
-            this.cCavePlayer.Text = "Player";
+            this.cCavePlayer.Text = "Player na tela";
             this.cCavePlayer.UseVisualStyleBackColor = true;
             this.cCavePlayer.CheckedChanged += new System.EventHandler(this.cCavePlayer_CheckedChanged);
             // 
-            // cCatch
-            // 
-            this.cCatch.AutoSize = true;
-            this.cCatch.Location = new System.Drawing.Point(3, 95);
-            this.cCatch.Name = "cCatch";
-            this.cCatch.Size = new System.Drawing.Size(114, 17);
-            this.cCatch.TabIndex = 7;
-            this.cCatch.Text = "Capturar na Pesca";
-            this.cCatch.UseVisualStyleBackColor = true;
-            this.cCatch.CheckedChanged += new System.EventHandler(this.cCatch_CheckedChanged);
-            // 
-            // cTrocaDePoke
-            // 
-            this.cTrocaDePoke.AutoSize = true;
-            this.cTrocaDePoke.Location = new System.Drawing.Point(3, 72);
-            this.cTrocaDePoke.Name = "cTrocaDePoke";
-            this.cTrocaDePoke.Size = new System.Drawing.Size(120, 17);
-            this.cTrocaDePoke.TabIndex = 6;
-            this.cTrocaDePoke.Text = "Trocar de Pokemon";
-            this.cTrocaDePoke.UseVisualStyleBackColor = true;
-            this.cTrocaDePoke.CheckedChanged += new System.EventHandler(this.cTrocaDePoke_CheckedChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label11.Location = new System.Drawing.Point(142, 75);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 13);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Nome do Client:";
-            // 
-            // gName
-            // 
-            this.gName.Location = new System.Drawing.Point(145, 91);
-            this.gName.Name = "gName";
-            this.gName.Size = new System.Drawing.Size(100, 20);
-            this.gName.TabIndex = 1;
-            this.gName.TextChanged += new System.EventHandler(this.gName_TextChanged);
-            // 
-            // cRandom
-            // 
-            this.cRandom.AutoSize = true;
-            this.cRandom.Location = new System.Drawing.Point(148, 3);
-            this.cRandom.Name = "cRandom";
-            this.cRandom.Size = new System.Drawing.Size(97, 17);
-            this.cRandom.TabIndex = 5;
-            this.cRandom.Text = "Lugar Aleatório";
-            this.cRandom.UseVisualStyleBackColor = true;
-            this.cRandom.CheckedChanged += new System.EventHandler(this.cRandom_CheckedChanged);
-            // 
-            // cSemTarget
-            // 
-            this.cSemTarget.AutoSize = true;
-            this.cSemTarget.Location = new System.Drawing.Point(68, 26);
-            this.cSemTarget.Name = "cSemTarget";
-            this.cSemTarget.Size = new System.Drawing.Size(90, 17);
-            this.cSemTarget.TabIndex = 4;
-            this.cSemTarget.Text = "Sem Targetar";
-            this.cSemTarget.UseVisualStyleBackColor = true;
-            this.cSemTarget.CheckedChanged += new System.EventHandler(this.cSemTarget_CheckedChanged);
-            // 
-            // cLoot
-            // 
-            this.cLoot.AutoSize = true;
-            this.cLoot.Location = new System.Drawing.Point(3, 49);
-            this.cLoot.Name = "cLoot";
-            this.cLoot.Size = new System.Drawing.Size(61, 17);
-            this.cLoot.TabIndex = 3;
-            this.cLoot.Text = "Looting";
-            this.cLoot.UseVisualStyleBackColor = true;
-            this.cLoot.CheckedChanged += new System.EventHandler(this.cLoot_CheckedChanged);
-            // 
-            // cNoStop
-            // 
-            this.cNoStop.AutoSize = true;
-            this.cNoStop.Location = new System.Drawing.Point(68, 3);
-            this.cNoStop.Name = "cNoStop";
-            this.cNoStop.Size = new System.Drawing.Size(74, 17);
-            this.cNoStop.TabIndex = 2;
-            this.cNoStop.Text = "Sem parar";
-            this.cNoStop.UseVisualStyleBackColor = true;
-            this.cNoStop.CheckedChanged += new System.EventHandler(this.cNoStop_CheckedChanged);
-            // 
-            // cAtacar
-            // 
-            this.cAtacar.AutoSize = true;
-            this.cAtacar.Location = new System.Drawing.Point(3, 26);
-            this.cAtacar.Name = "cAtacar";
-            this.cAtacar.Size = new System.Drawing.Size(57, 17);
-            this.cAtacar.TabIndex = 1;
-            this.cAtacar.Text = "Atacar";
-            this.cAtacar.UseVisualStyleBackColor = true;
-            this.cAtacar.CheckedChanged += new System.EventHandler(this.cAtacar_CheckedChanged);
-            // 
-            // cPescar
-            // 
-            this.cPescar.AutoSize = true;
-            this.cPescar.Location = new System.Drawing.Point(3, 3);
-            this.cPescar.Name = "cPescar";
-            this.cPescar.Size = new System.Drawing.Size(59, 17);
-            this.cPescar.TabIndex = 0;
-            this.cPescar.Text = "Pescar";
-            this.cPescar.UseVisualStyleBackColor = true;
-            this.cPescar.CheckedChanged += new System.EventHandler(this.cPescar_CheckedChanged);
-            // 
             // tabPesca
             // 
-            this.tabPesca.Controls.Add(this.label9);
             this.tabPesca.Controls.Add(this.button3);
+            this.tabPesca.Controls.Add(this.cChatStop);
+            this.tabPesca.Controls.Add(this.cFocusMove);
+            this.tabPesca.Controls.Add(this.cFocusChat);
+            this.tabPesca.Controls.Add(this.cRandom);
+            this.tabPesca.Controls.Add(this.cNoStop);
+            this.tabPesca.Controls.Add(this.cPescar);
+            this.tabPesca.Controls.Add(this.label9);
             this.tabPesca.Controls.Add(this.label8);
             this.tabPesca.Controls.Add(this.label2);
             this.tabPesca.Controls.Add(this.panel11);
@@ -448,10 +317,12 @@
             // 
             // tabAtk
             // 
+            this.tabAtk.Controls.Add(this.panel4);
+            this.tabAtk.Controls.Add(this.cSemTarget);
+            this.tabAtk.Controls.Add(this.cAtacar);
             this.tabAtk.Controls.Add(this.Battlemanual);
             this.tabAtk.Controls.Add(this.panel8);
             this.tabAtk.Controls.Add(this.panel5);
-            this.tabAtk.Controls.Add(this.panel4);
             this.tabAtk.Controls.Add(this.panel3);
             this.tabAtk.Location = new System.Drawing.Point(4, 22);
             this.tabAtk.Name = "tabAtk";
@@ -696,7 +567,7 @@
             this.panel4.Controls.Add(this.ManualDown);
             this.panel4.Controls.Add(this.cManualConfig2);
             this.panel4.Controls.Add(this.cManualConfig1);
-            this.panel4.Location = new System.Drawing.Point(77, 91);
+            this.panel4.Location = new System.Drawing.Point(76, 91);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(269, 141);
             this.panel4.TabIndex = 16;
@@ -803,6 +674,7 @@
             // 
             // tabLooting
             // 
+            this.tabLooting.Controls.Add(this.cLoot);
             this.tabLooting.Controls.Add(this.label33);
             this.tabLooting.Controls.Add(this.button1);
             this.tabLooting.Controls.Add(this.panel10);
@@ -818,7 +690,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(173, 140);
+            this.label33.Location = new System.Drawing.Point(173, 132);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(162, 39);
             this.label33.TabIndex = 19;
@@ -826,7 +698,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(174, 110);
+            this.button1.Location = new System.Drawing.Point(270, 205);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -848,7 +720,7 @@
             this.panel10.Controls.Add(this.p2);
             this.panel10.Controls.Add(this.p1);
             this.panel10.Controls.Add(this.cShowLoot);
-            this.panel10.Location = new System.Drawing.Point(174, 6);
+            this.panel10.Location = new System.Drawing.Point(172, 29);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(173, 100);
             this.panel10.TabIndex = 17;
@@ -1032,6 +904,7 @@
             // tabpoke
             // 
             this.tabpoke.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabpoke.Controls.Add(this.cTrocaDePoke);
             this.tabpoke.Controls.Add(this.label26);
             this.tabpoke.Controls.Add(this.bPortrait);
             this.tabpoke.Controls.Add(this.label25);
@@ -1116,6 +989,7 @@
             // 
             // tabCatch
             // 
+            this.tabCatch.Controls.Add(this.cCatch);
             this.tabCatch.Controls.Add(this.bTestBall);
             this.tabCatch.Controls.Add(this.panel12);
             this.tabCatch.Location = new System.Drawing.Point(4, 22);
@@ -1128,7 +1002,7 @@
             // 
             // bTestBall
             // 
-            this.bTestBall.Location = new System.Drawing.Point(227, 102);
+            this.bTestBall.Location = new System.Drawing.Point(272, 205);
             this.bTestBall.Name = "bTestBall";
             this.bTestBall.Size = new System.Drawing.Size(75, 23);
             this.bTestBall.TabIndex = 21;
@@ -1147,7 +1021,7 @@
             this.panel12.Controls.Add(this.label31);
             this.panel12.Controls.Add(this.button10);
             this.panel12.Controls.Add(this.label32);
-            this.panel12.Location = new System.Drawing.Point(6, 6);
+            this.panel12.Location = new System.Drawing.Point(8, 29);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(162, 188);
             this.panel12.TabIndex = 19;
@@ -1222,12 +1096,11 @@
             // 
             // button3
             // 
-            this.button3.Enabled = false;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = global::FeebasBot.Properties.Resources.Screenshot_2;
-            this.button3.Location = new System.Drawing.Point(183, 6);
+            this.button3.Location = new System.Drawing.Point(190, 6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(176, 202);
+            this.button3.Size = new System.Drawing.Size(174, 202);
             this.button3.TabIndex = 7;
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -1510,6 +1383,135 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "na tecla ScrollLock do seu teclado";
             // 
+            // cFocusMove
+            // 
+            this.cFocusMove.AutoSize = true;
+            this.cFocusMove.Location = new System.Drawing.Point(6, 211);
+            this.cFocusMove.Name = "cFocusMove";
+            this.cFocusMove.Size = new System.Drawing.Size(145, 17);
+            this.cFocusMove.TabIndex = 14;
+            this.cFocusMove.Text = "Focar jogo ao ser movido";
+            this.cFocusMove.UseVisualStyleBackColor = true;
+            this.cFocusMove.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // cFocusChat
+            // 
+            this.cFocusChat.AutoSize = true;
+            this.cFocusChat.Location = new System.Drawing.Point(6, 194);
+            this.cFocusChat.Name = "cFocusChat";
+            this.cFocusChat.Size = new System.Drawing.Size(184, 17);
+            this.cFocusChat.TabIndex = 13;
+            this.cFocusChat.Text = "Focar jogo ao receber mensagem";
+            this.cFocusChat.UseVisualStyleBackColor = true;
+            this.cFocusChat.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // cNoStop
+            // 
+            this.cNoStop.AutoSize = true;
+            this.cNoStop.Location = new System.Drawing.Point(6, 160);
+            this.cNoStop.Name = "cNoStop";
+            this.cNoStop.Size = new System.Drawing.Size(74, 17);
+            this.cNoStop.TabIndex = 15;
+            this.cNoStop.Text = "Sem parar";
+            this.cNoStop.UseVisualStyleBackColor = true;
+            this.cNoStop.CheckedChanged += new System.EventHandler(this.cNoStop_CheckedChanged);
+            // 
+            // cRandom
+            // 
+            this.cRandom.AutoSize = true;
+            this.cRandom.Location = new System.Drawing.Point(6, 177);
+            this.cRandom.Name = "cRandom";
+            this.cRandom.Size = new System.Drawing.Size(97, 17);
+            this.cRandom.TabIndex = 16;
+            this.cRandom.Text = "Lugar Aleatório";
+            this.cRandom.UseVisualStyleBackColor = true;
+            // 
+            // cPescar
+            // 
+            this.cPescar.AutoSize = true;
+            this.cPescar.Location = new System.Drawing.Point(6, 143);
+            this.cPescar.Name = "cPescar";
+            this.cPescar.Size = new System.Drawing.Size(59, 17);
+            this.cPescar.TabIndex = 6;
+            this.cPescar.Text = "Pescar";
+            this.cPescar.UseVisualStyleBackColor = true;
+            this.cPescar.CheckedChanged += new System.EventHandler(this.cPescar_CheckedChanged);
+            // 
+            // cAtacar
+            // 
+            this.cAtacar.AutoSize = true;
+            this.cAtacar.Location = new System.Drawing.Point(76, 81);
+            this.cAtacar.Name = "cAtacar";
+            this.cAtacar.Size = new System.Drawing.Size(57, 17);
+            this.cAtacar.TabIndex = 20;
+            this.cAtacar.Text = "Atacar";
+            this.cAtacar.UseVisualStyleBackColor = true;
+            this.cAtacar.CheckedChanged += new System.EventHandler(this.cAtacar_CheckedChanged);
+            // 
+            // cSemTarget
+            // 
+            this.cSemTarget.AutoSize = true;
+            this.cSemTarget.Location = new System.Drawing.Point(132, 81);
+            this.cSemTarget.Name = "cSemTarget";
+            this.cSemTarget.Size = new System.Drawing.Size(90, 17);
+            this.cSemTarget.TabIndex = 21;
+            this.cSemTarget.Text = "Sem Targetar";
+            this.cSemTarget.UseVisualStyleBackColor = true;
+            this.cSemTarget.CheckedChanged += new System.EventHandler(this.cSemTarget_CheckedChanged);
+            // 
+            // cLoot
+            // 
+            this.cLoot.AutoSize = true;
+            this.cLoot.Location = new System.Drawing.Point(176, 6);
+            this.cLoot.Name = "cLoot";
+            this.cLoot.Size = new System.Drawing.Size(61, 17);
+            this.cLoot.TabIndex = 20;
+            this.cLoot.Text = "Looting";
+            this.cLoot.UseVisualStyleBackColor = true;
+            this.cLoot.CheckedChanged += new System.EventHandler(this.cLoot_CheckedChanged);
+            // 
+            // cTrocaDePoke
+            // 
+            this.cTrocaDePoke.AutoSize = true;
+            this.cTrocaDePoke.Location = new System.Drawing.Point(3, 187);
+            this.cTrocaDePoke.Name = "cTrocaDePoke";
+            this.cTrocaDePoke.Size = new System.Drawing.Size(120, 17);
+            this.cTrocaDePoke.TabIndex = 34;
+            this.cTrocaDePoke.Text = "Trocar de Pokemon";
+            this.cTrocaDePoke.UseVisualStyleBackColor = true;
+            this.cTrocaDePoke.CheckedChanged += new System.EventHandler(this.cTrocaDePoke_CheckedChanged);
+            // 
+            // cCatch
+            // 
+            this.cCatch.AutoSize = true;
+            this.cCatch.Location = new System.Drawing.Point(8, 6);
+            this.cCatch.Name = "cCatch";
+            this.cCatch.Size = new System.Drawing.Size(114, 17);
+            this.cCatch.TabIndex = 22;
+            this.cCatch.Text = "Capturar na Pesca";
+            this.cCatch.UseVisualStyleBackColor = true;
+            this.cCatch.CheckedChanged += new System.EventHandler(this.cCatch_CheckedChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(102, 13);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Ativar cavebot com:";
+            // 
+            // cChatStop
+            // 
+            this.cChatStop.AutoSize = true;
+            this.cChatStop.Location = new System.Drawing.Point(157, 211);
+            this.cChatStop.Name = "cChatStop";
+            this.cChatStop.Size = new System.Drawing.Size(178, 17);
+            this.cChatStop.TabIndex = 7;
+            this.cChatStop.Text = "Parar Bot ao receber mensagem";
+            this.cChatStop.UseVisualStyleBackColor = true;
+            this.cChatStop.CheckedChanged += new System.EventHandler(this.cChatStop_CheckedChanged);
+            // 
             // Configuracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1557,6 +1559,7 @@
             this.tabpoke.ResumeLayout(false);
             this.tabpoke.PerformLayout();
             this.tabCatch.ResumeLayout(false);
+            this.tabCatch.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.ResumeLayout(false);
@@ -1603,18 +1606,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabPage tabFunction;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.CheckBox cAtacar;
-        private System.Windows.Forms.CheckBox cPescar;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox gName;
-        private System.Windows.Forms.CheckBox cNoStop;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.CheckBox Battlemanual;
-        private System.Windows.Forms.CheckBox cLoot;
         private System.Windows.Forms.TabPage tabLooting;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.CheckBox cShowLoot;
@@ -1641,8 +1638,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button bOrder;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox cSemTarget;
-        private System.Windows.Forms.CheckBox cRandom;
         private System.Windows.Forms.TabPage tabTrocaPoke;
         private System.Windows.Forms.Panel tabpoke;
         private System.Windows.Forms.Label label25;
@@ -1657,7 +1652,6 @@
         private System.Windows.Forms.Button bPoke3;
         private System.Windows.Forms.Button bPoke1;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.CheckBox cTrocaDePoke;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button bPortrait;
         private System.Windows.Forms.TabPage tabCatch;
@@ -1671,17 +1665,26 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.CheckBox cCatch;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.CheckBox cChatStop;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.CheckBox cCaveChat;
-        private System.Windows.Forms.Label label34;
         private System.Windows.Forms.CheckBox cCavePlayer;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox cFocusMove;
+        private System.Windows.Forms.CheckBox cFocusChat;
+        private System.Windows.Forms.CheckBox cNoStop;
+        private System.Windows.Forms.CheckBox cRandom;
+        private System.Windows.Forms.CheckBox cPescar;
+        private System.Windows.Forms.CheckBox cAtacar;
+        private System.Windows.Forms.CheckBox cSemTarget;
+        private System.Windows.Forms.CheckBox cLoot;
+        private System.Windows.Forms.CheckBox cTrocaDePoke;
+        private System.Windows.Forms.CheckBox cCatch;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox cChatStop;
     }
 }

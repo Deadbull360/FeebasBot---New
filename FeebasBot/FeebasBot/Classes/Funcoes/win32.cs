@@ -15,7 +15,7 @@ namespace FeebasBot
         public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
         [DllImport("kernel32.dll")]
-        public static extern Int32 ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress,[In, Out] byte[] buffer, UInt32 size, out IntPtr lpNumberOfBytesRead);
+        public static extern Int32 ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In, Out] byte[] buffer, UInt32 size, out IntPtr lpNumberOfBytesRead);
 
 
         [DllImport("user32.dll")]
@@ -75,7 +75,7 @@ namespace FeebasBot
             SM_CYHSCROLL = 3,  // 0x03
             SM_CYCAPTION = 4,
         }
-        
+
         private static IntPtr CreateLParam(int LoWord, int HiWord)
         {
             return (IntPtr)((HiWord << 16) | (LoWord & 0xffff));

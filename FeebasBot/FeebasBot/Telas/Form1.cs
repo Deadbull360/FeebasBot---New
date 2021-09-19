@@ -40,6 +40,7 @@ namespace FeebasBot
             Setting.clicklock = false;
             //if (Setting.login != "") Login();
             Setting.GameName = win32.GetActiveWindowTitle();
+            textBox1.Text = Setting.GameName;
             //IntPtr bothandle = win32.FindWindow("otPokemon", null + "Bot");
             //if (bothandle != IntPtr.Zero) { MessageBox.Show("Renomeie o Client Anteior antes de abrir mais um bot!"); Application.Exit(); }
             this.Text = "svchost";
@@ -197,6 +198,8 @@ namespace FeebasBot
         private void bStart_Click(object sender, EventArgs e)
         {
             Mem.Memory();
+            Chat.CheckChat();
+            if (Setting.Chat == 1186) MessageBox.Show("Você está com o chat Padrão focado, troque para o chat do servidor \n para que a detecção funcione corretamente");
             Setting.LastX = Setting.charx;
             Setting.LastY = Setting.chary;
             if (Setting.TrocarDePokemon == 1) { Troca.Start(); }
@@ -357,6 +360,22 @@ namespace FeebasBot
             {
                 info.Show();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                IntPtr otpHandle = win32.FindWindow("otPokemon", null);
+                Setting.GameName = textBox1.Text;
+                win32.SetWindowText(otpHandle, Setting.GameName);
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Enabled == true) textBox1.Enabled = false;
+            else textBox1.Enabled = true;
         }
     }
 }
