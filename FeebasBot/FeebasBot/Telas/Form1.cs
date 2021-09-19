@@ -30,6 +30,7 @@ namespace FeebasBot
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
             Setting.version = 1;
             updater.update();
             Mem.startmem();
@@ -208,7 +209,7 @@ namespace FeebasBot
             Setting.Kill = false;
             Pescando = false;
             Pescou = false;
-            bStart.BackColor = Color.Green;
+            bStart.ForeColor = Color.Green;
             Setting.PlayerOnScreen = false;
             Setting.Running = true;
             Run.Start();
@@ -224,7 +225,7 @@ namespace FeebasBot
             Setting.Kill = true;
             Run.Stop();
             Troca.Stop();
-            bStart.BackColor = Color.Red;
+            bStart.ForeColor = Color.Red;
         }
         void start()
         {
@@ -275,7 +276,7 @@ namespace FeebasBot
                 Setting.Kill = true;
                 Run.Stop();
                 Troca.Stop();
-                bStart.BackColor = Color.Red;
+                bStart.ForeColor = Color.Red;
                 //FormsV.playSound("alarm.wav");
                 if (Setting.CaveChat == 1 || Setting.CavePlayer == 1)
                 {
@@ -314,7 +315,7 @@ namespace FeebasBot
                 Setting.Kill = true;
                 Troca.Stop();
                 Run.Stop();
-                bStart.BackColor = Color.Red;
+                bStart.ForeColor = Color.Red;
                 //FormsV.playSound("alarm.wav");
                 if (Setting.CaveChat == 1 || Setting.CavePlayer == 1)
                 {
@@ -336,7 +337,7 @@ namespace FeebasBot
                 Setting.Kill = true;
                 Troca.Stop();
                 Run.Stop();
-                bStart.BackColor = Color.Red;
+                bStart.ForeColor = Color.Red;
             }
         }
 

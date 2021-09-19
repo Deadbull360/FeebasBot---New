@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FeebasBot.Classes;
+using System;
 using System.Data;
 using System.Data.SQLite;
 
@@ -10,10 +11,30 @@ namespace csharp_Sqlite
 
         public DalHelper()
         { }
+        public static void createfile(string nome)
+        {
+            try
+            {
+                SQLiteConnection.CreateFile(@nome);
+                SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=" + nome + ";Version=3;");
+                m_dbConnection.Open();
+
+                string sql = "CREATE TABLE IF NOT EXISTS cbot(id int, Comando Char(255), X int(100), Y int(100), Option Char(100))";
+
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                command.ExecuteNonQuery();
+
+                m_dbConnection.Close();
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
         private static SQLiteConnection DbConnection()
         {
-            sqliteConnection = new SQLiteConnection("Data Source=cavebot.sqlite; Version=3;");
+            sqliteConnection = new SQLiteConnection("Data Source= " + Setting.cavefile + "; Version=3;");
             sqliteConnection.Open();
             return sqliteConnection;
         }

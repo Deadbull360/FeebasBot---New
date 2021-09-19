@@ -119,6 +119,12 @@ namespace FeebasBot.Forms
                             nw.down();
                             Thread.Sleep(Setting.waytime);
                         }
+                        Mem.Memory();
+                        if (Setting.charx != Convert.ToInt32(view.Rows[iexec].Cells[2].Value) && Setting.chary != Convert.ToInt32(view.Rows[iexec].Cells[3].Value))
+                        {
+                            iexec -= 1;
+                            break;
+                        }
                     }
                     break;
                 case "Left":
@@ -155,16 +161,52 @@ namespace FeebasBot.Forms
                     Thread.Sleep(Convert.ToInt32(view.Rows[iexec].Cells[4].Value) * 1000);
                     break;
                 case "LClick":
+                    Thread.Sleep(200);
+                    Mem.Memory();
                     if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
-                    win32.LeftClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
-                    Thread.Sleep(200);
+                    if (view.Rows[iexec - 1].Cells[1].Value.ToString() == "Waypoint")
+                    {
+                        if (Setting.charx == Convert.ToInt32(view.Rows[iexec - 1].Cells[2].Value) && Setting.chary == Convert.ToInt32(view.Rows[iexec - 1].Cells[3].Value))
+                        {
+                            win32.LeftClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
+                            Thread.Sleep(200);
+                        }
+                        else
+                        {
+                            iexec -= 2;
+                            break;
+                        }
+                    }                    
+                    else
+                    {
+                        win32.LeftClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
+                        Thread.Sleep(200);
+                    }
                     break;
                 case "RClick":
+                    Thread.Sleep(200);
+                    Mem.Memory();
                     if (stop == true) { Thread.CurrentThread.Abort(); }
                     //win32.SetForegroundWindow(otpHandle);
-                    win32.RightClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
-                    Thread.Sleep(200);
+                    if (view.Rows[iexec - 1].Cells[1].Value.ToString() == "Waypoint")
+                    {
+                        if (Setting.charx == Convert.ToInt32(view.Rows[iexec - 1].Cells[2].Value) && Setting.chary == Convert.ToInt32(view.Rows[iexec - 1].Cells[3].Value))
+                        {
+                            win32.RightClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
+                            Thread.Sleep(200);
+                        }
+                        else
+                        {
+                            iexec -= 2;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        win32.RightClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
+                        Thread.Sleep(200);
+                    }
                     break;
                 case "Message":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
@@ -344,6 +386,7 @@ namespace FeebasBot.Forms
 
         private void CaveBot_Load(object sender, EventArgs e)
         {
+            this.Name = Rdn.Radn().ToString();
             if (Setting.PausarNoTarget == 1) { cPauseTarget.Checked = true; }
             otpHandle = win32.FindWindow("otPokemon", null);
             view.DataSource = DalHelper.GetClientes();
@@ -434,7 +477,7 @@ namespace FeebasBot.Forms
             z = 1;
             colorrod = GrabPixel(Setting.RodX, Setting.RodY);
             stop = false;
-            iexec = 0;
+            //iexec = 0;
             //for (iexec = 0; iexec < view.RowCount; iexec++)
             //{
             Thread thread = new Thread(exec);
@@ -698,6 +741,42 @@ namespace FeebasBot.Forms
             DalHelper.Add(idatual, "Waypoint", Setting.charx, Setting.chary, "");
             idatual++;
             update();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            otpHandle = win32.FindWindow("otPokemon", null);
+            z = 1;
+            colorrod = GrabPixel(Setting.RodX, Setting.RodY);
+            stop = false;
+            iexec = 0;
+            //for (iexec = 0; iexec < view.RowCount; iexec++)
+            //{
+            Thread thread = new Thread(exec);
+            thread.Start();
+            //}
+
+        }
+
+        private void loadcave_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Setting.cavefile = loadcave.FileName.ToString();
+        }
+
+        private void load_Click(object sender, EventArgs e)
+        {
+            loadcave.ShowDialog();
+            view.DataSource = DalHelper.GetClientes();
+            //this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            createnew.ShowDialog();
+            DalHelper.createfile(createnew.FileName.ToString() + ".sqlite");
+            Setting.cavefile = createnew.FileName.ToString() + ".sqlite";
+            view.DataSource = DalHelper.GetClientes();
         }
     }
 }

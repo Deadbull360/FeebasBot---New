@@ -37,6 +37,7 @@
             this.btnDown = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.wButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnTP = new System.Windows.Forms.Button();
@@ -60,7 +61,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.wButton = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.loadcave = new System.Windows.Forms.OpenFileDialog();
+            this.load = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.createnew = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.view)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -134,6 +139,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button8);
+            this.panel1.Controls.Add(this.load);
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.wButton);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnLogout);
@@ -161,6 +169,16 @@
             this.panel1.Size = new System.Drawing.Size(243, 346);
             this.panel1.TabIndex = 7;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // wButton
+            // 
+            this.wButton.Location = new System.Drawing.Point(3, 89);
+            this.wButton.Name = "wButton";
+            this.wButton.Size = new System.Drawing.Size(75, 23);
+            this.wButton.TabIndex = 24;
+            this.wButton.Text = "Waypoint";
+            this.wButton.UseVisualStyleBackColor = true;
+            this.wButton.Click += new System.EventHandler(this.wButton_Click);
             // 
             // button1
             // 
@@ -324,7 +342,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 148);
+            this.pictureBox1.Location = new System.Drawing.Point(53, 147);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(152, 132);
             this.pictureBox1.TabIndex = 8;
@@ -387,15 +405,44 @@
             this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // wButton
+            // button7
             // 
-            this.wButton.Location = new System.Drawing.Point(3, 89);
-            this.wButton.Name = "wButton";
-            this.wButton.Size = new System.Drawing.Size(75, 23);
-            this.wButton.TabIndex = 24;
-            this.wButton.Text = "Waypoint";
-            this.wButton.UseVisualStyleBackColor = true;
-            this.wButton.Click += new System.EventHandler(this.wButton_Click);
+            this.button7.Location = new System.Drawing.Point(161, 266);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 25;
+            this.button7.Text = "Do Inicio";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // loadcave
+            // 
+            this.loadcave.FileName = "openFileDialog1";
+            this.loadcave.FileOk += new System.ComponentModel.CancelEventHandler(this.loadcave_FileOk);
+            // 
+            // load
+            // 
+            this.load.Location = new System.Drawing.Point(3, 246);
+            this.load.Name = "load";
+            this.load.Size = new System.Drawing.Size(75, 23);
+            this.load.TabIndex = 26;
+            this.load.Text = "Carregar";
+            this.load.UseVisualStyleBackColor = true;
+            this.load.Click += new System.EventHandler(this.load_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(3, 217);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 27;
+            this.button8.Text = "Novo";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // createnew
+            // 
+            this.createnew.CheckFileExists = false;
             // 
             // CaveBot
             // 
@@ -458,5 +505,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button wButton;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.OpenFileDialog loadcave;
+        private System.Windows.Forms.Button load;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.OpenFileDialog createnew;
     }
 }

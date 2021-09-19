@@ -7,6 +7,7 @@ namespace FeebasBot.Classes
     public sealed class Setting
     {
         public static int fish { get; set; }
+        public static string cavefile { get; set; }
         public static int attacked { get; set; }
         public static int waytime{ get; set; }
         public static int FocusMove { get; set; }
@@ -234,6 +235,7 @@ namespace FeebasBot.Classes
                 "FocusMove : " + Setting.FocusMove,
                 "waytime : " + Setting.waytime,
                 "attacked : " + Setting.attacked,
+                "cavefile : " + Setting.cavefile,
             };
 
             // Write the string array to a new file named "WriteLines.txt".
