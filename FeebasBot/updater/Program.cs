@@ -36,8 +36,8 @@ namespace updater
                 Thread.Sleep(200);
             }
             Console.Clear();
-            Console.WriteLine("Download completado!, pressione enter para atualizar!");
-            Console.ReadLine();
+            Console.WriteLine("Downloading: 100%");
+            Console.WriteLine("Extraindo");
             string zipPath = @"update.zip";
             string extractPath = @".";
             Thread.Sleep(2000);
