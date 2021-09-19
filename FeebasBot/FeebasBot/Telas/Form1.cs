@@ -30,6 +30,7 @@ namespace FeebasBot
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Setting.version = 1;
             updater.update();
             Mem.startmem();
             Mem.Fish();
@@ -376,6 +377,13 @@ namespace FeebasBot
         {
             if (textBox1.Enabled == true) textBox1.Enabled = false;
             else textBox1.Enabled = true;
+        }
+
+        private void memory_Tick(object sender, EventArgs e)
+        {
+            Thread mem = new Thread(Mem.Memory);
+            //if (!mem.IsAlive) mem.Start();
+            mem.Start();
         }
     }
 }

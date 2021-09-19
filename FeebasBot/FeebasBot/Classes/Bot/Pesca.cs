@@ -13,7 +13,7 @@ namespace FeebasBot.Classes.Bot
         public static bool Pescar()
         {
             bool pescou = false;
-            Mem.Memory();
+            //Mem.Memory();
             Mem.Fish();
             Chat.CheckChat();
             if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
@@ -82,7 +82,7 @@ namespace FeebasBot.Classes.Bot
                 }
                 Thread.Sleep(200);
                 //salva a posição do char
-                Mem.Memory();
+                //Mem.Memory();
                 Setting.LastX = Setting.charx;
                 Setting.LastY = Setting.chary;
                 Thread.Sleep(200);
@@ -104,7 +104,7 @@ namespace FeebasBot.Classes.Bot
                     //se o tempo limite passar quebrar o loop
                     else break;
                 }
-                Mem.Memory();
+                //Mem.Memory();
                 //se a posicão do char for a mesma
                 if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
                 {

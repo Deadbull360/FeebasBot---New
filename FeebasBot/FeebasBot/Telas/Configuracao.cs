@@ -17,6 +17,8 @@ namespace FeebasBot.Telas
 
         private void basescreen_Load(object sender, EventArgs e)
         {
+            if (Setting.waytime == 0) Setting.waytime = 130;
+            waytime.Value = Setting.waytime;
             if (Setting.attacktime < 200) Setting.attacktime = 200;
             if (Setting.PodeUsarLooting == 0) cLoot.Enabled = false;
             numericUpDown1.Value = Setting.attacktime;
@@ -831,6 +833,11 @@ namespace FeebasBot.Telas
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (cFocusMove.Checked == true) { Setting.FocusMove = 1; } else { Setting.FocusMove = 0; }
+        }
+
+        private void waytime_ValueChanged(object sender, EventArgs e)
+        {
+            Setting.waytime = int.Parse(waytime.Value.ToString());
         }
     }
 }

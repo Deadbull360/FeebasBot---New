@@ -42,6 +42,7 @@ namespace updater
             string extractPath = @".";
             Thread.Sleep(2000);
             System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, extractPath, true);
+            Thread.Sleep(2000);
             File.Delete("update.zip");
         }
     }

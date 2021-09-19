@@ -86,19 +86,29 @@ namespace FeebasBot.Classes.Bot
 
         public static void Memory()
         {
-            if (Setting.BaseAddress != IntPtr.Zero)
-            {
-                //VAMemory memory = new VAMemory("otpgl");
-                //int finalAddress = memory.ReadInt32((IntPtr)Setting.BaseAddress + 0x00116004);
-                int finalAddress = ReadMemory<int>((int)Setting.BaseAddress + 0x00116004);
-                //Setting.charx = memory.ReadInt32((IntPtr)finalAddress + 0x1C);
-                //Setting.chary = memory.ReadInt32((IntPtr)finalAddress + 0x20);
-                Setting.charx = ReadMemory<int>((int)finalAddress + 0x1C);
-                Setting.chary = ReadMemory<int>((int)finalAddress + 0x20);
-                Thread.Sleep(50);
-            }
+            Position();
+            Ping();
+            HP();
+        }
+        public static void Position()
+        {
+            int finalAddress = ReadMemory<int>((int)Setting.BaseAddress + 0x00116004);
+            Setting.charx = ReadMemory<int>((int)finalAddress + 0x1C);
+            Setting.chary = ReadMemory<int>((int)finalAddress + 0x20);
         }
 
+        public static void Ping()
+        {
+            int pingfinal = ReadMemory<int>((int)Setting.BaseAddress + 0x00067E48); //
+            Setting.Ping = ReadMemory<int>((int)pingfinal + 0x0);
+        }
+
+        public static void HP()
+        {
+            int hpfinal = ReadMemory<int>((int)Setting.BaseAddress + 0x00A76A60); //
+            Setting.CharHP = ReadMemory<double>((int)hpfinal + 0x4E8);
+            Setting.CharHPMax = ReadMemory<double>((int)hpfinal + 0x4F0);
+        }
 
         public static void Fish()
         {

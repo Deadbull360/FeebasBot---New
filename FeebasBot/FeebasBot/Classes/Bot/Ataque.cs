@@ -152,6 +152,7 @@ namespace FeebasBot.Classes.Bot
                 if (targeting == false && vivo == true)
                 {
                     if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
+                    Setting.attacked += 1;
                     win32.LeftClick(Setting.BattleX, Setting.BattleY);
                     if (Setting.tries < Setting.triestotal)
                     {

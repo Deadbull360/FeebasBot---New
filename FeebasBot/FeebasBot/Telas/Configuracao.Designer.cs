@@ -147,6 +147,9 @@
             this.cCatch = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cChatStop = new System.Windows.Forms.CheckBox();
+            this.waytime = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabFunction.SuspendLayout();
@@ -167,6 +170,7 @@
             this.tabpoke.SuspendLayout();
             this.tabCatch.SuspendLayout();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.waytime)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -234,6 +238,9 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label27);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Controls.Add(this.waytime);
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.cCaveChat);
             this.panel6.Controls.Add(this.cCavePlayer);
@@ -1425,6 +1432,7 @@
             this.cRandom.TabIndex = 16;
             this.cRandom.Text = "Lugar Aleatório";
             this.cRandom.UseVisualStyleBackColor = true;
+            this.cRandom.CheckedChanged += new System.EventHandler(this.cRandom_CheckedChanged);
             // 
             // cPescar
             // 
@@ -1512,6 +1520,48 @@
             this.cChatStop.UseVisualStyleBackColor = true;
             this.cChatStop.CheckedChanged += new System.EventHandler(this.cChatStop_CheckedChanged);
             // 
+            // waytime
+            // 
+            this.waytime.Location = new System.Drawing.Point(111, 55);
+            this.waytime.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.waytime.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.waytime.Name = "waytime";
+            this.waytime.Size = new System.Drawing.Size(42, 20);
+            this.waytime.TabIndex = 12;
+            this.waytime.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.waytime.ValueChanged += new System.EventHandler(this.waytime_ValueChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 57);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Delay dos waypoints:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(3, 77);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(236, 78);
+            this.label27.TabIndex = 14;
+            this.label27.Text = "Recomendado: 130\r\nNumero menor: cavebot mais rapido\r\nNumero maior: cavebot mais l" +
+    "ento\r\n\r\n*cuidado, muito rapido, o bot pode andar errado*\r\n\r\n";
+            // 
             // Configuracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1562,6 +1612,7 @@
             this.tabCatch.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.waytime)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1686,5 +1737,8 @@
         private System.Windows.Forms.CheckBox cCatch;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox cChatStop;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown waytime;
+        private System.Windows.Forms.Label label27;
     }
 }

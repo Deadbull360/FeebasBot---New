@@ -66,13 +66,11 @@ namespace FeebasBot.Forms
                 default:
                     break;
                 case "Waypoint":
-                    int timee = 75;
                     //nw.reset();
                     int ix = Convert.ToInt32(view.Rows[iexec].Cells[2].Value);
                     int iy = Convert.ToInt32(view.Rows[iexec].Cells[3].Value);
                     int nx, ny, lx, ly;
                     int max = 5;
-                    Mem.Memory();
                     while (Setting.charx != ix | Setting.chary != iy)
                     {
                         if (stop == true) { Thread.CurrentThread.Abort(); }
@@ -84,7 +82,7 @@ namespace FeebasBot.Forms
                                 Thread.Sleep(0);
                                 Verificacoes.Targetando();
                             }
-                        }
+                        }                        
                         if (Setting.charx < ix)
                         {
                             lx = Setting.charx;
@@ -92,7 +90,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Right}");
                             nw.right();
-                            Thread.Sleep(timee);
+                            Thread.Sleep(Setting.waytime);
                         }
                         if (Setting.charx > ix)
                         {
@@ -101,7 +99,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Left}");
                             nw.left();
-                            Thread.Sleep(timee);
+                            Thread.Sleep(Setting.waytime);
                         }
                         if (Setting.chary > iy)
                         {
@@ -110,7 +108,7 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Up}");
                             nw.up();
-                            Thread.Sleep(timee);
+                            Thread.Sleep(Setting.waytime);
                         }
                         if (Setting.chary < iy)
                         {
@@ -119,9 +117,8 @@ namespace FeebasBot.Forms
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Down}");
                             nw.down();
-                            Thread.Sleep(timee);
+                            Thread.Sleep(Setting.waytime);
                         }
-                        Mem.Memory();
                     }
                     break;
                 case "Left":
@@ -692,9 +689,8 @@ namespace FeebasBot.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Mem.Memory();
-            label1.Text = "X: " + Setting.charx;
-            label2.Text = "Y: " + Setting.chary;
+                label1.Text = "X: " + Setting.charx;
+                label2.Text = "Y: " + Setting.chary;
         }
 
         private void wButton_Click(object sender, EventArgs e)

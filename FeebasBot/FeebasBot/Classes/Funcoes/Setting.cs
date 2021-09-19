@@ -7,6 +7,8 @@ namespace FeebasBot.Classes
     public sealed class Setting
     {
         public static int fish { get; set; }
+        public static int attacked { get; set; }
+        public static int waytime{ get; set; }
         public static int FocusMove { get; set; }
         public static int FocusChat { get; set; }
         public static int Chat { get; set; }
@@ -15,10 +17,14 @@ namespace FeebasBot.Classes
         public static int result { get; set; }
         public static int offsett { get; set; }
         public static int final { get; set; }
-        public static int PokeHP { get; set; }
-        public static int CharHP { get; set; }
+        public static int Ping { get; set; }
+        public static double PokeHP { get; set; }
+        public static double CharHP { get; set; }
+        public static double CharHPMax { get; set; }
         public static int charx { get; set; }
+        public static int charxc { get; set; }
         public static int chary { get; set; }
+        public static int charyc { get; set; }
         public static int LastX { get; set; }
         public static int LastY { get; set; }
         public static int newversion { get; set; }
@@ -226,6 +232,8 @@ namespace FeebasBot.Classes
                 "version : " + Setting.version,
                 "FocusChat : " + Setting.FocusChat,
                 "FocusMove : " + Setting.FocusMove,
+                "waytime : " + Setting.waytime,
+                "attacked : " + Setting.attacked,
             };
 
             // Write the string array to a new file named "WriteLines.txt".

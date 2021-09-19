@@ -1,4 +1,5 @@
 ﻿using FeebasBot.Classes;
+using FeebasBot.Classes.Bot;
 using System;
 using System.Windows.Forms;
 
@@ -13,10 +14,13 @@ namespace FeebasBot.Telas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //Mem.Memory();
+            attacked.Text = "Pokemons atacados: " + Setting.attacked;
+            ping.Text = "Ping: " +Setting.Ping.ToString();
             X.Text = "Char X: " + Setting.charx;
             Y.Text = "Char Y: " + Setting.chary;
             PokeHP.Text = "PokeHP: " + Setting.PokeHP;
-            CharHP.Text = "CharHP: " + Setting.CharHP;
+            CharHP.Text = "CharHP: " + Setting.CharHP + "/" + Setting.CharHPMax;
             string f = "";
             if (Setting.fish == 5632) f = "Oculto";
             if (Setting.fish == 1536) f = "Esperando";
@@ -37,6 +41,11 @@ namespace FeebasBot.Telas
                 win32.ReleaseCapture();
                 win32.SendMessage(Handle, win32.WM_NCLBUTTONDOWN, win32.HT_CAPTION, 0);
             }
+        }
+
+        private void Info_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,6 +45,7 @@
             this.Troca = new System.Windows.Forms.Timer(this.components);
             this.stop = new System.Windows.Forms.Timer(this.components);
             this.binfo = new System.Windows.Forms.Button();
+            this.memory = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,6 +196,12 @@
             this.binfo.UseVisualStyleBackColor = true;
             this.binfo.Click += new System.EventHandler(this.binfo_Click);
             // 
+            // memory
+            // 
+            this.memory.Enabled = true;
+            this.memory.Interval = 200;
+            this.memory.Tick += new System.EventHandler(this.memory_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +245,7 @@
         private System.Windows.Forms.Button binfo;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Timer memory;
     }
 }
 
