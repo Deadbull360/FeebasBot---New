@@ -30,6 +30,7 @@ namespace FeebasBot
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Mem.Battle();
             if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
             Setting.version = 1;
             updater.update();

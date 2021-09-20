@@ -7,6 +7,7 @@ namespace FeebasBot.Classes
     public sealed class Setting
     {
         public static int fish { get; set; }
+        public static int direction { get; set; }
         public static string cavefile { get; set; }
         public static int attacked { get; set; }
         public static int waytime{ get; set; }
