@@ -70,15 +70,17 @@ namespace FeebasBot.Classes.Bot
         static int[] dx_fishoffset = new int[] { 0x0, 0x4, 0x28, 0x0, 0x14, 0x138, 0x30, 0x0, 0x18, 0xD8 };
         #endregion
 
-        public static Process[] processes = Process.GetProcessesByName("otpgl");
+        public static Process[] processes = null;
         public static void startmem()
         {
+            bool open = false;
             string ProcessName = "otpgl";
             if (Process.GetProcessesByName(ProcessName).Length > 0)
             {
                 m_Process = Process.GetProcessesByName(ProcessName)[0];
                 m_pProcessHandle = OpenProcess(PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE, false, m_Process.Id); // Sets Our ProcessHandle
                 Setting.BaseAddress = (IntPtr)GetModuleAdress("otpgl");
+                processes = Process.GetProcessesByName("otpgl");
                 hp = gl_hp;
                 hpoff = gl_hpoff;
                 hpmaxoff = gl_hpmaxoff;
@@ -92,40 +94,36 @@ namespace FeebasBot.Classes.Bot
                 chatoffset = gl_chatoffset;
                 chat = gl_chat;
                 fish = gl_fish;
+                open = true;
             }
-            else
+
+            ProcessName = "otpdx";
+            if (Process.GetProcessesByName(ProcessName).Length > 0)
             {
-                ProcessName = "otpdx";
-                if (Process.GetProcessesByName(ProcessName).Length > 0)
-                {
-                    m_Process = Process.GetProcessesByName(ProcessName)[0];
-                    m_pProcessHandle = OpenProcess(PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE, false, m_Process.Id); // Sets Our ProcessHandle
-                    Setting.BaseAddress = (IntPtr)GetModuleAdress("otpdx");
-                    hp = dx_hp;
-                    hpoff = dx_hpoff;
-                    hpmaxoff = dx_hpmaxoff;
-                    ping = dx_ping;
-                    position = dx_position;
-                    ping = dx_ping;
-                    pingoff = dx_pingoff;
-                    xoff = dx_xoff;
-                    yoff = dx_yoff;
-                    fishoffset = dx_fishoffset;
-                    chatoffset = dx_chatoffset;
-                    chat = dx_chat;
-                    fish = dx_fish;
-                    //MessageBox.Show(xoff.ToString());
-                }
-                else
-                {
-                    MessageBox.Show("Cliente não encontrado", "Process not found!", MessageBoxButtons.OK);
-                    Environment.Exit(1);
-                }
+                m_Process = Process.GetProcessesByName(ProcessName)[0];
+                m_pProcessHandle = OpenProcess(PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE, false, m_Process.Id); // Sets Our ProcessHandle
+                Setting.BaseAddress = (IntPtr)GetModuleAdress("otpdx");
+                processes = Process.GetProcessesByName("otpdx");
+                hp = dx_hp;
+                hpoff = dx_hpoff;
+                hpmaxoff = dx_hpmaxoff;
+                ping = dx_ping;
+                position = dx_position;
+                ping = dx_ping;
+                pingoff = dx_pingoff;
+                xoff = dx_xoff;
+                yoff = dx_yoff;
+                fishoffset = dx_fishoffset;
+                chatoffset = dx_chatoffset;
+                chat = dx_chat;
+                fish = dx_fish;
+                open = true;
             }
-
-            
-            
-
+            if (!open)
+            {
+                MessageBox.Show("Cliente não encontrado", "Process not found!", MessageBoxButtons.OK);
+                Environment.Exit(1);
+            }
         }
 
         #region memory
