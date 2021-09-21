@@ -12,6 +12,8 @@ namespace FeebasBot.Forms
 {
     public partial class CaveBot : Form
     {
+        static int timerx, timery;
+
         [DllImport("user32.dll")]
         static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
         const uint WM_KEYDOWN = 0x0100;
@@ -777,6 +779,29 @@ namespace FeebasBot.Forms
             DalHelper.createfile(createnew.FileName.ToString() + ".sqlite");
             Setting.cavefile = createnew.FileName.ToString() + ".sqlite";
             view.DataSource = DalHelper.GetClientes();
+        }
+
+        private void autopoint_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (autopoint.Checked) {
+                timerx = Setting.charx;
+                timery = Setting.chary;
+                waytimer.Start(); 
+            }
+            else waytimer.Stop();
+        }
+
+        private void waytimer_Tick(object sender, EventArgs e)
+        {
+            if(Setting.charx != timerx | Setting.chary != timery)
+            {
+                timerx = Setting.charx;
+                timery = Setting.chary;
+                DalHelper.Add(idatual, "Waypoint", Setting.charx, Setting.chary, "");
+                idatual++;
+                update();
+            }
         }
     }
 }
