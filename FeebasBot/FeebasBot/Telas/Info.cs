@@ -14,6 +14,8 @@ namespace FeebasBot.Telas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            this.Name = Rdn.randomname();
+            this.Text = this.Name;
             //Mem.Memory();
             attacked.Text = "Pokemons atacados: " + Setting.attacked;
             ping.Text = "Ping: " +Setting.Ping.ToString();

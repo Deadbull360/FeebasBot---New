@@ -388,7 +388,8 @@ namespace FeebasBot.Forms
 
         private void CaveBot_Load(object sender, EventArgs e)
         {
-            this.Name = Rdn.Radn().ToString();
+            this.Name = Rdn.randomname();
+            this.Text = this.Name;
             if (Setting.PausarNoTarget == 1) { cPauseTarget.Checked = true; }
             otpHandle = win32.FindWindow("otPokemon", null);
             view.DataSource = DalHelper.GetClientes();

@@ -1,5 +1,6 @@
 ﻿using FeebasBot.Classes;
 using FeebasBot.Classes.Bot;
+using FeebasBot.Classes.Funcoes;
 //using MySql.Data.MySqlClient;
 using System;
 using System.Drawing;
@@ -17,6 +18,8 @@ namespace FeebasBot.Telas
 
         private void basescreen_Load(object sender, EventArgs e)
         {
+            this.Name = Rdn.randomname();
+            this.Text = this.Name;
             if (Setting.waytime == 0) Setting.waytime = 130;
             waytime.Value = Setting.waytime;
             if (Setting.attacktime < 200) Setting.attacktime = 200;
