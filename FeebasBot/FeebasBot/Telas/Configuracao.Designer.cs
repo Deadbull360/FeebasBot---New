@@ -150,6 +150,8 @@
             this.ManualConfig = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.fullhitcheck = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabPesca.SuspendLayout();
@@ -171,6 +173,7 @@
             this.tabFunction.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).BeginInit();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -181,7 +184,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 39);
+            this.panel1.Size = new System.Drawing.Size(408, 39);
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.basescreen_MouseDown);
             // 
@@ -216,11 +219,12 @@
             this.bPlayer2.Controls.Add(this.tabTrocaPoke);
             this.bPlayer2.Controls.Add(this.tabCatch);
             this.bPlayer2.Controls.Add(this.tabFunction);
+            this.bPlayer2.Controls.Add(this.tabPage1);
             this.bPlayer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bPlayer2.Location = new System.Drawing.Point(0, 39);
             this.bPlayer2.Name = "bPlayer2";
             this.bPlayer2.SelectedIndex = 0;
-            this.bPlayer2.Size = new System.Drawing.Size(376, 262);
+            this.bPlayer2.Size = new System.Drawing.Size(408, 262);
             this.bPlayer2.TabIndex = 2;
             // 
             // tabPesca
@@ -239,7 +243,7 @@
             this.tabPesca.Location = new System.Drawing.Point(4, 22);
             this.tabPesca.Name = "tabPesca";
             this.tabPesca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPesca.Size = new System.Drawing.Size(368, 236);
+            this.tabPesca.Size = new System.Drawing.Size(400, 236);
             this.tabPesca.TabIndex = 0;
             this.tabPesca.Text = "Pesca";
             this.tabPesca.UseVisualStyleBackColor = true;
@@ -417,7 +421,7 @@
             this.tabAtk.Location = new System.Drawing.Point(4, 22);
             this.tabAtk.Name = "tabAtk";
             this.tabAtk.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAtk.Size = new System.Drawing.Size(375, 236);
+            this.tabAtk.Size = new System.Drawing.Size(400, 236);
             this.tabAtk.TabIndex = 1;
             this.tabAtk.Text = "Ataque";
             this.tabAtk.UseVisualStyleBackColor = true;
@@ -807,7 +811,7 @@
             this.tabLooting.Location = new System.Drawing.Point(4, 22);
             this.tabLooting.Name = "tabLooting";
             this.tabLooting.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLooting.Size = new System.Drawing.Size(375, 236);
+            this.tabLooting.Size = new System.Drawing.Size(400, 236);
             this.tabLooting.TabIndex = 4;
             this.tabLooting.Text = "Looting";
             this.tabLooting.UseVisualStyleBackColor = true;
@@ -1097,7 +1101,7 @@
             this.tabTrocaPoke.Location = new System.Drawing.Point(4, 22);
             this.tabTrocaPoke.Name = "tabTrocaPoke";
             this.tabTrocaPoke.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTrocaPoke.Size = new System.Drawing.Size(375, 236);
+            this.tabTrocaPoke.Size = new System.Drawing.Size(400, 236);
             this.tabTrocaPoke.TabIndex = 5;
             this.tabTrocaPoke.Text = "Troca de Pokemon";
             this.tabTrocaPoke.UseVisualStyleBackColor = true;
@@ -1301,7 +1305,7 @@
             this.tabCatch.Location = new System.Drawing.Point(4, 22);
             this.tabCatch.Name = "tabCatch";
             this.tabCatch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCatch.Size = new System.Drawing.Size(375, 236);
+            this.tabCatch.Size = new System.Drawing.Size(400, 236);
             this.tabCatch.TabIndex = 6;
             this.tabCatch.Text = "Catch";
             this.tabCatch.UseVisualStyleBackColor = true;
@@ -1437,7 +1441,7 @@
             this.tabFunction.Controls.Add(this.panel6);
             this.tabFunction.Location = new System.Drawing.Point(4, 22);
             this.tabFunction.Name = "tabFunction";
-            this.tabFunction.Size = new System.Drawing.Size(375, 236);
+            this.tabFunction.Size = new System.Drawing.Size(400, 236);
             this.tabFunction.TabIndex = 2;
             this.tabFunction.Text = "Cavebot";
             this.tabFunction.UseVisualStyleBackColor = true;
@@ -1562,11 +1566,32 @@
             this.DrawPositions.Interval = 1;
             this.DrawPositions.Tick += new System.EventHandler(this.DrawPositions_Tick);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.fullhitcheck);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(400, 236);
+            this.tabPage1.TabIndex = 7;
+            this.tabPage1.Text = "Em testes";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // fullhitcheck
+            // 
+            this.fullhitcheck.AutoSize = true;
+            this.fullhitcheck.Location = new System.Drawing.Point(8, 3);
+            this.fullhitcheck.Name = "fullhitcheck";
+            this.fullhitcheck.Size = new System.Drawing.Size(206, 17);
+            this.fullhitcheck.TabIndex = 0;
+            this.fullhitcheck.Text = "full hit nos numeros em cima das letras";
+            this.fullhitcheck.UseVisualStyleBackColor = true;
+            this.fullhitcheck.CheckedChanged += new System.EventHandler(this.fullhitcheck_CheckedChanged);
+            // 
             // Configuracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 301);
+            this.ClientSize = new System.Drawing.Size(408, 301);
             this.Controls.Add(this.bPlayer2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1613,6 +1638,8 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1740,5 +1767,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown waytime;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.CheckBox fullhitcheck;
     }
 }

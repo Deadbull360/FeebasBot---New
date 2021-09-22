@@ -7,7 +7,7 @@
     <ProjectGuid>{988A8D21-00A2-408C-A68D-E927BB4AAE4C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>FeebasBot</RootNamespace>
-    <AssemblyName>explorer</AssemblyName>
+    <AssemblyName>FeebasBot</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -201,9 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="349 Feebas.ico" />
-    <Content Include="Iniciar.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\Sem título.png" />
     <None Include="Resources\Screenshot_2.png" />
     <EmbeddedResource Include="chat.wav">

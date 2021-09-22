@@ -21,6 +21,7 @@ namespace FeebasBot
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Properties.Settings.Default.Save();
             Setting.SaveSettings();
             Setting.Kill = true;
             Run.Stop();
@@ -41,13 +42,16 @@ namespace FeebasBot
                 loggedKey = e.KeyboardData.Key;
                 //int loggedVkCode = e.KeyboardData.VirtualCode;
                 //pokes
-                foreach (Keys a in pokes)
+                if (Properties.Settings.Default.fullhit)
                 {
-                    if (a == loggedKey)
+                    foreach (Keys a in pokes)
                     {
-                        Thread thread2 = new Thread(fullhit);
-                        if (!thread2.IsAlive)
-                            thread2.Start();
+                        if (a == loggedKey)
+                        {
+                            Thread thread2 = new Thread(fullhit);
+                            if (!thread2.IsAlive)
+                                thread2.Start();
+                        }
                     }
                 }
                 if(loggedKey == Keys.Escape)
@@ -71,7 +75,7 @@ namespace FeebasBot
 
             Mem.Battle();
             if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
-            if(Setting.version == 0) Setting.version = 3;
+            if(Setting.version == 0) Setting.version = 4;
             updater.update();
             Mem.startmem();
             Mem.Fish();

@@ -23,6 +23,7 @@ namespace FeebasBot.Telas
             if (Setting.waytime == 0) Setting.waytime = 130;
             waytime.Value = Setting.waytime;
             if (Setting.attacktime < 200) Setting.attacktime = 200;
+            fullhitcheck.Checked = Properties.Settings.Default.fullhit;
             if (Setting.PodeUsarLooting == 0) cLoot.Enabled = false;
             numericUpDown1.Value = Setting.attacktime;
             if (Setting.Pescar == 1) { cPescar.Checked = true; cNoStop.Enabled = true; cRandom.Enabled = true; } else { cNoStop.Enabled = false; cRandom.Enabled = false; }
@@ -841,6 +842,11 @@ namespace FeebasBot.Telas
         private void waytime_ValueChanged(object sender, EventArgs e)
         {
             Setting.waytime = int.Parse(waytime.Value.ToString());
+        }
+
+        private void fullhitcheck_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.fullhit = fullhitcheck.Checked;
         }
     }
 }
