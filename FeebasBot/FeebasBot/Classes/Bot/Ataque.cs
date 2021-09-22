@@ -7,6 +7,52 @@ namespace FeebasBot.Classes.Bot
 {
     class Ataque
     {
+        static int changetime = 1250;
+        static public void fullhit(Keys a)
+        {
+            if (a == Keys.D1)
+            {
+                win32.LeftClick(Setting.Poke1X, Setting.Poke1Y);
+                Thread.Sleep(changetime);
+                MovesSemTarget();
+                //win32.LeftClick(Setting.Poke1X, Setting.Poke1Y);
+            }
+            if (a == Keys.D2)
+            {
+                win32.LeftClick(Setting.Poke2X, Setting.Poke2Y);
+                Thread.Sleep(changetime);
+                MovesSemTarget();
+                // win32.LeftClick(Setting.Poke2X, Setting.Poke2Y);
+            }
+            if (a == Keys.D3)
+            {
+                win32.LeftClick(Setting.Poke3X, Setting.Poke3Y);
+                Thread.Sleep(changetime);
+                MovesSemTarget();
+                //win32.LeftClick(Setting.Poke3X, Setting.Poke3Y);
+            }
+            if (a == Keys.D4)
+            {
+                win32.LeftClick(Setting.Poke4X, Setting.Poke4Y);
+                Thread.Sleep(changetime);
+                MovesSemTarget();
+                // win32.LeftClick(Setting.Poke4X, Setting.Poke4Y);
+            }
+            if (a == Keys.D5)
+            {
+                win32.LeftClick(Setting.Poke5X, Setting.Poke5Y);
+                Thread.Sleep(changetime);
+                MovesSemTarget();
+                //win32.LeftClick(Setting.Poke5X, Setting.Poke5Y);
+            }
+            if (a == Keys.D6)
+            {
+                win32.LeftClick(Setting.Poke6X, Setting.Poke6Y);
+                Thread.Sleep(changetime);
+                MovesSemTarget();
+                //win32.LeftClick(Setting.Poke6X, Setting.Poke6Y);
+            }
+        }
 
         public static bool ConfigurarAtaque(int x, int y)
         {
@@ -293,25 +339,86 @@ namespace FeebasBot.Classes.Bot
         }
         public static void MovesSemTarget()
         {
-            if (Setting.m1 == 1) { win32.SendKeys(Keys.F1); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m2 == 1) { win32.SendKeys(Keys.F2); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m3 == 1) { win32.SendKeys(Keys.F3); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m4 == 1) { win32.SendKeys(Keys.F4); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m5 == 1) { win32.SendKeys(Keys.F5); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m6 == 1) { win32.SendKeys(Keys.F6); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m7 == 1) { win32.SendKeys(Keys.F7); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m8 == 1) { win32.SendKeys(Keys.F8); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m9 == 1) { win32.SendKeys(Keys.F9); }
-            Thread.Sleep(Setting.attacktime);
-            if (Setting.m10 == 1) { win32.SendKeys(Keys.F10); }
+            if (Setting.m1 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F1, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F1, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m2 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F2, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F2, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m3 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F3, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F3, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m4 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F4, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F4, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m5 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F5, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F5, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m6 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F6, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F6, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m7 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F7, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F7, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m8 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F8, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F8, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m9 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F9, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F10, 0);
+                }
+            }
+            //Thread.Sleep(Setting.attacktime);
+            if (Setting.m10 == 1) {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F10, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F10, 0);
+                }
+            }
+            //Thread.Sleep(2000);
         }
     }
 }

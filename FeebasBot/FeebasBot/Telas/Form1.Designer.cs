@@ -205,7 +205,6 @@
             // 
             // stop
             // 
-            this.stop.Enabled = true;
             this.stop.Tick += new System.EventHandler(this.stop_Tick);
             // 
             // binfo

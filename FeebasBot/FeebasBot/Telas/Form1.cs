@@ -28,8 +28,47 @@ namespace FeebasBot
             //win32.SetWindowText(otpHandle, "otPokemon");
         }
 
+        private GlobalKeyboardHook _globalKeyboardHook;
+        static Keys loggedKey = Keys.None;
+        static Keys[] pokes = new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6};
+        private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
+        {
+            // EDT: No need to filter for VkSnapshot anymore. This now gets handled
+            // through the constructor of GlobalKeyboardHook(...).
+            if (e.KeyboardState == GlobalKeyboardHook.KeyboardState.KeyDown)
+            {
+                //salva tecla apertada
+                loggedKey = e.KeyboardData.Key;
+                //int loggedVkCode = e.KeyboardData.VirtualCode;
+                //pokes
+                foreach (Keys a in pokes)
+                {
+                    if (a == loggedKey)
+                    {
+                        Thread thread2 = new Thread(fullhit);
+                        if (!thread2.IsAlive)
+                            thread2.Start();
+                    }
+                }
+                if(loggedKey == Keys.Escape)
+                {
+                    Setting.Kill = true;
+                    Run.Stop();
+                    Troca.Stop();
+                    bStart.ForeColor = Color.Red;
+                }
+            }
+        }
+        void fullhit()
+        {
+            Ataque.fullhit(loggedKey);
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            _globalKeyboardHook = new GlobalKeyboardHook(new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.Escape });
+            _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
+
             Mem.Battle();
             if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
             if(Setting.version == 0) Setting.version = 3;
@@ -46,7 +85,7 @@ namespace FeebasBot
             textBox1.Text = Setting.GameName;
             //IntPtr bothandle = win32.FindWindow("otPokemon", null + "Bot");
             //if (bothandle != IntPtr.Zero) { MessageBox.Show("Renomeie o Client Anteior antes de abrir mais um bot!"); Application.Exit(); }
-            this.Name = Rdn.randomname();
+            this.Name = "explorer";
             this.Text = this.Name;
             IntPtr otphandle = win32.FindWindow("otPokemon", null);
             //if (otphandle == IntPtr.Zero) { MessageBox.Show("otPokemon não está aberto!"); Application.Exit(); }
@@ -298,8 +337,6 @@ namespace FeebasBot
         {
             Thread chatmem = new Thread(Mem.Chat);
             if (!chatmem.IsAlive) chatmem.Start();
-            this.Name = Rdn.randomname();
-            this.Text = this.Name;
             //label1.Text = "Feebasbot";
             //if (Setting.GameName != "otPokemon") { label1.Text = Setting.GameName; }
             string a = "Clique duas vezes para abrir a janela do bot!\nChar: " + Setting.GameName;
@@ -335,13 +372,13 @@ namespace FeebasBot
 
         private void stop_Tick(object sender, EventArgs e)
         {
-            if (MousePosition.X == 0 && MousePosition.Y == 0)
-            {
-                Setting.Kill = true;
-                Troca.Stop();
-                Run.Stop();
-                bStart.ForeColor = Color.Red;
-            }
+            //if (MousePosition.X == 0 && MousePosition.Y == 0)
+            //{
+            //    Setting.Kill = true;
+            //    Troca.Stop();
+            //    Run.Stop();
+            //    bStart.ForeColor = Color.Red;
+            //}
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

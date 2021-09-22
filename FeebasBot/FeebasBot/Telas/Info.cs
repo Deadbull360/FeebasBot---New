@@ -1,5 +1,6 @@
 ﻿using FeebasBot.Classes;
 using FeebasBot.Classes.Bot;
+using FeebasBot.Classes.Funcoes;
 using System;
 using System.Windows.Forms;
 
@@ -14,9 +15,7 @@ namespace FeebasBot.Telas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.Name = Rdn.randomname();
-            this.Text = this.Name;
-            //Mem.Memory();
+            lastlabel.Text = "label: " +Setting.LastLabel;            
             attacked.Text = "Pokemons atacados: " + Setting.attacked;
             ping.Text = "Ping: " +Setting.Ping.ToString();
             X.Text = "Char X: " + Setting.charx;
@@ -47,7 +46,13 @@ namespace FeebasBot.Telas
 
         private void Info_Load(object sender, EventArgs e)
         {
+            this.Name = Rdn.randomname();
+            this.Text = this.Name;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

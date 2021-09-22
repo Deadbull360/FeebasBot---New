@@ -92,7 +92,14 @@ namespace FeebasBot.Classes.Funcoes
                 catch { }
             }
             Setting.newversion = int.Parse(File.ReadAllText("up.txt"));
-            File.Delete("up.txt");
+            try
+            {
+                File.Delete("up.txt");
+            }
+            catch (Exception)
+            {
+            }
+            
             if (Setting.newversion > Setting.version)
             {
                 if (int.Parse(getOSInfo()) > 7)

@@ -358,6 +358,9 @@ namespace FeebasBot.Forms
                         }
                     }
                     break;
+                case "Label":
+                    Setting.LastLabel = view.Rows[iexec].Cells[4].Value.ToString();
+                    break;
             }
             if (Setting.PausarNoTarget == 1)
             {
