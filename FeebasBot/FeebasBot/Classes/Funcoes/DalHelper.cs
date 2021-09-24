@@ -150,16 +150,15 @@ namespace csharp_Sqlite
             {
                 using (var cmd = new SQLiteCommand(DbConnection()))
                 {
-                    if (id != null)
-                    {
-                        cmd.CommandText = "UPDATE cbot SET Comando=@Comando, X=@X, Y=@Y, Option=@Option WHERE Id=@id";
-                        cmd.Parameters.AddWithValue("@id", id);
-                        cmd.Parameters.AddWithValue("@Comando", Comando);
-                        cmd.Parameters.AddWithValue("@X", X);
-                        cmd.Parameters.AddWithValue("@Y", Y);
-                        cmd.Parameters.AddWithValue("@Option", Option);
-                        cmd.ExecuteNonQuery();
-                    }
+
+                    cmd.CommandText = "UPDATE cbot SET Comando=@Comando, X=@X, Y=@Y, Option=@Option WHERE Id=@id";
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@Comando", Comando);
+                    cmd.Parameters.AddWithValue("@X", X);
+                    cmd.Parameters.AddWithValue("@Y", Y);
+                    cmd.Parameters.AddWithValue("@Option", Option);
+                    cmd.ExecuteNonQuery();
+
                 };
             }
             catch (Exception ex)

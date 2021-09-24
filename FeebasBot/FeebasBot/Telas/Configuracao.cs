@@ -848,5 +848,10 @@ namespace FeebasBot.Telas
         {
             Properties.Settings.Default.fullhit = fullhitcheck.Checked;
         }
+
+        private void autoconfig_Click(object sender, EventArgs e)
+        {
+            Ataque.autoconfig();
+        }
     }
 }

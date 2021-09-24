@@ -54,6 +54,150 @@ namespace FeebasBot.Classes.Bot
             }
         }
 
+
+
+
+        public static void autoconfig()
+        {
+            Mem.BattleXY();
+            int x = Setting.bx, y = Setting.by;
+            bool hp = false;
+            int maxy = y + 100;
+            bool stop = false;
+            bool found = false;
+            string color = getpixel.GrabPixel(x, y);
+            win32.MoveMouse(x, y);
+            //Cursor.Position = new System.Drawing.Point(x, y);
+            //int ax = Cursor.Position.X, ay = Cursor.Position.Y;
+            while (color != "0")
+            {
+                //Cursor.Position = new Point(ax, ay);
+                win32.MoveMouse(x, y);
+                if (y >= maxy)
+                {
+                    stop = true;
+                    break;
+                }
+                else
+                {
+                    y++;
+                }
+                color = getpixel.GrabPixel(x, y);
+                if (color == "0")
+                {
+                    found = true;
+                    break;
+                }
+            }
+            while (color == "0")
+            {
+                if (stop)
+                {
+                    found = true;
+                    break;
+                }
+                x--;
+                color = getpixel.GrabPixel(x, y);
+                if (color != "0")
+                {
+                    break;
+                }
+            }
+            x++;
+            if (stop == false)
+            {
+                Setting.BattleX = x;
+                Setting.BattleY = y;
+                Setting.TargetX = x;
+                Setting.TargetY = y;
+                Setting.TargetX2 = x;
+                Setting.TargetY2 = y;
+                //MessageBox.Show("Barra de HP Salva!");
+                hp = true;
+            }
+            else
+            {
+                //MessageBox.Show("Barra de HP não encontrada!");
+            }
+            // "16777215"
+            #region Target
+            if (hp)
+            {
+                hp = false;
+                //DialogResult dialogResult = MessageBox.Show("Deseja tentar a configuração automatica da Batalha?\nCOLOQUE A OPACIDADE EM 100% PARA FUNCIONAR!!!", "Info", MessageBoxButtons.YesNo);
+
+                //Cursor.Position = new Point(ax, ay);
+                //Cursor.Position = new System.Drawing.Point(x, y);
+                #region target1
+                x = Setting.TargetX;
+                y = Setting.TargetY;
+                int maxx = x - 100;
+                stop = false;
+                found = false;
+                win32.MoveMouse(Setting.BattleX, Setting.BattleY);
+                Thread.Sleep(200);
+                color = getpixel.GrabPixel(x, y);
+                while (color != "16777215")
+                {
+                    if (x <= maxx)
+                    {
+                        stop = true;
+                        MessageBox.Show("Pixel não encontrado, tente novamente, ou faça manualmente!");
+                        break;
+                    }
+                    else
+                    {
+                        x--;
+                    }
+                    color = getpixel.GrabPixel(x, y);
+                    if (color == "16777215")
+                    {
+                        found = true;
+                        Setting.TargetX = x;
+                        hp = true;
+                        break;
+                    }
+                }
+                #endregion
+                #region Target2
+                x = Setting.TargetX;
+                y = Setting.TargetY2;
+                maxy = y - 20;
+                stop = false;
+                found = false;
+                win32.MoveMouse(Setting.BattleX, Setting.BattleY);
+                color = getpixel.GrabPixel(x, y);
+                if (hp)
+                {
+                    while (color != "2298123")
+                    {
+                        if (y <= maxy)
+                        {
+                            stop = true;
+                            MessageBox.Show("Pixel não encontrado, tente novamente, ou faça manualmente!");
+                            break;
+                        }
+                        else
+                        {
+                            y--;
+                        }
+                        color = getpixel.GrabPixel(x, y);
+                        if (color == "2298123")
+                        {
+                            found = true;
+                            Setting.TargetY2 = y + 1;
+                            Setting.TargetX2 = x;
+                            MessageBox.Show("Batalha Configurada!");
+                            break;
+                        }
+                    }
+                }
+                #endregion
+
+            }
+            #endregion
+        }
+
         public static bool ConfigurarAtaque(int x, int y)
         {
             bool hp = false;
@@ -61,9 +205,13 @@ namespace FeebasBot.Classes.Bot
             bool stop = false;
             bool found = false;
             string color = getpixel.GrabPixel(x, y);
+            win32.MoveMouse(x, y);
             Cursor.Position = new System.Drawing.Point(x, y);
+            //int ax = Cursor.Position.X, ay = Cursor.Position.Y;
             while (color != "0")
             {
+                //Cursor.Position = new Point(ax, ay);
+                win32.MoveMouse(x, y);
                 if (y >= maxy)
                 {
                     stop = true;
@@ -118,6 +266,7 @@ namespace FeebasBot.Classes.Bot
                 DialogResult dialogResult = MessageBox.Show("Deseja tentar a configuração automatica da Batalha?\nCOLOQUE A OPACIDADE EM 100% PARA FUNCIONAR!!!", "Info", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    //Cursor.Position = new Point(ax, ay);
                     Cursor.Position = new System.Drawing.Point(x, y);
                     #region target1
                     x = Setting.TargetX;
@@ -187,6 +336,12 @@ namespace FeebasBot.Classes.Bot
             }
             #endregion
             return found;
+        }
+
+        public static void fuckthisgunk()
+        {
+            win32.LeftClick(Setting.BattleX, Setting.BattleY);
+            MovesSemTarget();
         }
         public static void Atacar()
         {
@@ -339,7 +494,8 @@ namespace FeebasBot.Classes.Bot
         }
         public static void MovesSemTarget()
         {
-            if (Setting.m1 == 1) {
+            if (Setting.m1 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F1, 0);
@@ -347,7 +503,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m2 == 1) {
+            if (Setting.m2 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F2, 0);
@@ -355,7 +512,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m3 == 1) {
+            if (Setting.m3 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F3, 0);
@@ -363,7 +521,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m4 == 1) {
+            if (Setting.m4 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F4, 0);
@@ -371,7 +530,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m5 == 1) {
+            if (Setting.m5 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F5, 0);
@@ -379,7 +539,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m6 == 1) {
+            if (Setting.m6 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F6, 0);
@@ -387,7 +548,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m7 == 1) {
+            if (Setting.m7 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F7, 0);
@@ -395,7 +557,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m8 == 1) {
+            if (Setting.m8 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F8, 0);
@@ -403,7 +566,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m9 == 1) {
+            if (Setting.m9 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F9, 0);
@@ -411,7 +575,8 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(Setting.attacktime);
-            if (Setting.m10 == 1) {
+            if (Setting.m10 == 1)
+            {
                 foreach (Process proc in Mem.processes)
                 {
                     nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F10, 0);

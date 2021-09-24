@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FeebasBot.Classes.Funcoes;
+using FeebasBot.Properties;
+using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
@@ -7,6 +9,24 @@ namespace FeebasBot.Classes.Bot
 {
     class Pesca
     {
+
+        static public void minus(int x, int y)
+        {
+            foreach (Process proc in Mem.processes)
+            {
+                SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(x, y)); // clica na água
+                nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
+                int xa = x;
+                while (xa != x - 10)
+                {
+                    SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(xa, y)); // clica na água
+                    xa -= 1;
+                }
+                Thread.Sleep(400);
+                nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
+            }
+        }
+
         static System.IntPtr otpHandle = win32.FindWindow("otPokemon", null);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         static extern int SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
@@ -113,6 +133,7 @@ namespace FeebasBot.Classes.Bot
                     {
                         //total de pescas
                         Setting.pescados += 1;
+                        FormsV.playResource(Resources.agua1);
                         //ativar vara e clicar na agua
                         foreach (Process proc in Mem.processes)
                         {

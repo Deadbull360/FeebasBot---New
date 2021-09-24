@@ -71,8 +71,7 @@ namespace FeebasBot.Forms
                     //nw.reset();
                     int ix = Convert.ToInt32(view.Rows[iexec].Cells[2].Value);
                     int iy = Convert.ToInt32(view.Rows[iexec].Cells[3].Value);
-                    int nx, ny, lx, ly;
-                    int max = 5;
+                    
                     while (Setting.charx != ix | Setting.chary != iy)
                     {
                         if (stop == true) { Thread.CurrentThread.Abort(); }
@@ -87,7 +86,7 @@ namespace FeebasBot.Forms
                         }                        
                         if (Setting.charx < ix)
                         {
-                            lx = Setting.charx;
+                          
                             //win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Right}");
@@ -96,7 +95,7 @@ namespace FeebasBot.Forms
                         }
                         if (Setting.charx > ix)
                         {
-                            lx = Setting.charx;
+                         
                             //win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Left}");
@@ -105,7 +104,7 @@ namespace FeebasBot.Forms
                         }
                         if (Setting.chary > iy)
                         {
-                            ly = Setting.charx;
+                            
                             // win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Up}");
@@ -114,7 +113,7 @@ namespace FeebasBot.Forms
                         }
                         if (Setting.chary < iy)
                         {
-                            ly = Setting.charx;
+                          
                             //win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Down}");

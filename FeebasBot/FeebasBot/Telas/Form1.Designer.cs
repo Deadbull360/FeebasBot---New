@@ -229,7 +229,7 @@
             // memory
             // 
             this.memory.Enabled = true;
-            this.memory.Interval = 200;
+            this.memory.Interval = 300;
             this.memory.Tick += new System.EventHandler(this.memory_Tick);
             // 
             // panel1

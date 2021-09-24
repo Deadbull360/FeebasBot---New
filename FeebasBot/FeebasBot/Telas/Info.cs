@@ -15,6 +15,9 @@ namespace FeebasBot.Telas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Mem.BattleXY();
+            mouse.Text = "Mouse X: " + MousePosition.X + " Y: " + MousePosition.Y;
+            battle.Text = "Battle X: " + Setting.bx + " Y: " + Setting.by;
             lastlabel.Text = "label: " +Setting.LastLabel;            
             attacked.Text = "Pokemons atacados: " + Setting.attacked;
             ping.Text = "Ping: " +Setting.Ping.ToString();

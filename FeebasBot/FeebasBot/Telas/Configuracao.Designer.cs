@@ -147,11 +147,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cCaveChat = new System.Windows.Forms.CheckBox();
             this.cCavePlayer = new System.Windows.Forms.CheckBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.fullhitcheck = new System.Windows.Forms.CheckBox();
             this.ManualConfig = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.fullhitcheck = new System.Windows.Forms.CheckBox();
+            this.autoconfig = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabPesca.SuspendLayout();
@@ -411,6 +412,7 @@
             // 
             // tabAtk
             // 
+            this.tabAtk.Controls.Add(this.autoconfig);
             this.tabAtk.Controls.Add(this.panel4);
             this.tabAtk.Controls.Add(this.cSemTarget);
             this.tabAtk.Controls.Add(this.cAtacar);
@@ -595,11 +597,6 @@
             this.numericUpDown1.Location = new System.Drawing.Point(3, 24);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             2000,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            200,
             0,
             0,
             0});
@@ -1550,22 +1547,6 @@
             this.cCavePlayer.UseVisualStyleBackColor = true;
             this.cCavePlayer.CheckedChanged += new System.EventHandler(this.cCavePlayer_CheckedChanged);
             // 
-            // ManualConfig
-            // 
-            this.ManualConfig.Interval = 200;
-            this.ManualConfig.Tick += new System.EventHandler(this.ManualConfig_Tick);
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // DrawPositions
-            // 
-            this.DrawPositions.Interval = 1;
-            this.DrawPositions.Tick += new System.EventHandler(this.DrawPositions_Tick);
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.fullhitcheck);
@@ -1586,6 +1567,32 @@
             this.fullhitcheck.Text = "full hit nos numeros em cima das letras";
             this.fullhitcheck.UseVisualStyleBackColor = true;
             this.fullhitcheck.CheckedChanged += new System.EventHandler(this.fullhitcheck_CheckedChanged);
+            // 
+            // ManualConfig
+            // 
+            this.ManualConfig.Interval = 200;
+            this.ManualConfig.Tick += new System.EventHandler(this.ManualConfig_Tick);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // DrawPositions
+            // 
+            this.DrawPositions.Interval = 1;
+            this.DrawPositions.Tick += new System.EventHandler(this.DrawPositions_Tick);
+            // 
+            // autoconfig
+            // 
+            this.autoconfig.Location = new System.Drawing.Point(223, 209);
+            this.autoconfig.Name = "autoconfig";
+            this.autoconfig.Size = new System.Drawing.Size(174, 23);
+            this.autoconfig.TabIndex = 22;
+            this.autoconfig.Text = "Tentar configuração automatica";
+            this.autoconfig.UseVisualStyleBackColor = true;
+            this.autoconfig.Click += new System.EventHandler(this.autoconfig_Click);
             // 
             // Configuracao
             // 
@@ -1769,5 +1776,6 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckBox fullhitcheck;
+        private System.Windows.Forms.Button autoconfig;
     }
 }

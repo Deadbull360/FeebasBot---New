@@ -24,8 +24,12 @@ namespace FeebasBot.Classes.Bot
         static int yoff = 0;
         static int fish = 0;
         static int chat = 0;
+        static int battlex = 0;
+        static int battley = 0;
         static int[] fishoffset = { 0 };
         static int[] chatoffset = { 0 };
+        static int[] battlexoff = { 0 };
+        static int[] battleyoff = { 0 };
         #endregion
         //static int a = 0;
         //static int a = 0;
@@ -48,13 +52,19 @@ namespace FeebasBot.Classes.Bot
         //peixe
         static int gl_fish = 0x00A77424;
         static int[] gl_fishoffset = new int[] { 0x0, 0x4, 0x28, 0x0, 0x14, 0x138, 0x30, 0x0, 0x18, 0xD8 };
+        //batalha x y
+        static int gl_battlex = 0x0;
+        static int[] gl_battlexoff= new int[] { 0x0 };
+        static int gl_battley = 0x0;
+        static int[] gl_battleyoff = new int[] { 0x0 };
         #endregion
 
         #region Offsets DirectX
         //position
-        static int dx_position = 0x00122E28;
-        static int dx_xoff = 0x0;
-        static int dx_yoff = 0x4;
+        //static int dx_position = 0x00122E28;
+        static int dx_position = 0x00A4BFF0;
+        static int dx_xoff = 0x308;
+        static int dx_yoff = 0x30C;
         //hp
         static int dx_hp = 0x00A4BFF0;
         static int dx_hpoff = 0x4E8;
@@ -68,6 +78,11 @@ namespace FeebasBot.Classes.Bot
         //peixe
         static int dx_fish = 0x00A4C9B4;
         static int[] dx_fishoffset = new int[] { 0x0, 0x4, 0x28, 0x0, 0x14, 0x138, 0x30, 0x0, 0x18, 0xD8 };
+        //batalha x y
+        static int dx_battlex = 0x00A4C9B4;
+        static int[] dx_battlexoff = new int[] { 0x40, 0x4, 0x28, 0x3C, 0x1C, 0x1A8, 0x28, 0x78, 0x38, 0x1E4 };
+        static int dx_battley = 0x00A4C9B4;
+        static int[] dx_battleyoff = new int[] { 0x8, 0x0, 0x28, 0x14, 0x4C, 0xC8, 0x40, 0x90, 0x0, 0x160 };
         #endregion
 
         public static Process[] processes = null;
@@ -94,6 +109,11 @@ namespace FeebasBot.Classes.Bot
                 chatoffset = gl_chatoffset;
                 chat = gl_chat;
                 fish = gl_fish;
+                battlex = gl_battlex;
+                battlexoff = gl_battlexoff;
+                battley = gl_battley;
+                battleyoff = gl_battleyoff;
+                Setting.game = "opengl";
                 open = true;
             }
 
@@ -117,6 +137,11 @@ namespace FeebasBot.Classes.Bot
                 chatoffset = dx_chatoffset;
                 chat = dx_chat;
                 fish = dx_fish;
+                battlex = dx_battlex;
+                battlexoff = dx_battlexoff;
+                battley = dx_battley;
+                battleyoff = dx_battleyoff;
+                Setting.game = "directx";
                 open = true;
             }
             if (!open)
@@ -197,6 +222,23 @@ namespace FeebasBot.Classes.Bot
             int finalAddress = ReadMemory<int>((int)Setting.BaseAddress + position);
             Setting.charx = ReadMemory<int>((int)finalAddress + xoff);
             Setting.chary = ReadMemory<int>((int)finalAddress + yoff);
+        }
+
+        public static void BattleXY()
+        {
+            IntPtr pointerx = IntPtr.Add((IntPtr)ReadMemory<int>((int)Setting.BaseAddress + battlex), battlexoff[0]);
+            for (int i = 1; i < chatoffset.Length; i++)
+            {
+                pointerx = IntPtr.Add((IntPtr)ReadMemory<int>((int)pointerx), battlexoff[i]);
+            }
+            Setting.bx= ReadMemory<int>((int)pointerx);
+
+            IntPtr pointery = IntPtr.Add((IntPtr)ReadMemory<int>((int)Setting.BaseAddress + battley), battleyoff[0]);
+            for (int i = 1; i < chatoffset.Length; i++)
+            {
+                pointery = IntPtr.Add((IntPtr)ReadMemory<int>((int)pointery), battleyoff[i]);
+            }
+            Setting.by = ReadMemory<int>((int)pointery);
         }
 
         public static void Ping()

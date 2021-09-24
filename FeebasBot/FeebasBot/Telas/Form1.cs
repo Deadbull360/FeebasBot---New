@@ -56,10 +56,12 @@ namespace FeebasBot
                 }
                 if(loggedKey == Keys.Escape)
                 {
-                    Setting.Kill = true;
-                    Run.Stop();
-                    Troca.Stop();
-                    bStart.ForeColor = Color.Red;
+                    //Ataque.fuckthisgunk();
+                    //Pesca.minus(MousePosition.X, MousePosition.Y);
+                    //Setting.Kill = true;
+                    //Run.Stop();
+                    //Troca.Stop();
+                    //bStart.ForeColor = Color.Red;
                 }
             }
         }

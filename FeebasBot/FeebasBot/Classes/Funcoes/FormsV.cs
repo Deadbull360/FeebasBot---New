@@ -29,6 +29,12 @@ namespace FeebasBot.Classes.Funcoes
                 player.Play();
             }
         }
+
+        public static void playResource(System.IO.Stream file)
+        {
+            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(file);
+            snd.Play();
+        }
         //#region Login
         //String firstMacAddress = NetworkInterface
         //    .GetAllNetworkInterfaces()

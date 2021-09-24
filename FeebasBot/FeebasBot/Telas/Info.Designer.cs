@@ -41,6 +41,8 @@
             this.attacked = new System.Windows.Forms.Label();
             this.lastlabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.mouse = new System.Windows.Forms.Label();
+            this.battle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CharHP
@@ -151,20 +153,43 @@
             // 
             // button1
             // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(43, 143);
+            this.button1.Location = new System.Drawing.Point(0, 206);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(130, 23);
             this.button1.TabIndex = 10;
             this.button1.Text = "Fechar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // mouse
+            // 
+            this.mouse.AutoSize = true;
+            this.mouse.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mouse.Location = new System.Drawing.Point(0, 130);
+            this.mouse.Name = "mouse";
+            this.mouse.Size = new System.Drawing.Size(17, 13);
+            this.mouse.TabIndex = 11;
+            this.mouse.Text = "X:";
+            // 
+            // battle
+            // 
+            this.battle.AutoSize = true;
+            this.battle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.battle.Location = new System.Drawing.Point(0, 143);
+            this.battle.Name = "battle";
+            this.battle.Size = new System.Drawing.Size(17, 13);
+            this.battle.TabIndex = 12;
+            this.battle.Text = "X:";
+            // 
             // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(121, 169);
+            this.ClientSize = new System.Drawing.Size(130, 229);
+            this.Controls.Add(this.battle);
+            this.Controls.Add(this.mouse);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lastlabel);
             this.Controls.Add(this.attacked);
@@ -202,5 +227,7 @@
         private System.Windows.Forms.Label attacked;
         private System.Windows.Forms.Label lastlabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label mouse;
+        private System.Windows.Forms.Label battle;
     }
 }
