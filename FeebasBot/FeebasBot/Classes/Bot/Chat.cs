@@ -57,7 +57,7 @@ namespace FeebasBot.Classes.Bot
         }
         public static void CheckChat(bool audio)
         {
-            if (Setting.Chat == 1216 && audio == true) FormsV.playSound("chat.wav");
+            if (Setting.Chat == 1216 && audio == true) FormsV.playSound("chat.wav", true);
         }
     }
 }

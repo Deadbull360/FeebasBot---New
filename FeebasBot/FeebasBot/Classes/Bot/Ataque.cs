@@ -192,6 +192,10 @@ namespace FeebasBot.Classes.Bot
                         }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Barra de HP não encontrada, tente novamente, ou faça manualmente!");
+                }
                 #endregion
 
             }
@@ -341,7 +345,12 @@ namespace FeebasBot.Classes.Bot
         public static void fuckthisgunk()
         {
             win32.LeftClick(Setting.BattleX, Setting.BattleY);
-            MovesSemTarget();
+            foreach (Process proc in Mem.processes)
+            {
+                nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F1, 0);
+                nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F4, 0);
+                nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F5, 0);
+            }
         }
         public static void Atacar()
         {

@@ -19,14 +19,18 @@ namespace FeebasBot.Classes.Funcoes
             }
             return false;
         }
-        public static void playSound(string path)
+        public static void playSound(string path, bool state)
         {
             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
             player.SoundLocation = path;
             if (File.Exists(path))
             {
-                player.Load();
-                player.Play();
+                if (state)
+                {
+                    player.Load();
+                    player.Play();
+                }
+                else player.Stop();
             }
         }
 

@@ -7,6 +7,7 @@ namespace FeebasBot.Classes
     public sealed class Setting
     {
         public static int bx { get; set; }
+        public static int pokespace { get; set; }
         public static int by{ get; set; }
         public static string LastLabel { get; set; }
         public static string game { get; set; }

@@ -45,11 +45,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAgua = new System.Windows.Forms.Button();
-            this.btnPeixe = new System.Windows.Forms.Button();
             this.tabAtk = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ManualUp = new System.Windows.Forms.Button();
             this.ManualLeft = new System.Windows.Forms.Button();
@@ -82,10 +81,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.autoconfig = new System.Windows.Forms.Button();
             this.tabLooting = new System.Windows.Forms.TabPage();
             this.cLoot = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.bSave = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -149,10 +148,12 @@
             this.cCavePlayer = new System.Windows.Forms.CheckBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.fullhitcheck = new System.Windows.Forms.CheckBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ManualConfig = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
-            this.autoconfig = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabPesca.SuspendLayout();
@@ -175,6 +176,7 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -185,16 +187,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(408, 39);
+            this.panel1.Size = new System.Drawing.Size(376, 39);
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.basescreen_MouseDown);
             // 
             // bClose
             // 
+            this.bClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.bClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bClose.Location = new System.Drawing.Point(336, 9);
+            this.bClose.Location = new System.Drawing.Point(352, 0);
             this.bClose.Name = "bClose";
-            this.bClose.Size = new System.Drawing.Size(24, 24);
+            this.bClose.Size = new System.Drawing.Size(24, 39);
             this.bClose.TabIndex = 1;
             this.bClose.Text = "X";
             this.bClose.UseVisualStyleBackColor = true;
@@ -203,9 +206,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(3, -7);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 20);
             this.label1.TabIndex = 0;
@@ -221,11 +225,12 @@
             this.bPlayer2.Controls.Add(this.tabCatch);
             this.bPlayer2.Controls.Add(this.tabFunction);
             this.bPlayer2.Controls.Add(this.tabPage1);
+            this.bPlayer2.Controls.Add(this.tabPage2);
             this.bPlayer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bPlayer2.Location = new System.Drawing.Point(0, 39);
             this.bPlayer2.Name = "bPlayer2";
             this.bPlayer2.SelectedIndex = 0;
-            this.bPlayer2.Size = new System.Drawing.Size(408, 262);
+            this.bPlayer2.Size = new System.Drawing.Size(376, 264);
             this.bPlayer2.TabIndex = 2;
             // 
             // tabPesca
@@ -244,7 +249,7 @@
             this.tabPesca.Location = new System.Drawing.Point(4, 22);
             this.tabPesca.Name = "tabPesca";
             this.tabPesca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPesca.Size = new System.Drawing.Size(400, 236);
+            this.tabPesca.Size = new System.Drawing.Size(368, 238);
             this.tabPesca.TabIndex = 0;
             this.tabPesca.Text = "Pesca";
             this.tabPesca.UseVisualStyleBackColor = true;
@@ -262,7 +267,7 @@
             // cChatStop
             // 
             this.cChatStop.AutoSize = true;
-            this.cChatStop.Location = new System.Drawing.Point(157, 211);
+            this.cChatStop.Location = new System.Drawing.Point(6, 181);
             this.cChatStop.Name = "cChatStop";
             this.cChatStop.Size = new System.Drawing.Size(178, 17);
             this.cChatStop.TabIndex = 7;
@@ -273,7 +278,7 @@
             // cFocusMove
             // 
             this.cFocusMove.AutoSize = true;
-            this.cFocusMove.Location = new System.Drawing.Point(6, 211);
+            this.cFocusMove.Location = new System.Drawing.Point(6, 165);
             this.cFocusMove.Name = "cFocusMove";
             this.cFocusMove.Size = new System.Drawing.Size(145, 17);
             this.cFocusMove.TabIndex = 14;
@@ -284,7 +289,7 @@
             // cFocusChat
             // 
             this.cFocusChat.AutoSize = true;
-            this.cFocusChat.Location = new System.Drawing.Point(6, 194);
+            this.cFocusChat.Location = new System.Drawing.Point(6, 148);
             this.cFocusChat.Name = "cFocusChat";
             this.cFocusChat.Size = new System.Drawing.Size(184, 17);
             this.cFocusChat.TabIndex = 13;
@@ -295,7 +300,7 @@
             // cRandom
             // 
             this.cRandom.AutoSize = true;
-            this.cRandom.Location = new System.Drawing.Point(6, 177);
+            this.cRandom.Location = new System.Drawing.Point(6, 131);
             this.cRandom.Name = "cRandom";
             this.cRandom.Size = new System.Drawing.Size(97, 17);
             this.cRandom.TabIndex = 16;
@@ -306,7 +311,7 @@
             // cNoStop
             // 
             this.cNoStop.AutoSize = true;
-            this.cNoStop.Location = new System.Drawing.Point(6, 160);
+            this.cNoStop.Location = new System.Drawing.Point(6, 114);
             this.cNoStop.Name = "cNoStop";
             this.cNoStop.Size = new System.Drawing.Size(74, 17);
             this.cNoStop.TabIndex = 15;
@@ -317,7 +322,7 @@
             // cPescar
             // 
             this.cPescar.AutoSize = true;
-            this.cPescar.Location = new System.Drawing.Point(6, 143);
+            this.cPescar.Location = new System.Drawing.Point(6, 97);
             this.cPescar.Name = "cPescar";
             this.cPescar.Size = new System.Drawing.Size(59, 17);
             this.cPescar.TabIndex = 6;
@@ -328,7 +333,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 129);
+            this.label9.Location = new System.Drawing.Point(4, 83);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(171, 13);
             this.label9.TabIndex = 10;
@@ -337,7 +342,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 116);
+            this.label8.Location = new System.Drawing.Point(4, 70);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(170, 13);
             this.label8.TabIndex = 9;
@@ -346,7 +351,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 103);
+            this.label2.Location = new System.Drawing.Point(4, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 13);
             this.label2.TabIndex = 8;
@@ -355,23 +360,12 @@
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.label4);
             this.panel11.Controls.Add(this.label3);
             this.panel11.Controls.Add(this.btnAgua);
-            this.panel11.Controls.Add(this.btnPeixe);
             this.panel11.Location = new System.Drawing.Point(6, 6);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(174, 94);
+            this.panel11.Size = new System.Drawing.Size(174, 48);
             this.panel11.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 63);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Arraste esse até o Peixe";
             // 
             // label3
             // 
@@ -396,23 +390,9 @@
             this.btnAgua.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnVara_MouseDown);
             this.btnAgua.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnAgua_MouseUp);
             // 
-            // btnPeixe
-            // 
-            this.btnPeixe.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnPeixe.BackgroundImage = global::FeebasBot.Properties.Resources.peixe1;
-            this.btnPeixe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPeixe.Image = global::FeebasBot.Properties.Resources.cursor;
-            this.btnPeixe.Location = new System.Drawing.Point(3, 49);
-            this.btnPeixe.Name = "btnPeixe";
-            this.btnPeixe.Size = new System.Drawing.Size(40, 40);
-            this.btnPeixe.TabIndex = 2;
-            this.btnPeixe.UseVisualStyleBackColor = false;
-            this.btnPeixe.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnVara_MouseDown);
-            this.btnPeixe.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnPeixe_MouseUp);
-            // 
             // tabAtk
             // 
-            this.tabAtk.Controls.Add(this.autoconfig);
+            this.tabAtk.Controls.Add(this.label4);
             this.tabAtk.Controls.Add(this.panel4);
             this.tabAtk.Controls.Add(this.cSemTarget);
             this.tabAtk.Controls.Add(this.cAtacar);
@@ -420,14 +400,24 @@
             this.tabAtk.Controls.Add(this.panel8);
             this.tabAtk.Controls.Add(this.panel5);
             this.tabAtk.Controls.Add(this.panel3);
+            this.tabAtk.Controls.Add(this.autoconfig);
             this.tabAtk.Location = new System.Drawing.Point(4, 22);
             this.tabAtk.Name = "tabAtk";
             this.tabAtk.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAtk.Size = new System.Drawing.Size(400, 236);
+            this.tabAtk.Size = new System.Drawing.Size(368, 238);
             this.tabAtk.TabIndex = 1;
             this.tabAtk.Text = "Ataque";
             this.tabAtk.UseVisualStyleBackColor = true;
             this.tabAtk.Click += new System.EventHandler(this.tabAtk_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(170, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(189, 26);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Coloque a opacidade em 100%\r\nnas configurações do jogo -> Interface\r\n";
             // 
             // panel4
             // 
@@ -798,17 +788,26 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Arraste esse até \r\no primeiro nome na tela de batalha";
             // 
+            // autoconfig
+            // 
+            this.autoconfig.Location = new System.Drawing.Point(189, 210);
+            this.autoconfig.Name = "autoconfig";
+            this.autoconfig.Size = new System.Drawing.Size(174, 23);
+            this.autoconfig.TabIndex = 22;
+            this.autoconfig.Text = "Tentar configuração automatica";
+            this.autoconfig.UseVisualStyleBackColor = true;
+            this.autoconfig.Click += new System.EventHandler(this.autoconfig_Click);
+            // 
             // tabLooting
             // 
             this.tabLooting.Controls.Add(this.cLoot);
             this.tabLooting.Controls.Add(this.label33);
-            this.tabLooting.Controls.Add(this.button1);
             this.tabLooting.Controls.Add(this.panel10);
             this.tabLooting.Controls.Add(this.panel9);
             this.tabLooting.Location = new System.Drawing.Point(4, 22);
             this.tabLooting.Name = "tabLooting";
             this.tabLooting.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLooting.Size = new System.Drawing.Size(400, 236);
+            this.tabLooting.Size = new System.Drawing.Size(368, 238);
             this.tabLooting.TabIndex = 4;
             this.tabLooting.Text = "Looting";
             this.tabLooting.UseVisualStyleBackColor = true;
@@ -829,19 +828,10 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(173, 132);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(162, 39);
+            this.label33.Size = new System.Drawing.Size(186, 52);
             this.label33.TabIndex = 19;
-            this.label33.Text = "Para usar o Looting é necessario\r\nestar com o jogo no modo\r\ncom bordas";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(270, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Testar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label33.Text = "Para usar o Looting é necessario\r\nestar com a Tela Extendida Desligada\r\nnas confi" +
+    "gurações,\r\nou pressionando \"Ctrl + .\"\r\n";
             // 
             // panel10
             // 
@@ -1098,7 +1088,7 @@
             this.tabTrocaPoke.Location = new System.Drawing.Point(4, 22);
             this.tabTrocaPoke.Name = "tabTrocaPoke";
             this.tabTrocaPoke.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTrocaPoke.Size = new System.Drawing.Size(400, 236);
+            this.tabTrocaPoke.Size = new System.Drawing.Size(368, 238);
             this.tabTrocaPoke.TabIndex = 5;
             this.tabTrocaPoke.Text = "Troca de Pokemon";
             this.tabTrocaPoke.UseVisualStyleBackColor = true;
@@ -1302,7 +1292,7 @@
             this.tabCatch.Location = new System.Drawing.Point(4, 22);
             this.tabCatch.Name = "tabCatch";
             this.tabCatch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCatch.Size = new System.Drawing.Size(400, 236);
+            this.tabCatch.Size = new System.Drawing.Size(368, 238);
             this.tabCatch.TabIndex = 6;
             this.tabCatch.Text = "Catch";
             this.tabCatch.UseVisualStyleBackColor = true;
@@ -1310,11 +1300,14 @@
             // cCatch
             // 
             this.cCatch.AutoSize = true;
+            this.cCatch.Checked = true;
+            this.cCatch.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.cCatch.Enabled = false;
             this.cCatch.Location = new System.Drawing.Point(8, 6);
             this.cCatch.Name = "cCatch";
-            this.cCatch.Size = new System.Drawing.Size(114, 17);
+            this.cCatch.Size = new System.Drawing.Size(320, 17);
             this.cCatch.TabIndex = 22;
-            this.cCatch.Text = "Capturar na Pesca";
+            this.cCatch.Text = "Capturar na Pesca (Desativado até eu ter vontade de arrumar)";
             this.cCatch.UseVisualStyleBackColor = true;
             this.cCatch.CheckedChanged += new System.EventHandler(this.cCatch_CheckedChanged);
             // 
@@ -1339,6 +1332,7 @@
             this.panel12.Controls.Add(this.label31);
             this.panel12.Controls.Add(this.button10);
             this.panel12.Controls.Add(this.label32);
+            this.panel12.Enabled = false;
             this.panel12.Location = new System.Drawing.Point(8, 29);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(162, 188);
@@ -1438,7 +1432,7 @@
             this.tabFunction.Controls.Add(this.panel6);
             this.tabFunction.Location = new System.Drawing.Point(4, 22);
             this.tabFunction.Name = "tabFunction";
-            this.tabFunction.Size = new System.Drawing.Size(400, 236);
+            this.tabFunction.Size = new System.Drawing.Size(368, 238);
             this.tabFunction.TabIndex = 2;
             this.tabFunction.Text = "Cavebot";
             this.tabFunction.UseVisualStyleBackColor = true;
@@ -1552,7 +1546,7 @@
             this.tabPage1.Controls.Add(this.fullhitcheck);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(400, 236);
+            this.tabPage1.Size = new System.Drawing.Size(368, 238);
             this.tabPage1.TabIndex = 7;
             this.tabPage1.Text = "Em testes";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1567,6 +1561,28 @@
             this.fullhitcheck.Text = "full hit nos numeros em cima das letras";
             this.fullhitcheck.UseVisualStyleBackColor = true;
             this.fullhitcheck.CheckedChanged += new System.EventHandler(this.fullhitcheck_CheckedChanged);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.checkBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(368, 238);
+            this.tabPage2.TabIndex = 8;
+            this.tabPage2.Text = "Outros";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(8, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(109, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Matador de Gunk";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
             // ManualConfig
             // 
@@ -1584,21 +1600,15 @@
             this.DrawPositions.Interval = 1;
             this.DrawPositions.Tick += new System.EventHandler(this.DrawPositions_Tick);
             // 
-            // autoconfig
+            // timer2
             // 
-            this.autoconfig.Location = new System.Drawing.Point(223, 209);
-            this.autoconfig.Name = "autoconfig";
-            this.autoconfig.Size = new System.Drawing.Size(174, 23);
-            this.autoconfig.TabIndex = 22;
-            this.autoconfig.Text = "Tentar configuração automatica";
-            this.autoconfig.UseVisualStyleBackColor = true;
-            this.autoconfig.Click += new System.EventHandler(this.autoconfig_Click);
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Configuracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 301);
+            this.ClientSize = new System.Drawing.Size(376, 303);
             this.Controls.Add(this.bPlayer2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1647,6 +1657,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1659,9 +1671,7 @@
         private System.Windows.Forms.TabControl bPlayer2;
         private System.Windows.Forms.TabPage tabPesca;
         private System.Windows.Forms.TabPage tabAtk;
-        private System.Windows.Forms.Button btnPeixe;
         private System.Windows.Forms.Button btnAgua;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button ManualDown;
@@ -1706,7 +1716,6 @@
         private System.Windows.Forms.Button bPlayer;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Timer DrawPositions;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox p8;
         private System.Windows.Forms.CheckBox p7;
@@ -1777,5 +1786,9 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckBox fullhitcheck;
         private System.Windows.Forms.Button autoconfig;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

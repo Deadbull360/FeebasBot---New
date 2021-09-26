@@ -478,6 +478,7 @@ namespace FeebasBot.Forms
         }
         public void button2_Click(object sender, EventArgs e)
         {
+            autopoint.Checked = false;
             otpHandle = win32.FindWindow("otPokemon", null);
             z = 1;
             colorrod = GrabPixel(Setting.RodX, Setting.RodY);
@@ -750,7 +751,7 @@ namespace FeebasBot.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            autopoint.Checked = false;
             otpHandle = win32.FindWindow("otPokemon", null);
             z = 1;
             colorrod = GrabPixel(Setting.RodX, Setting.RodY);

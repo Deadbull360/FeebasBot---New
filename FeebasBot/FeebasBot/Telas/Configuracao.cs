@@ -663,6 +663,8 @@ namespace FeebasBot.Telas
                 Setting.Poke1Y = yn;
                 MessageBox.Show("Posição do Pokemon salva!");
             }
+            //Setting.pokespace = (Setting.Poke6Y - Setting.Poke1Y) / 6;
+            //pokexyupdate();
         }
 
         private void bPoke2_MouseUp(object sender, MouseEventArgs e)
@@ -728,6 +730,19 @@ namespace FeebasBot.Telas
                 Setting.Poke6Y = yn;
                 MessageBox.Show("Posição do Pokemon salva!");
             }
+        }
+        public static void pokexyupdate()
+        {
+            Setting.Poke2X += Setting.Poke1X;
+            Setting.Poke2X += Setting.Poke1X;
+            Setting.Poke3X += Setting.Poke1X;
+            Setting.Poke4X += Setting.Poke1X;
+            Setting.Poke5X += Setting.Poke1X;
+
+            Setting.Poke2Y += Setting.pokespace;
+            Setting.Poke3Y += Setting.pokespace + Setting.pokespace;
+            Setting.Poke4Y += Setting.pokespace + Setting.pokespace + Setting.pokespace;
+            Setting.Poke5Y += Setting.pokespace + Setting.pokespace + Setting.pokespace;
         }
 
         private void bPortrait_MouseUp(object sender, MouseEventArgs e)
@@ -852,6 +867,17 @@ namespace FeebasBot.Telas
         private void autoconfig_Click(object sender, EventArgs e)
         {
             Ataque.autoconfig();
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked) timer2.Start();
+            else timer2.Stop();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            Ataque.fuckthisgunk();
         }
     }
 }

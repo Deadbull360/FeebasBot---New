@@ -58,10 +58,14 @@ namespace FeebasBot
                 {
                     //Ataque.fuckthisgunk();
                     //Pesca.minus(MousePosition.X, MousePosition.Y);
-                    //Setting.Kill = true;
-                    //Run.Stop();
-                    //Troca.Stop();
-                    //bStart.ForeColor = Color.Red;
+                    Setting.Kill = true;
+                    Run.Stop();
+                    Troca.Stop();
+                    bStart.ForeColor = Color.Red;
+                }
+                if (loggedKey == Keys.F1)
+                {
+                    //MessageBox.Show(getpixel.GrabPixel(MousePosition.X,MousePosition.Y).ToString());
                 }
             }
         }
@@ -72,12 +76,12 @@ namespace FeebasBot
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _globalKeyboardHook = new GlobalKeyboardHook(new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.Escape });
+            _globalKeyboardHook = new GlobalKeyboardHook(new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.Escape, Keys.F1});
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
 
             Mem.Battle();
             if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
-            if(Setting.version == 0) Setting.version = 4;
+            if(Setting.version == 0) Setting.version = 5;
             updater.update();
             Mem.startmem();
             Mem.Fish();
@@ -246,20 +250,23 @@ namespace FeebasBot
         #endregion
         private void bStart_Click(object sender, EventArgs e)
         {
-            Mem.Memory();
-            Chat.CheckChat();
-            if (Setting.Chat == 1186) MessageBox.Show("Você está com o chat Padrão focado, troque para o chat do servidor \n para que a detecção funcione corretamente");
-            Setting.LastX = Setting.charx;
-            Setting.LastY = Setting.chary;
-            if (Setting.TrocarDePokemon == 1) { Troca.Start(); }
-            Setting.verificandopoke = false;
-            Setting.Kill = false;
-            Pescando = false;
-            Pescou = false;
-            bStart.ForeColor = Color.Green;
-            Setting.PlayerOnScreen = false;
-            Setting.Running = true;
-            Run.Start();
+            if (!Run.Enabled)
+            {
+                Mem.Memory();
+                Chat.CheckChat();
+                if (Setting.Chat == 1186) MessageBox.Show("Você está com o chat Padrão focado, troque para o chat do servidor \n para que a detecção funcione corretamente");
+                Setting.LastX = Setting.charx;
+                Setting.LastY = Setting.chary;
+                if (Setting.TrocarDePokemon == 1) { Troca.Start(); }
+                Setting.verificandopoke = false;
+                Setting.Kill = false;
+                Pescando = false;
+                Pescou = false;
+                bStart.ForeColor = Color.Green;
+                Setting.PlayerOnScreen = false;
+                Setting.Running = true;
+                Run.Start();
+            }
         }
         void pescar()
         {
@@ -269,6 +276,7 @@ namespace FeebasBot
         }
         private void bStop_Click(object sender, EventArgs e)
         {
+            FormsV.playSound("alarm.wav", false);
             Setting.Kill = true;
             Run.Stop();
             Troca.Stop();
@@ -324,7 +332,7 @@ namespace FeebasBot
                 Run.Stop();
                 Troca.Stop();
                 bStart.ForeColor = Color.Red;
-                //FormsV.playSound("alarm.wav");
+                FormsV.playSound("alarm.wav", true);
                 if (Setting.CaveChat == 1 || Setting.CavePlayer == 1)
                 {
                     if (Setting.LoggedIn = true && Setting.PodeUsarCaveBot == 1)
