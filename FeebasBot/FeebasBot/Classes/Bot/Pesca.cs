@@ -14,20 +14,20 @@ namespace FeebasBot.Classes.Bot
         {
             foreach (Process proc in Mem.processes)
             {
-                SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(x, y)); // clica na água
-                nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
+                SendMessage(proc.MainWindowHandle, Win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)Win32.MakeLParam(x, y)); // clica na água
+                nw.PostMessage(proc.MainWindowHandle, Win32.WM_LBUTTONDOWN, 1, 0);
                 int xa = x;
                 while (xa != x - 10)
                 {
-                    SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(xa, y)); // clica na água
+                    SendMessage(proc.MainWindowHandle, Win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)Win32.MakeLParam(xa, y)); // clica na água
                     xa -= 1;
                 }
                 Thread.Sleep(400);
-                nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
+                nw.PostMessage(proc.MainWindowHandle, Win32.WM_LBUTTONUP, 0, 0);
             }
         }
 
-        static System.IntPtr otpHandle = win32.FindWindow("otPokemon", null);
+        static readonly System.IntPtr otpHandle = Win32.FindWindow("otPokemon", null);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         static extern int SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
         public static bool Pescar()
@@ -38,7 +38,7 @@ namespace FeebasBot.Classes.Bot
             Chat.CheckChat();
             if (Setting.charx == Setting.LastX && Setting.chary == Setting.LastY)
             {
-                IntPtr handle = win32.FindWindow("otPokemon", null);
+                IntPtr handle = Win32.FindWindow("otPokemon", null);
                 int dir = 8;
                 #region random
                 Random rnd = new Random();
@@ -49,32 +49,32 @@ namespace FeebasBot.Classes.Bot
                 switch (dir)
                 {
                     case 0:
-                        wx = wx + 64; //direita
+                        wx += 64; //direita
                         break;
                     case 1:
-                        wx = wx - 64; //esquerda
+                        wx -= 64; //esquerda
                         break;
                     case 2:
-                        wy = wy + 64; // baixo
+                        wy += 64; // baixo
                         break;
                     case 3:
-                        wy = wy - 64; //cima
+                        wy -= 64; //cima
                         break;
                     case 4:
-                        wx = wx + 64; //direita
-                        wy = wy + 64; // baixo
+                        wx += 64; //direita
+                        wy += 64; // baixo
                         break;
                     case 5:
-                        wx = wx - 64; //esquerda
-                        wy = wy + 64; // baixo
+                        wx -= 64; //esquerda
+                        wy += 64; // baixo
                         break;
                     case 6:
-                        wx = wx + 64; //direita
-                        wy = wy - 64; //cima
+                        wx += 64; //direita
+                        wy -= 64; //cima
                         break;
                     case 7:
-                        wx = wx - 64; //esquerda
-                        wy = wy - 64; //cima
+                        wx -= 64; //esquerda
+                        wy -= 64; //cima
                         break;
                     case 8:
                         break;
@@ -85,7 +85,7 @@ namespace FeebasBot.Classes.Bot
                 Thread.Sleep(500);
                 if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
                 //resetar seleção
-                win32.LeftClick(0, 0);
+                Win32.LeftClick(0, 0);
                 //ativar vara
                 foreach (Process proc in Mem.processes)
                 {
@@ -96,9 +96,9 @@ namespace FeebasBot.Classes.Bot
                 //clica na agua
                 foreach (Process proc in Mem.processes)
                 {
-                    SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(wx, wy)); // clica na água
-                    nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
-                    nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
+                    SendMessage(proc.MainWindowHandle, Win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)Win32.MakeLParam(wx, wy)); // clica na água
+                    nw.PostMessage(proc.MainWindowHandle, Win32.WM_LBUTTONDOWN, 1, 0);
+                    nw.PostMessage(proc.MainWindowHandle, Win32.WM_LBUTTONUP, 0, 0);
                 }
                 Thread.Sleep(200);
                 //salva a posição do char
@@ -107,7 +107,7 @@ namespace FeebasBot.Classes.Bot
                 Setting.LastY = Setting.chary;
                 Thread.Sleep(200);
                 //reseta seleção
-                win32.LeftClick(0, 0);
+                Win32.LeftClick(0, 0);
                 //detecta estado do peixe
                 Mem.Fish();
                 while (Setting.fish != 1600) //enquanto nao estiver verde
@@ -139,9 +139,9 @@ namespace FeebasBot.Classes.Bot
                         {
                             nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.Scroll, 0);
                             nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.Scroll, 0);
-                            SendMessage(proc.MainWindowHandle, win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)win32.MakeLParam(wx, wy)); // clica na água
-                            nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONDOWN, 1, 0);
-                            nw.PostMessage(proc.MainWindowHandle, win32.WM_LBUTTONUP, 0, 0);
+                            SendMessage(proc.MainWindowHandle, Win32.WM_MOUSEMOVE, (IntPtr)1, (IntPtr)Win32.MakeLParam(wx, wy)); // clica na água
+                            nw.PostMessage(proc.MainWindowHandle, Win32.WM_LBUTTONDOWN, 1, 0);
+                            nw.PostMessage(proc.MainWindowHandle, Win32.WM_LBUTTONUP, 0, 0);
                         }
                     }
                 }
@@ -149,7 +149,7 @@ namespace FeebasBot.Classes.Bot
                 else
                 {
                     Setting.PlayerOnScreen = true;
-                    if (Setting.FocusMove == 1) win32.SetForegroundWindow(otpHandle);
+                    if (Setting.FocusMove == 1) Win32.SetForegroundWindow(otpHandle);
                 }
                 //se n precisar targetar
                 if (Setting.AtacarSemTarget == 1)

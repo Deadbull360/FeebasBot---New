@@ -15,12 +15,13 @@ namespace FeebasBot.Telas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Mem.PokeHP();
             Mem.BattleXY();
             mouse.Text = "Mouse X: " + MousePosition.X + " Y: " + MousePosition.Y;
             battle.Text = "Battle X: " + Setting.bx + " Y: " + Setting.by;
-            lastlabel.Text = "label: " +Setting.LastLabel;            
+            lastlabel.Text = "label: " + Setting.LastLabel;
             attacked.Text = "Pokemons atacados: " + Setting.attacked;
-            ping.Text = "Ping: " +Setting.Ping.ToString();
+            ping.Text = "Ping: " + Setting.Ping.ToString();
             X.Text = "Char X: " + Setting.charx;
             Y.Text = "Char Y: " + Setting.chary;
             PokeHP.Text = "PokeHP: " + Setting.PokeHP;
@@ -42,8 +43,8 @@ namespace FeebasBot.Telas
         {
             if (e.Button == MouseButtons.Left)
             {
-                win32.ReleaseCapture();
-                win32.SendMessage(Handle, win32.WM_NCLBUTTONDOWN, win32.HT_CAPTION, 0);
+                Win32.ReleaseCapture();
+                Win32.SendMessage(Handle, Win32.WM_NCLBUTTONDOWN, Win32.HT_CAPTION, 0);
             }
         }
 

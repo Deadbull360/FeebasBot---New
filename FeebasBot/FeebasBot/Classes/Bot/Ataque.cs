@@ -7,50 +7,50 @@ namespace FeebasBot.Classes.Bot
 {
     class Ataque
     {
-        static int changetime = 1250;
+        static readonly int changetime = 1250;
         static public void fullhit(Keys a)
         {
             if (a == Keys.D1)
             {
-                win32.LeftClick(Setting.Poke1X, Setting.Poke1Y);
+                Win32.LeftClick(Setting.Poke1X, Setting.Poke1Y);
                 Thread.Sleep(changetime);
                 MovesSemTarget();
-                //win32.LeftClick(Setting.Poke1X, Setting.Poke1Y);
+                //Win32.LeftClick(Setting.Poke1X, Setting.Poke1Y);
             }
             if (a == Keys.D2)
             {
-                win32.LeftClick(Setting.Poke2X, Setting.Poke2Y);
+                Win32.LeftClick(Setting.Poke2X, Setting.Poke2Y);
                 Thread.Sleep(changetime);
                 MovesSemTarget();
-                // win32.LeftClick(Setting.Poke2X, Setting.Poke2Y);
+                // Win32.LeftClick(Setting.Poke2X, Setting.Poke2Y);
             }
             if (a == Keys.D3)
             {
-                win32.LeftClick(Setting.Poke3X, Setting.Poke3Y);
+                Win32.LeftClick(Setting.Poke3X, Setting.Poke3Y);
                 Thread.Sleep(changetime);
                 MovesSemTarget();
-                //win32.LeftClick(Setting.Poke3X, Setting.Poke3Y);
+                //Win32.LeftClick(Setting.Poke3X, Setting.Poke3Y);
             }
             if (a == Keys.D4)
             {
-                win32.LeftClick(Setting.Poke4X, Setting.Poke4Y);
+                Win32.LeftClick(Setting.Poke4X, Setting.Poke4Y);
                 Thread.Sleep(changetime);
                 MovesSemTarget();
-                // win32.LeftClick(Setting.Poke4X, Setting.Poke4Y);
+                // Win32.LeftClick(Setting.Poke4X, Setting.Poke4Y);
             }
             if (a == Keys.D5)
             {
-                win32.LeftClick(Setting.Poke5X, Setting.Poke5Y);
+                Win32.LeftClick(Setting.Poke5X, Setting.Poke5Y);
                 Thread.Sleep(changetime);
                 MovesSemTarget();
-                //win32.LeftClick(Setting.Poke5X, Setting.Poke5Y);
+                //Win32.LeftClick(Setting.Poke5X, Setting.Poke5Y);
             }
             if (a == Keys.D6)
             {
-                win32.LeftClick(Setting.Poke6X, Setting.Poke6Y);
+                Win32.LeftClick(Setting.Poke6X, Setting.Poke6Y);
                 Thread.Sleep(changetime);
                 MovesSemTarget();
-                //win32.LeftClick(Setting.Poke6X, Setting.Poke6Y);
+                //Win32.LeftClick(Setting.Poke6X, Setting.Poke6Y);
             }
         }
 
@@ -66,13 +66,13 @@ namespace FeebasBot.Classes.Bot
             bool stop = false;
             bool found = false;
             string color = getpixel.GrabPixel(x, y);
-            win32.MoveMouse(x, y);
+            Win32.MoveMouse(x, y);
             //Cursor.Position = new System.Drawing.Point(x, y);
             //int ax = Cursor.Position.X, ay = Cursor.Position.Y;
             while (color != "0")
             {
                 //Cursor.Position = new Point(ax, ay);
-                win32.MoveMouse(x, y);
+                Win32.MoveMouse(x, y);
                 if (y >= maxy)
                 {
                     stop = true;
@@ -134,7 +134,7 @@ namespace FeebasBot.Classes.Bot
                 int maxx = x - 100;
                 stop = false;
                 found = false;
-                win32.MoveMouse(Setting.BattleX, Setting.BattleY);
+                Win32.MoveMouse(Setting.BattleX, Setting.BattleY);
                 Thread.Sleep(200);
                 color = getpixel.GrabPixel(x, y);
                 while (color != "16777215")
@@ -165,7 +165,7 @@ namespace FeebasBot.Classes.Bot
                 maxy = y - 20;
                 stop = false;
                 found = false;
-                win32.MoveMouse(Setting.BattleX, Setting.BattleY);
+                Win32.MoveMouse(Setting.BattleX, Setting.BattleY);
                 color = getpixel.GrabPixel(x, y);
                 if (hp)
                 {
@@ -209,13 +209,13 @@ namespace FeebasBot.Classes.Bot
             bool stop = false;
             bool found = false;
             string color = getpixel.GrabPixel(x, y);
-            win32.MoveMouse(x, y);
+            Win32.MoveMouse(x, y);
             Cursor.Position = new System.Drawing.Point(x, y);
             //int ax = Cursor.Position.X, ay = Cursor.Position.Y;
             while (color != "0")
             {
                 //Cursor.Position = new Point(ax, ay);
-                win32.MoveMouse(x, y);
+                Win32.MoveMouse(x, y);
                 if (y >= maxy)
                 {
                     stop = true;
@@ -278,7 +278,7 @@ namespace FeebasBot.Classes.Bot
                     int maxx = x - 100;
                     stop = false;
                     found = false;
-                    win32.MoveMouse(Setting.BattleX, Setting.BattleY);
+                    Win32.MoveMouse(Setting.BattleX, Setting.BattleY);
                     color = getpixel.GrabPixel(x, y);
                     while (color != "16777215")
                     {
@@ -308,7 +308,7 @@ namespace FeebasBot.Classes.Bot
                     maxy = y - 20;
                     stop = false;
                     found = false;
-                    win32.MoveMouse(Setting.BattleX, Setting.BattleY);
+                    Win32.MoveMouse(Setting.BattleX, Setting.BattleY);
                     color = getpixel.GrabPixel(x, y);
                     if (hp)
                     {
@@ -344,7 +344,7 @@ namespace FeebasBot.Classes.Bot
 
         public static void fuckthisgunk()
         {
-            win32.LeftClick(Setting.BattleX, Setting.BattleY);
+            Win32.LeftClick(Setting.BattleX, Setting.BattleY);
             foreach (Process proc in Mem.processes)
             {
                 nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F1, 0);
@@ -363,7 +363,7 @@ namespace FeebasBot.Classes.Bot
                 {
                     if (Setting.PlayerOnScreen == true || Setting.Kill) { Thread.CurrentThread.Abort(); }
                     Setting.attacked += 1;
-                    win32.LeftClick(Setting.BattleX, Setting.BattleY);
+                    Win32.LeftClick(Setting.BattleX, Setting.BattleY);
                     if (Setting.tries < Setting.triestotal)
                     {
                         if (Setting.Pescar == 1)

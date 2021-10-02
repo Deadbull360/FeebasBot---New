@@ -99,7 +99,7 @@ namespace FeebasBot.Classes.Funcoes
             catch (Exception)
             {
             }
-            
+
             if (Setting.newversion > Setting.version)
             {
                 if (int.Parse(getOSInfo()) > 7)

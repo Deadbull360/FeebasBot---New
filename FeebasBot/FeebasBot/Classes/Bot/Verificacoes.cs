@@ -44,7 +44,7 @@
             bool vivo = PokeVivo();
             if (target == false && vivo == true && Setting.clicklock == false)
             {
-                win32.LeftClick(Setting.BattleX, Setting.BattleY);
+                Win32.LeftClick(Setting.BattleX, Setting.BattleY);
                 if (Setting.tries < Setting.triestotal)
                 {
                     if (Setting.Pescar == 1)

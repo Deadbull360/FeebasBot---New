@@ -1,0 +1,16 @@
+﻿[*.cs]
+
+# IDE1006: Estilos de Nomenclatura
+dotnet_diagnostic.IDE1006.severity = none
+
+# IDE0059: Atribuição desnecessária de um valor
+dotnet_diagnostic.IDE0059.severity = none
+
+# CS0219: A variável é atribuída, mas seu valor nunca é usado
+dotnet_diagnostic.CS0219.severity = silent
+
+# IDE0052: Remover membros particulares não lidos
+dotnet_diagnostic.IDE0052.severity = none
+
+# IDE0017: Simplificar a inicialização de objeto
+dotnet_diagnostic.IDE0017.severity = none

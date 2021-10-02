@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Threading;
@@ -27,8 +26,8 @@ namespace updater
 
             void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
             {
-                down = e.ProgressPercentage;              
-            }        
+                down = e.ProgressPercentage;
+            }
             while (down != 100)
             {
                 Console.Clear();

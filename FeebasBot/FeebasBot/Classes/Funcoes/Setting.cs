@@ -8,14 +8,14 @@ namespace FeebasBot.Classes
     {
         public static int bx { get; set; }
         public static int pokespace { get; set; }
-        public static int by{ get; set; }
+        public static int by { get; set; }
         public static string LastLabel { get; set; }
         public static string game { get; set; }
         public static int fish { get; set; }
         public static int direction { get; set; }
         public static string cavefile { get; set; }
         public static int attacked { get; set; }
-        public static int waytime{ get; set; }
+        public static int waytime { get; set; }
         public static int FocusMove { get; set; }
         public static int FocusChat { get; set; }
         public static int Chat { get; set; }

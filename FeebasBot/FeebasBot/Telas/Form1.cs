@@ -25,13 +25,13 @@ namespace FeebasBot
             Setting.SaveSettings();
             Setting.Kill = true;
             Run.Stop();
-            IntPtr otpHandle = win32.FindWindow("otPokemon", null);
-            //win32.SetWindowText(otpHandle, "otPokemon");
+            IntPtr otpHandle = Win32.FindWindow("otPokemon", null);
+            //Win32.SetWindowText(otpHandle, "otPokemon");
         }
 
         private GlobalKeyboardHook _globalKeyboardHook;
         static Keys loggedKey = Keys.None;
-        static Keys[] pokes = new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6};
+        static readonly Keys[] pokes = new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6 };
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
         {
             // EDT: No need to filter for VkSnapshot anymore. This now gets handled
@@ -54,7 +54,7 @@ namespace FeebasBot
                         }
                     }
                 }
-                if(loggedKey == Keys.Escape)
+                if (loggedKey == Keys.Escape)
                 {
                     //Ataque.fuckthisgunk();
                     //Pesca.minus(MousePosition.X, MousePosition.Y);
@@ -62,10 +62,6 @@ namespace FeebasBot
                     Run.Stop();
                     Troca.Stop();
                     bStart.ForeColor = Color.Red;
-                }
-                if (loggedKey == Keys.F1)
-                {
-                    //MessageBox.Show(getpixel.GrabPixel(MousePosition.X,MousePosition.Y).ToString());
                 }
             }
         }
@@ -76,28 +72,28 @@ namespace FeebasBot
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _globalKeyboardHook = new GlobalKeyboardHook(new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.Escape, Keys.F1});
+            _globalKeyboardHook = new GlobalKeyboardHook(new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.Escape });
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
 
             Mem.Battle();
             if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
-            if(Setting.version == 0) Setting.version = 5;
+            if (Setting.version == 0) Setting.version = 5;
             updater.update();
             Mem.startmem();
             Mem.Fish();
             Mem.Memory();
             //label1.Text = Setting.result.ToString();
-            IntPtr otpHandle = win32.FindWindow("otPokemon", null);
+            IntPtr otpHandle = Win32.FindWindow("otPokemon", null);
             Setting.click = false;
             Setting.clicklock = false;
             //if (Setting.login != "") Login();
-            Setting.GameName = win32.GetActiveWindowTitle();
+            Setting.GameName = Win32.GetActiveWindowTitle();
             textBox1.Text = Setting.GameName;
-            //IntPtr bothandle = win32.FindWindow("otPokemon", null + "Bot");
+            //IntPtr bothandle = Win32.FindWindow("otPokemon", null + "Bot");
             //if (bothandle != IntPtr.Zero) { MessageBox.Show("Renomeie o Client Anteior antes de abrir mais um bot!"); Application.Exit(); }
             this.Name = "explorer";
             this.Text = this.Name;
-            IntPtr otphandle = win32.FindWindow("otPokemon", null);
+            IntPtr otphandle = Win32.FindWindow("otPokemon", null);
             //if (otphandle == IntPtr.Zero) { MessageBox.Show("otPokemon não está aberto!"); Application.Exit(); }
             ghk = new KeyHandler(Keys.Insert, this);
             ghk.Register();
@@ -125,8 +121,8 @@ namespace FeebasBot
         {
             if (e.Button == MouseButtons.Left)
             {
-                win32.ReleaseCapture();
-                win32.SendMessage(Handle, win32.WM_NCLBUTTONDOWN, win32.HT_CAPTION, 0);
+                Win32.ReleaseCapture();
+                Win32.SendMessage(Handle, Win32.WM_NCLBUTTONDOWN, Win32.HT_CAPTION, 0);
             }
         }
         #endregion
@@ -245,7 +241,7 @@ namespace FeebasBot
         #endregion
         #region Variaveis
         bool Pescando = false;
-        bool Pescou = false;
+        //bool Pescou = false;
 
         #endregion
         private void bStart_Click(object sender, EventArgs e)
@@ -261,7 +257,7 @@ namespace FeebasBot
                 Setting.verificandopoke = false;
                 Setting.Kill = false;
                 Pescando = false;
-                Pescou = false;
+                //Pescou = false;
                 bStart.ForeColor = Color.Green;
                 Setting.PlayerOnScreen = false;
                 Setting.Running = true;
@@ -422,9 +418,9 @@ namespace FeebasBot
         {
             if (textBox1.Text != "")
             {
-                IntPtr otpHandle = win32.FindWindow("otPokemon", null);
+                IntPtr otpHandle = Win32.FindWindow("otPokemon", null);
                 Setting.GameName = textBox1.Text;
-                win32.SetWindowText(otpHandle, Setting.GameName);
+                Win32.SetWindowText(otpHandle, Setting.GameName);
             }
         }
 

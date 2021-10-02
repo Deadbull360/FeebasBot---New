@@ -25,14 +25,14 @@ namespace FeebasBot.Forms
         }
         int z = 1;
         string colorrod = "0";
-        string[] names = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", };
-        int[] values = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
+        readonly string[] names = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", };
+        readonly int[] values = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, };
         int current = 0;
         bool stop = false;
         bool trueif = false;
         int iexec = 0;
         int idatual = 0;
-        IntPtr otpHandle = win32.FindWindow("otPokemon", null);
+        IntPtr otpHandle = Win32.FindWindow("otPokemon", null);
         public CaveBot()
         {
             InitializeComponent();
@@ -71,7 +71,7 @@ namespace FeebasBot.Forms
                     //nw.reset();
                     int ix = Convert.ToInt32(view.Rows[iexec].Cells[2].Value);
                     int iy = Convert.ToInt32(view.Rows[iexec].Cells[3].Value);
-                    
+
                     while (Setting.charx != ix | Setting.chary != iy)
                     {
                         if (stop == true) { Thread.CurrentThread.Abort(); }
@@ -83,11 +83,11 @@ namespace FeebasBot.Forms
                                 Thread.Sleep(0);
                                 Verificacoes.Targetando();
                             }
-                        }                        
+                        }
                         if (Setting.charx < ix)
                         {
-                          
-                            //win32.SetForegroundWindow(otpHandle);
+
+                            //Win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Right}");
                             nw.right();
@@ -95,8 +95,8 @@ namespace FeebasBot.Forms
                         }
                         if (Setting.charx > ix)
                         {
-                         
-                            //win32.SetForegroundWindow(otpHandle);
+
+                            //Win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Left}");
                             nw.left();
@@ -104,8 +104,8 @@ namespace FeebasBot.Forms
                         }
                         if (Setting.chary > iy)
                         {
-                            
-                            // win32.SetForegroundWindow(otpHandle);
+
+                            // Win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Up}");
                             nw.up();
@@ -113,8 +113,8 @@ namespace FeebasBot.Forms
                         }
                         if (Setting.chary < iy)
                         {
-                          
-                            //win32.SetForegroundWindow(otpHandle);
+
+                            //Win32.SetForegroundWindow(otpHandle);
                             //SendKeysA(Keys.Right);
                             //SendKeys.SendWait("{Down}");
                             nw.down();
@@ -130,47 +130,47 @@ namespace FeebasBot.Forms
                     break;
                 case "Left":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    win32.SetForegroundWindow(otpHandle);
+                    Win32.SetForegroundWindow(otpHandle);
                     //SendKeysA(Keys.Left);
                     SendKeys.SendWait("{Left}");
                     Thread.Sleep(time);
                     break;
                 case "Right":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    win32.SetForegroundWindow(otpHandle);
+                    Win32.SetForegroundWindow(otpHandle);
                     //SendKeysA(Keys.Right);
                     SendKeys.SendWait("{Right}");
                     Thread.Sleep(time);
                     break;
                 case "Up":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    win32.SetForegroundWindow(otpHandle);
+                    Win32.SetForegroundWindow(otpHandle);
                     //SendKeysA(Keys.Up);
                     SendKeys.SendWait("{Up}");
                     Thread.Sleep(time);
                     break;
                 case "Down":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    win32.SetForegroundWindow(otpHandle);
+                    Win32.SetForegroundWindow(otpHandle);
                     //SendKeysA(Keys.Down);
                     SendKeys.SendWait("{Down}");
                     Thread.Sleep(time);
                     break;
                 case "Wait":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    //win32.SetForegroundWindow(otpHandle);
+                    //Win32.SetForegroundWindow(otpHandle);
                     Thread.Sleep(Convert.ToInt32(view.Rows[iexec].Cells[4].Value) * 1000);
                     break;
                 case "LClick":
                     Thread.Sleep(200);
                     Mem.Memory();
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    //win32.SetForegroundWindow(otpHandle);
+                    //Win32.SetForegroundWindow(otpHandle);
                     if (view.Rows[iexec - 1].Cells[1].Value.ToString() == "Waypoint")
                     {
                         if (Setting.charx == Convert.ToInt32(view.Rows[iexec - 1].Cells[2].Value) && Setting.chary == Convert.ToInt32(view.Rows[iexec - 1].Cells[3].Value))
                         {
-                            win32.LeftClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
+                            Win32.LeftClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
                             Thread.Sleep(200);
                         }
                         else
@@ -178,10 +178,10 @@ namespace FeebasBot.Forms
                             iexec -= 2;
                             break;
                         }
-                    }                    
+                    }
                     else
                     {
-                        win32.LeftClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
+                        Win32.LeftClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
                         Thread.Sleep(200);
                     }
                     break;
@@ -189,12 +189,12 @@ namespace FeebasBot.Forms
                     Thread.Sleep(200);
                     Mem.Memory();
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    //win32.SetForegroundWindow(otpHandle);
+                    //Win32.SetForegroundWindow(otpHandle);
                     if (view.Rows[iexec - 1].Cells[1].Value.ToString() == "Waypoint")
                     {
                         if (Setting.charx == Convert.ToInt32(view.Rows[iexec - 1].Cells[2].Value) && Setting.chary == Convert.ToInt32(view.Rows[iexec - 1].Cells[3].Value))
                         {
-                            win32.RightClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
+                            Win32.RightClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
                             Thread.Sleep(200);
                         }
                         else
@@ -205,13 +205,13 @@ namespace FeebasBot.Forms
                     }
                     else
                     {
-                        win32.RightClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
+                        Win32.RightClick(Convert.ToInt32(view.Rows[iexec].Cells[2].Value), Convert.ToInt32(view.Rows[iexec].Cells[3].Value));
                         Thread.Sleep(200);
                     }
                     break;
                 case "Message":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    //win32.SetForegroundWindow(otpHandle);
+                    //Win32.SetForegroundWindow(otpHandle);
                     MessageBox.Show(Convert.ToString(view.Rows[iexec].Cells[4].Value));
                     Thread.Sleep(200);
                     break;
@@ -229,7 +229,7 @@ namespace FeebasBot.Forms
                     break;
                 case "If Color":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    //win32.SetForegroundWindow(otpHandle);
+                    //Win32.SetForegroundWindow(otpHandle);
                     int x = Convert.ToInt32(view.Rows[iexec].Cells[2].Value);
                     int y = Convert.ToInt32(view.Rows[iexec].Cells[3].Value);
                     //MessageBox.Show(GrabPixel(x, y));
@@ -289,7 +289,7 @@ namespace FeebasBot.Forms
                     var chars = s.ToCharArray();
                     for (int ctr = 0; ctr < chars.Length; ctr++)                        //Console.WriteLine("   {0}: {1}", ctr, chars[ctr]);
                     {
-                        win32.SetForegroundWindow(otpHandle);
+                        Win32.SetForegroundWindow(otpHandle);
                         if (Convert.ToString(chars[ctr]) == " ")
                         {
                             SendKeys.SendWait(" ");
@@ -304,21 +304,21 @@ namespace FeebasBot.Forms
                     break;
                 case "Pokemon":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    //win32.SetForegroundWindow(otpHandle);
+                    //Win32.SetForegroundWindow(otpHandle);
                     int diff = Setting.Poke2Y - Setting.Poke1Y;
                     int pokechange = Convert.ToInt32(view.Rows[iexec].Cells[4].Value);
                     if (pokechange == 1)
-                    { Thread.Sleep(500); win32.LeftClick(Setting.Poke1X, Setting.Poke1Y); }
+                    { Thread.Sleep(500); Win32.LeftClick(Setting.Poke1X, Setting.Poke1Y); }
                     if (pokechange == 2)
-                    { Thread.Sleep(500); win32.LeftClick(Setting.Poke2X, Setting.Poke2Y); }
+                    { Thread.Sleep(500); Win32.LeftClick(Setting.Poke2X, Setting.Poke2Y); }
                     if (pokechange == 3)
-                    { Thread.Sleep(500); win32.LeftClick(Setting.Poke3X, Setting.Poke3Y); }
+                    { Thread.Sleep(500); Win32.LeftClick(Setting.Poke3X, Setting.Poke3Y); }
                     if (pokechange == 4)
-                    { Thread.Sleep(500); win32.LeftClick(Setting.Poke4X, Setting.Poke4Y); }
+                    { Thread.Sleep(500); Win32.LeftClick(Setting.Poke4X, Setting.Poke4Y); }
                     if (pokechange == 5)
-                    { Thread.Sleep(500); win32.LeftClick(Setting.Poke5X, Setting.Poke5Y); }
+                    { Thread.Sleep(500); Win32.LeftClick(Setting.Poke5X, Setting.Poke5Y); }
                     if (pokechange == 6)
-                    { Thread.Sleep(500); win32.LeftClick(Setting.Poke6X, Setting.Poke6Y); }
+                    { Thread.Sleep(500); Win32.LeftClick(Setting.Poke6X, Setting.Poke6Y); }
                     Thread.Sleep(3000);
                     break;
                 case "Teleport":
@@ -328,7 +328,7 @@ namespace FeebasBot.Forms
                     SendKeys.SendWait("{Enter}");
                     for (int ctr = 0; ctr < charstp.Length; ctr++)                        //Console.WriteLine("   {0}: {1}", ctr, chars[ctr]);
                     {
-                        win32.SetForegroundWindow(otpHandle);
+                        Win32.SetForegroundWindow(otpHandle);
                         if (Convert.ToString(charstp[ctr]) == " ")
                         {
                             SendKeys.SendWait(" ");
@@ -348,7 +348,7 @@ namespace FeebasBot.Forms
                     {
                         string colornow = GrabPixel(Setting.RodX, Setting.RodY);
                         Thread.Sleep(1000);
-                        win32.SetForegroundWindow(otpHandle);
+                        Win32.SetForegroundWindow(otpHandle);
                         SendKeys.SendWait("^{q}");
                         if (colornow != colorrod)
                         {
@@ -393,7 +393,7 @@ namespace FeebasBot.Forms
             this.Name = Rdn.randomname();
             this.Text = this.Name;
             if (Setting.PausarNoTarget == 1) { cPauseTarget.Checked = true; }
-            otpHandle = win32.FindWindow("otPokemon", null);
+            otpHandle = Win32.FindWindow("otPokemon", null);
             view.DataSource = DalHelper.GetClientes();
             if (view.RowCount > 0)
             {
@@ -443,7 +443,7 @@ namespace FeebasBot.Forms
         private void btnLeft_Click(object sender, EventArgs e)
         {
             DalHelper.Add(idatual, "Left", 0, 0, "");
-            win32.SetForegroundWindow(otpHandle);
+            Win32.SetForegroundWindow(otpHandle);
             SendKeys.SendWait("{Left}");
             //SendKeysA(Keys.Up);
             idatual++;
@@ -453,7 +453,7 @@ namespace FeebasBot.Forms
         private void btnDown_Click(object sender, EventArgs e)
         {
             DalHelper.Add(idatual, "Down", 0, 0, "");
-            win32.SetForegroundWindow(otpHandle);
+            Win32.SetForegroundWindow(otpHandle);
             SendKeys.SendWait("{Down}");
             idatual++;
             update();
@@ -462,7 +462,7 @@ namespace FeebasBot.Forms
         private void btnUp_Click(object sender, EventArgs e)
         {
             DalHelper.Add(idatual, "Up", 0, 0, "");
-            win32.SetForegroundWindow(otpHandle);
+            Win32.SetForegroundWindow(otpHandle);
             SendKeys.SendWait("{Up}");
             idatual++;
             update();
@@ -471,7 +471,7 @@ namespace FeebasBot.Forms
         private void btnRight_Click(object sender, EventArgs e)
         {
             DalHelper.Add(idatual, "Right", 0, 0, "");
-            win32.SetForegroundWindow(otpHandle);
+            Win32.SetForegroundWindow(otpHandle);
             SendKeys.SendWait("{Right}");
             idatual++;
             update();
@@ -479,7 +479,7 @@ namespace FeebasBot.Forms
         public void button2_Click(object sender, EventArgs e)
         {
             autopoint.Checked = false;
-            otpHandle = win32.FindWindow("otPokemon", null);
+            otpHandle = Win32.FindWindow("otPokemon", null);
             z = 1;
             colorrod = GrabPixel(Setting.RodX, Setting.RodY);
             stop = false;
@@ -738,8 +738,8 @@ namespace FeebasBot.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-                label1.Text = "X: " + Setting.charx;
-                label2.Text = "Y: " + Setting.chary;
+            label1.Text = "X: " + Setting.charx;
+            label2.Text = "Y: " + Setting.chary;
         }
 
         private void wButton_Click(object sender, EventArgs e)
@@ -752,7 +752,7 @@ namespace FeebasBot.Forms
         private void button7_Click(object sender, EventArgs e)
         {
             autopoint.Checked = false;
-            otpHandle = win32.FindWindow("otPokemon", null);
+            otpHandle = Win32.FindWindow("otPokemon", null);
             z = 1;
             colorrod = GrabPixel(Setting.RodX, Setting.RodY);
             stop = false;
@@ -788,17 +788,18 @@ namespace FeebasBot.Forms
         private void autopoint_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (autopoint.Checked) {
+            if (autopoint.Checked)
+            {
                 timerx = Setting.charx;
                 timery = Setting.chary;
-                waytimer.Start(); 
+                waytimer.Start();
             }
             else waytimer.Stop();
         }
 
         private void waytimer_Tick(object sender, EventArgs e)
         {
-            if(Setting.charx != timerx | Setting.chary != timery)
+            if (Setting.charx != timerx | Setting.chary != timery)
             {
                 timerx = Setting.charx;
                 timery = Setting.chary;

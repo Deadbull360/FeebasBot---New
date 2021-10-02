@@ -17,6 +17,8 @@ namespace FeebasBot.Classes.Bot
         static int hp = 0;
         static int hpoff = 0;
         static int hpmaxoff = 0;
+        static int php = 0;
+        static int[] phpoff = { 0 };
         static int position = 0;
         static int ping = 0;
         static int pingoff = 0;
@@ -35,87 +37,90 @@ namespace FeebasBot.Classes.Bot
         //static int a = 0;
         //static int a = 0;
         #region Offsets OpenGL
-        //position
-        static int gl_position = 0x00116004;
-        static int gl_xoff = 0x1C;
-        static int gl_yoff = 0x20;
-        //hp
-        static int gl_hp = 0x00A76A60;
-        static int gl_hpoff = 0x4E8;
-        static int gl_hpmaxoff = 0x4F0;
-        //ping
-        static int gl_ping = 0x00067E48;
-        static int gl_pingoff = 0x0;        
-        //chat
-        static int gl_chat = 0x00A77424;
-        static int[] gl_chatoffset = new int[] { 0x4, 0x0, 0x70, 0x0, 0x14, 0x210, 0x1C, 0x8, 0x18, 0xD8 };
-        //peixe
-        static int gl_fish = 0x00A77424;
-        static int[] gl_fishoffset = new int[] { 0x0, 0x4, 0x28, 0x0, 0x14, 0x138, 0x30, 0x0, 0x18, 0xD8 };
-        //batalha x y
-        static int gl_battlex = 0x0;
-        static int[] gl_battlexoff= new int[] { 0x0 };
-        static int gl_battley = 0x0;
-        static int[] gl_battleyoff = new int[] { 0x0 };
+        ////position
+        //static int gl_position = 0x00116004;
+        //static int gl_xoff = 0x1C;
+        //static int gl_yoff = 0x20;
+        ////hp
+        //static int gl_hp = 0x00A76A60;
+        //static int gl_hpoff = 0x4E8;
+        //static int gl_hpmaxoff = 0x4F0;
+        ////ping
+        //static int gl_ping = 0x00067E48;
+        //static int gl_pingoff = 0x0;
+        ////chat
+        //static int gl_chat = 0x00A77424;
+        //static int[] gl_chatoffset = new int[] { 0x4, 0x0, 0x70, 0x0, 0x14, 0x210, 0x1C, 0x8, 0x18, 0xD8 };
+        ////peixe
+        //static int gl_fish = 0x00A77424;
+        //static int[] gl_fishoffset = new int[] { 0x0, 0x4, 0x28, 0x0, 0x14, 0x138, 0x30, 0x0, 0x18, 0xD8 };
+        ////batalha x y
+        //static int gl_battlex = 0x0;
+        //static int[] gl_battlexoff = new int[] { 0x0 };
+        //static int gl_battley = 0x0;
+        //static int[] gl_battleyoff = new int[] { 0x0 };
         #endregion
 
         #region Offsets DirectX
         //position
         //static int dx_position = 0x00122E28;
-        static int dx_position = 0x00A4BFF0;
-        static int dx_xoff = 0x308;
-        static int dx_yoff = 0x30C;
+        static readonly int dx_position = 0x00A4BFF0;
+        static readonly int dx_xoff = 0x308;
+        static readonly int dx_yoff = 0x30C;
         //hp
-        static int dx_hp = 0x00A4BFF0;
-        static int dx_hpoff = 0x4E8;
-        static int dx_hpmaxoff = 0x4F0;
+        static readonly int dx_hp = 0x00A4BFF0;
+        static readonly int dx_hpoff = 0x4E8;
+        static readonly int dx_hpmaxoff = 0x4F0;
+        static readonly int dx_php = 0x00A4C9B4;
+        static readonly int[] dx_phpoff = new int[] { 0x0, 0x8, 0x28, 0x0, 0x14, 0xD8, 0x14, 0x8, 0x14, 0x60 };
         //ping
-        static int dx_ping = 0x0;
-        static int dx_pingoff = 0x0;
+        static readonly int dx_ping = 0x0;
+        static readonly int dx_pingoff = 0x0;
         //chat
-        static int dx_chat = 0x00A4C9B4;
-        static int[] dx_chatoffset = new int[] { 0x44, 0x4, 0x28, 0x14, 0x4C, 0xC0, 0x18, 0x8, 0x18, 0xD8 };
+        static readonly int dx_chat = 0x00A4C9B4;
+        static readonly int[] dx_chatoffset = new int[] { 0x44, 0x4, 0x28, 0x14, 0x4C, 0xC0, 0x18, 0x8, 0x18, 0xD8 };
         //peixe
-        static int dx_fish = 0x00A4C9B4;
-        static int[] dx_fishoffset = new int[] { 0x0, 0x4, 0x28, 0x0, 0x14, 0x138, 0x30, 0x0, 0x18, 0xD8 };
+        static readonly int dx_fish = 0x00A4C9B4;
+        static readonly int[] dx_fishoffset = new int[] { 0x0, 0x4, 0x28, 0x0, 0x14, 0x138, 0x30, 0x0, 0x18, 0xD8 };
         //batalha x y
-        static int dx_battlex = 0x00A4C9B4;
-        static int[] dx_battlexoff = new int[] { 0x40, 0x4, 0x28, 0x3C, 0x1C, 0x1A8, 0x28, 0x78, 0x38, 0x1E4 };
-        static int dx_battley = 0x00A4C9B4;
-        static int[] dx_battleyoff = new int[] { 0x74, 0x4, 0x28, 0x0, 0x14, 0x70, 0xB8, 0x30, 0x18, 0x1F0 };
+        static readonly int dx_battlex = 0x00A4C9B4;
+        static readonly int[] dx_battlexoff = new int[] { 0x40, 0x4, 0x28, 0x3C, 0x1C, 0x1A8, 0x28, 0x78, 0x38, 0x1E4 };
+        static readonly int dx_battley = 0x00A4C9B4;
+        static readonly int[] dx_battleyoff = new int[] { 0x74, 0x4, 0x28, 0x0, 0x14, 0x70, 0xB8, 0x30, 0x18, 0x1F0 };
         #endregion
 
         public static Process[] processes = null;
+        static string ProcessName = "";
         public static void startmem()
         {
             bool open = false;
-            string ProcessName = "otpgl";
-            if (Process.GetProcessesByName(ProcessName).Length > 0)
-            {
-                m_Process = Process.GetProcessesByName(ProcessName)[0];
-                m_pProcessHandle = OpenProcess(PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE, false, m_Process.Id); // Sets Our ProcessHandle
-                Setting.BaseAddress = (IntPtr)GetModuleAdress("otpgl");
-                processes = Process.GetProcessesByName("otpgl");
-                hp = gl_hp;
-                hpoff = gl_hpoff;
-                hpmaxoff = gl_hpmaxoff;
-                ping = gl_ping;
-                position = gl_position;
-                ping = gl_ping;
-                pingoff = gl_pingoff;
-                xoff = gl_xoff;
-                yoff = gl_yoff;
-                fishoffset = gl_fishoffset;
-                chatoffset = gl_chatoffset;
-                chat = gl_chat;
-                fish = gl_fish;
-                battlex = gl_battlex;
-                battlexoff = gl_battlexoff;
-                battley = gl_battley;
-                battleyoff = gl_battleyoff;
-                Setting.game = "opengl";
-                open = true;
-            }
+            //string ProcessName = "otpgl";
+            //if (Process.GetProcessesByName(ProcessName).Length > 0)
+            //{
+            //    m_Process = Process.GetProcessesByName(ProcessName)[0];
+            //    m_pProcessHandle = OpenProcess(PROCESS_VM_OPERATION | PROCESS_VM_READ | PROCESS_VM_WRITE, false, m_Process.Id); // Sets Our ProcessHandle
+            //    Setting.BaseAddress = (IntPtr)GetModuleAdress("otpgl");
+            //    processes = Process.GetProcessesByName("otpgl");
+            //    hp = gl_hp;
+            //    hpoff = gl_hpoff;
+            //    hpmaxoff = gl_hpmaxoff;
+            //    ping = gl_ping;
+            //    position = gl_position;
+            //    ping = gl_ping;
+            //    pingoff = gl_pingoff;
+            //    xoff = gl_xoff;
+            //    yoff = gl_yoff;
+            //    fishoffset = gl_fishoffset;
+            //    chatoffset = gl_chatoffset;
+            //    chat = gl_chat;
+            //    fish = gl_fish;
+            //    battlex = gl_battlex;
+            //    battlexoff = gl_battlexoff;
+            //    battley = gl_battley;
+            //    battleyoff = gl_battleyoff;
+            //    Setting.game = "opengl";
+            //    open = true;
+            //}
 
             ProcessName = "otpdx";
             if (Process.GetProcessesByName(ProcessName).Length > 0)
@@ -127,6 +132,8 @@ namespace FeebasBot.Classes.Bot
                 hp = dx_hp;
                 hpoff = dx_hpoff;
                 hpmaxoff = dx_hpmaxoff;
+                php = dx_php;
+                phpoff = dx_phpoff;
                 ping = dx_ping;
                 position = dx_position;
                 ping = dx_ping;
@@ -146,7 +153,7 @@ namespace FeebasBot.Classes.Bot
             }
             if (!open)
             {
-                MessageBox.Show("Cliente não encontrado", "Process not found!", MessageBoxButtons.OK);
+                MessageBox.Show("Cliente Beta em modo DirectX não encontrado", "Process not found!", MessageBoxButtons.OK);
                 Environment.Exit(1);
             }
         }
@@ -216,6 +223,7 @@ namespace FeebasBot.Classes.Bot
             Position();
             Ping();
             HP();
+            PokeHP();
         }
         public static void Position()
         {
@@ -231,7 +239,7 @@ namespace FeebasBot.Classes.Bot
             {
                 pointerx = IntPtr.Add((IntPtr)ReadMemory<int>((int)pointerx), battlexoff[i]);
             }
-            Setting.bx= ReadMemory<int>((int)pointerx);
+            Setting.bx = ReadMemory<int>((int)pointerx);
 
             IntPtr pointery = IntPtr.Add((IntPtr)ReadMemory<int>((int)Setting.BaseAddress + battley), battleyoff[0]);
             for (int i = 1; i < chatoffset.Length; i++)
@@ -258,9 +266,9 @@ namespace FeebasBot.Classes.Bot
         public static void Battle()
         {
             System.Text.Encoding enc = System.Text.Encoding.ASCII;
-            
+
             var offsetArr = new int[] { 0x24, 0x14, 0xF68, 0x2C, 0xC, 0xC, 0x14, 0x480, 0x18, 0x274 };
-            
+
             IntPtr pointer = IntPtr.Add((IntPtr)ReadMemory<int>((int)Setting.BaseAddress + 0x00A77B50), offsetArr[0]);
             for (int i = 1; i < offsetArr.Length; i++)
             {
@@ -272,6 +280,16 @@ namespace FeebasBot.Classes.Bot
             //byte[] myByteArray = 
 
             //string myString = enc.GetString(myByteArray);
+        }
+
+        public static void PokeHP()
+        {
+            IntPtr pointer = IntPtr.Add((IntPtr)ReadMemory<int>((int)Setting.BaseAddress + php), phpoff[0]);
+            for (int i = 1; i < phpoff.Length; i++)
+            {
+                pointer = IntPtr.Add((IntPtr)ReadMemory<int>((int)pointer), phpoff[i]);
+            }
+            Setting.PokeHP = ReadMemory<double>((int)pointer);
         }
 
         public static void Fish()

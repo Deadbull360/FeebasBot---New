@@ -64,8 +64,8 @@ namespace FeebasBot.Telas
         {
             if (e.Button == MouseButtons.Left)
             {
-                win32.ReleaseCapture();
-                win32.SendMessage(Handle, win32.WM_NCLBUTTONDOWN, win32.HT_CAPTION, 0);
+                Win32.ReleaseCapture();
+                Win32.SendMessage(Handle, Win32.WM_NCLBUTTONDOWN, Win32.HT_CAPTION, 0);
             }
         }
 
@@ -149,8 +149,8 @@ namespace FeebasBot.Telas
 
         private void ManualConfig_Tick(object sender, EventArgs e)
         {
-            win32.MoveMouse(Setting.BattleX, Setting.BattleY);
-            win32.MoveMouse(Setting.BattleX + 1, Setting.BattleY);
+            Win32.MoveMouse(Setting.BattleX, Setting.BattleY);
+            Win32.MoveMouse(Setting.BattleX + 1, Setting.BattleY);
             if (cManualConfig1.Checked)
             {
                 //pixelmiddle
@@ -525,7 +525,7 @@ namespace FeebasBot.Telas
             int position = (Setting.SQMY - Setting.PlayerY);
             while (cShowLoot.Checked == true)
             {
-                IntPtr desktopPtr = win32.GetDC(IntPtr.Zero);
+                IntPtr desktopPtr = Win32.GetDC(IntPtr.Zero);
                 Graphics g = Graphics.FromHdc(desktopPtr);
                 SolidBrush b = new SolidBrush(Color.Red);
                 SolidBrush rec = new SolidBrush(Color.Purple);
@@ -540,7 +540,7 @@ namespace FeebasBot.Telas
                 if (Setting.p7 == 1) { g.FillRectangle(rec, Setting.SQMX - 16, Setting.SQMY - 16, 32, 32); }
                 if (Setting.p8 == 1) { g.FillRectangle(rec, Setting.SQMX + position - 16, Setting.SQMY - 16, 32, 32); }
                 g.Dispose();
-                win32.ReleaseDC(IntPtr.Zero, desktopPtr);
+                Win32.ReleaseDC(IntPtr.Zero, desktopPtr);
             }
         }
 

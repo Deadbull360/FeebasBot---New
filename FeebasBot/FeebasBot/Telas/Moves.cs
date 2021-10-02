@@ -29,8 +29,8 @@ namespace FeebasBot.Forms
         {
             if (e.Button == MouseButtons.Left)
             {
-                win32.ReleaseCapture();
-                win32.SendMessage(Handle, win32.WM_NCLBUTTONDOWN, win32.HT_CAPTION, 0);
+                Win32.ReleaseCapture();
+                Win32.SendMessage(Handle, Win32.WM_NCLBUTTONDOWN, Win32.HT_CAPTION, 0);
             }
         }
 

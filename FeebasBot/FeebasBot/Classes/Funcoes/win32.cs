@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace FeebasBot
 {
-    public class win32
+    public class Win32
     {
         public const int PROCESS_WM_READ = 0x0010;
 
@@ -121,7 +121,7 @@ namespace FeebasBot
             if (Setting.click == false && Setting.clicklock == false)
             {
                 Setting.click = true;
-                IntPtr hWindow = win32.FindWindow("otPokemon", null);
+                IntPtr hWindow = Win32.FindWindow("otPokemon", null);
                 int border_thickness = GetSystemMetrics(SystemMetric.SM_CYCAPTION);
                 PostMessage(hWindow, WM_MOUSEMOVE, 0, MakeLParam(x, y - border_thickness));
                 PostMessage(hWindow, WM_LBUTTONDOWN, MK_LBUTTON, MakeLParam(x, y - border_thickness));
@@ -135,7 +135,7 @@ namespace FeebasBot
         {
             //SetForegroundWindow(handle);
             Setting.click = true;
-            IntPtr hWindow = win32.FindWindow("otPokemon", null);
+            IntPtr hWindow = Win32.FindWindow("otPokemon", null);
             int border_thickness = GetSystemMetrics(SystemMetric.SM_CYCAPTION);
             PostMessage(hWindow, WM_MOUSEMOVE, 0, MakeLParam(x, y - border_thickness));
             PostMessage(hWindow, WM_LBUTTONDOWN, MK_LBUTTON, MakeLParam(x, y - border_thickness));
@@ -146,7 +146,7 @@ namespace FeebasBot
         }
         public static void MoveMouse(int x, int y)
         {
-            IntPtr hWindow = win32.FindWindow("otPokemon", null);
+            IntPtr hWindow = Win32.FindWindow("otPokemon", null);
             int border_thickness = GetSystemMetrics(SystemMetric.SM_CYCAPTION);
             PostMessage(hWindow, WM_MOUSEMOVE, 0, MakeLParam(x, y - border_thickness));
             PostMessage(hWindow, WM_MOUSEMOVE, MK_LBUTTON, MakeLParam(x, y - border_thickness));
@@ -157,7 +157,7 @@ namespace FeebasBot
             if (Setting.click == false && Setting.clicklock == false)
             {
                 Setting.click = true;
-                IntPtr hWindow = win32.FindWindow("otPokemon", null);
+                IntPtr hWindow = Win32.FindWindow("otPokemon", null);
                 int border_thickness = GetSystemMetrics(SystemMetric.SM_CYCAPTION);
                 PostMessage(hWindow, WM_MOUSEMOVE, 0, MakeLParam(x, y - border_thickness));
                 PostMessage(hWindow, WM_RBUTTONDOWN, MK_RBUTTON, MakeLParam(x, y - border_thickness));
@@ -169,7 +169,7 @@ namespace FeebasBot
         public static void RightClickLocked(int x, int y)
         {
             Setting.click = true;
-            IntPtr hWindow = win32.FindWindow("otPokemon", null);
+            IntPtr hWindow = Win32.FindWindow("otPokemon", null);
             int border_thickness = GetSystemMetrics(SystemMetric.SM_CYCAPTION);
             PostMessage(hWindow, WM_MOUSEMOVE, 0, MakeLParam(x, y - border_thickness));
             PostMessage(hWindow, WM_RBUTTONDOWN, MK_RBUTTON, MakeLParam(x, y - border_thickness));
@@ -196,7 +196,7 @@ namespace FeebasBot
         const uint WM_KEYUP = 0x0101;
         public static void SendKeys(Keys vk_key)
         {
-            IntPtr otpHandle = win32.FindWindow("otPokemon", null);
+            IntPtr otpHandle = Win32.FindWindow("otPokemon", null);
             PostMessage(otpHandle, WM_KEYDOWN, (IntPtr)vk_key, IntPtr.Zero);
             PostMessage(otpHandle, WM_KEYUP, (IntPtr)vk_key, IntPtr.Zero);
         }

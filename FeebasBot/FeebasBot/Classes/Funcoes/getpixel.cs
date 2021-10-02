@@ -7,7 +7,7 @@ namespace FeebasBot
 {
     public class getpixel
     {
-        IntPtr otpHandle = win32.FindWindow("otPokemon", "otPokemon");
+        readonly IntPtr otpHandle = Win32.FindWindow("otPokemon", "otPokemon");
         [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr GetDesktopWindow();
         [DllImport("user32.dll", SetLastError = true)]
@@ -18,14 +18,14 @@ namespace FeebasBot
         public static extern int ReleaseDC(IntPtr window, IntPtr dc);
         public static uint GetColorAt(IntPtr Handle, int x, int y)
         {
-            /*IntPtr otpHandle = win32.FindWindow("otPokemon", "otPokemon");
+            /*IntPtr otpHandle = Win32.FindWindow("otPokemon", "otPokemon");
             IntPtr desk = otpHandle;
             IntPtr dc = otpHandle;
             int a = (int)GetPixel(dc, x, y);
             ReleaseDC(desk, dc);
             return Color.FromArgb(255, (a >> 0) & 0xff, (a >> 8) & 0xff, (a >> 16) & 0xff);
             */
-            int border_thickness = win32.GetSystemMetrics(win32.SystemMetric.SM_CYCAPTION);
+            int border_thickness = Win32.GetSystemMetrics(Win32.SystemMetric.SM_CYCAPTION);
             IntPtr hdc = GetWindowDC(Handle);
             Setting.offset = 8;
             uint pixel = GetPixel(hdc, x, y + Setting.offset);//experimentar
@@ -36,7 +36,7 @@ namespace FeebasBot
         }
         public static uint GetColorAtBattle(IntPtr Handle, int x, int y)
         {
-            int border_thickness = win32.GetSystemMetrics(win32.SystemMetric.SM_CYCAPTION);
+            int border_thickness = Win32.GetSystemMetrics(Win32.SystemMetric.SM_CYCAPTION);
             IntPtr hdc = GetWindowDC(Handle);
             uint pixel = GetPixel(hdc, x, y - border_thickness);
             ReleaseDC(Handle, hdc);
@@ -45,7 +45,7 @@ namespace FeebasBot
         }
         public static string GrabPixel(int x, int y)
         {
-            IntPtr Handle = win32.FindWindow("otPokemon", null);
+            IntPtr Handle = Win32.FindWindow("otPokemon", null);
             return Convert.ToString(getpixel.GetColorAt(Handle, x, y));
         }
     }
