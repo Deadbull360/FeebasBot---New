@@ -46,6 +46,7 @@
             this.binfo = new System.Windows.Forms.Button();
             this.memory = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Curar = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,6 +248,12 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
+            // Curar
+            // 
+            this.Curar.Enabled = true;
+            this.Curar.Interval = 200;
+            this.Curar.Tick += new System.EventHandler(this.curar_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +299,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Timer memory;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer Curar;
     }
 }
 

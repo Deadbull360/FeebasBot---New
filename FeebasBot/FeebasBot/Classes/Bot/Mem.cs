@@ -19,6 +19,7 @@ namespace FeebasBot.Classes.Bot
         static int hpmaxoff = 0;
         static int php = 0;
         static int[] phpoff = { 0 };
+        static int[] phpmaxoff = { 0 };
         static int position = 0;
         static int ping = 0;
         static int pingoff = 0;
@@ -73,6 +74,7 @@ namespace FeebasBot.Classes.Bot
         static readonly int dx_hpmaxoff = 0x4F0;
         static readonly int dx_php = 0x00A4C9B4;
         static readonly int[] dx_phpoff = new int[] { 0x0, 0x8, 0x28, 0x0, 0x14, 0xD8, 0x14, 0x8, 0x14, 0x60 };
+        static readonly int[] dx_phpmaxoff = new int[] { 0x0, 0x8, 0x28, 0x0, 0x14, 0x168, 0x14, 0x8, 0x14, 0x228 };
         //ping
         static readonly int dx_ping = 0x0;
         static readonly int dx_pingoff = 0x0;
@@ -134,6 +136,7 @@ namespace FeebasBot.Classes.Bot
                 hpmaxoff = dx_hpmaxoff;
                 php = dx_php;
                 phpoff = dx_phpoff;
+                phpmaxoff = dx_phpmaxoff;
                 ping = dx_ping;
                 position = dx_position;
                 ping = dx_ping;
@@ -290,6 +293,14 @@ namespace FeebasBot.Classes.Bot
                 pointer = IntPtr.Add((IntPtr)ReadMemory<int>((int)pointer), phpoff[i]);
             }
             Setting.PokeHP = ReadMemory<double>((int)pointer);
+
+            IntPtr pointer2 = IntPtr.Add((IntPtr)ReadMemory<int>((int)Setting.BaseAddress + php), phpmaxoff[0]);
+            for (int i = 1; i < phpmaxoff.Length; i++)
+            {
+                pointer2 = IntPtr.Add((IntPtr)ReadMemory<int>((int)pointer2), phpmaxoff[i]);
+            }
+            Setting.PokeHPMax = ReadMemory<double>((int)pointer2);
+            Setting.PokeHPPercent = Math.Round((Setting.PokeHP / Setting.PokeHPMax) * 100);
         }
 
         public static void Fish()

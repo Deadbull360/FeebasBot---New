@@ -25,7 +25,10 @@ namespace FeebasBot.Classes
         public static int offsett { get; set; }
         public static int final { get; set; }
         public static int Ping { get; set; }
+        public static int hpcura { get; set; }
         public static double PokeHP { get; set; }
+        public static double PokeHPMax { get; set; }
+        public static double PokeHPPercent { get; set; }
         public static double CharHP { get; set; }
         public static double CharHPMax { get; set; }
         public static int charx { get; set; }
@@ -242,6 +245,7 @@ namespace FeebasBot.Classes
                 "waytime : " + Setting.waytime,
                 "attacked : " + Setting.attacked,
                 "cavefile : " + Setting.cavefile,
+                "hpcura: " + Setting.hpcura,
             };
 
             // Write the string array to a new file named "WriteLines.txt".

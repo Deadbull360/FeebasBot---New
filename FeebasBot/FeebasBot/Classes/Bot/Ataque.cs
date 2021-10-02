@@ -1,4 +1,5 @@
 ﻿using FeebasBot.Classes.Funcoes;
+using FeebasBot.Properties;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
@@ -593,6 +594,90 @@ namespace FeebasBot.Classes.Bot
                 }
             }
             //Thread.Sleep(2000);
+        }
+
+        public static void Curar()
+        {
+            if (Settings.Default.curamove == "M1")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F1, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F1, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M2")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F2, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F2, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M3")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F2, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F2, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M4")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F3, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F3, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M5")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F4, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F4, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M6")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F5, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F5, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M7")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F6, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F6, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M8")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F8, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F8, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M9")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F9, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F9, 0);
+                }
+            }
+            if (Settings.Default.curamove == "M10")
+            {
+                foreach (Process proc in Mem.processes)
+                {
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYDOWN, (int)Keys.F10, 0);
+                    nw.PostMessage(proc.MainWindowHandle, nw.WM_KEYUP, (int)Keys.F10, 0);
+                }
+            }
         }
     }
 }

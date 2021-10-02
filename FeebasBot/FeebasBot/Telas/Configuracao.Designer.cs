@@ -154,6 +154,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.Curabox = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.hppercent = new System.Windows.Forms.NumericUpDown();
+            this.hpuse = new System.Windows.Forms.CheckBox();
+            this.memBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabPesca.SuspendLayout();
@@ -176,6 +182,8 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hppercent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -229,7 +237,7 @@
             this.bPlayer2.Location = new System.Drawing.Point(0, 39);
             this.bPlayer2.Name = "bPlayer2";
             this.bPlayer2.SelectedIndex = 0;
-            this.bPlayer2.Size = new System.Drawing.Size(376, 264);
+            this.bPlayer2.Size = new System.Drawing.Size(376, 263);
             this.bPlayer2.TabIndex = 2;
             // 
             // tabPesca
@@ -248,7 +256,7 @@
             this.tabPesca.Location = new System.Drawing.Point(4, 22);
             this.tabPesca.Name = "tabPesca";
             this.tabPesca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPesca.Size = new System.Drawing.Size(368, 238);
+            this.tabPesca.Size = new System.Drawing.Size(368, 237);
             this.tabPesca.TabIndex = 0;
             this.tabPesca.Text = "Pesca";
             this.tabPesca.UseVisualStyleBackColor = true;
@@ -391,7 +399,11 @@
             // 
             // tabAtk
             // 
-            this.tabAtk.Controls.Add(this.label4);
+            this.tabAtk.Controls.Add(this.hpuse);
+            this.tabAtk.Controls.Add(this.hppercent);
+            this.tabAtk.Controls.Add(this.label34);
+            this.tabAtk.Controls.Add(this.label29);
+            this.tabAtk.Controls.Add(this.Curabox);
             this.tabAtk.Controls.Add(this.panel4);
             this.tabAtk.Controls.Add(this.cSemTarget);
             this.tabAtk.Controls.Add(this.cAtacar);
@@ -400,10 +412,11 @@
             this.tabAtk.Controls.Add(this.panel5);
             this.tabAtk.Controls.Add(this.panel3);
             this.tabAtk.Controls.Add(this.autoconfig);
+            this.tabAtk.Controls.Add(this.label4);
             this.tabAtk.Location = new System.Drawing.Point(4, 22);
             this.tabAtk.Name = "tabAtk";
             this.tabAtk.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAtk.Size = new System.Drawing.Size(368, 238);
+            this.tabAtk.Size = new System.Drawing.Size(368, 237);
             this.tabAtk.TabIndex = 1;
             this.tabAtk.Text = "Ataque";
             this.tabAtk.UseVisualStyleBackColor = true;
@@ -429,7 +442,7 @@
             this.panel4.Controls.Add(this.ManualDown);
             this.panel4.Controls.Add(this.cManualConfig2);
             this.panel4.Controls.Add(this.cManualConfig1);
-            this.panel4.Location = new System.Drawing.Point(76, 91);
+            this.panel4.Location = new System.Drawing.Point(90, 315);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(269, 141);
             this.panel4.TabIndex = 16;
@@ -518,7 +531,7 @@
             // cSemTarget
             // 
             this.cSemTarget.AutoSize = true;
-            this.cSemTarget.Location = new System.Drawing.Point(132, 81);
+            this.cSemTarget.Location = new System.Drawing.Point(136, 60);
             this.cSemTarget.Name = "cSemTarget";
             this.cSemTarget.Size = new System.Drawing.Size(90, 17);
             this.cSemTarget.TabIndex = 21;
@@ -529,7 +542,7 @@
             // cAtacar
             // 
             this.cAtacar.AutoSize = true;
-            this.cAtacar.Location = new System.Drawing.Point(76, 81);
+            this.cAtacar.Location = new System.Drawing.Point(78, 60);
             this.cAtacar.Name = "cAtacar";
             this.cAtacar.Size = new System.Drawing.Size(57, 17);
             this.cAtacar.TabIndex = 20;
@@ -540,7 +553,7 @@
             // Battlemanual
             // 
             this.Battlemanual.AutoSize = true;
-            this.Battlemanual.Location = new System.Drawing.Point(76, 64);
+            this.Battlemanual.Location = new System.Drawing.Point(90, 292);
             this.Battlemanual.Name = "Battlemanual";
             this.Battlemanual.Size = new System.Drawing.Size(180, 17);
             this.Battlemanual.TabIndex = 19;
@@ -806,7 +819,7 @@
             this.tabLooting.Location = new System.Drawing.Point(4, 22);
             this.tabLooting.Name = "tabLooting";
             this.tabLooting.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLooting.Size = new System.Drawing.Size(368, 238);
+            this.tabLooting.Size = new System.Drawing.Size(368, 237);
             this.tabLooting.TabIndex = 4;
             this.tabLooting.Text = "Looting";
             this.tabLooting.UseVisualStyleBackColor = true;
@@ -1087,7 +1100,7 @@
             this.tabTrocaPoke.Location = new System.Drawing.Point(4, 22);
             this.tabTrocaPoke.Name = "tabTrocaPoke";
             this.tabTrocaPoke.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTrocaPoke.Size = new System.Drawing.Size(368, 238);
+            this.tabTrocaPoke.Size = new System.Drawing.Size(368, 237);
             this.tabTrocaPoke.TabIndex = 5;
             this.tabTrocaPoke.Text = "Troca de Pokemon";
             this.tabTrocaPoke.UseVisualStyleBackColor = true;
@@ -1291,7 +1304,7 @@
             this.tabCatch.Location = new System.Drawing.Point(4, 22);
             this.tabCatch.Name = "tabCatch";
             this.tabCatch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCatch.Size = new System.Drawing.Size(368, 238);
+            this.tabCatch.Size = new System.Drawing.Size(368, 237);
             this.tabCatch.TabIndex = 6;
             this.tabCatch.Text = "Catch";
             this.tabCatch.UseVisualStyleBackColor = true;
@@ -1431,7 +1444,7 @@
             this.tabFunction.Controls.Add(this.panel6);
             this.tabFunction.Location = new System.Drawing.Point(4, 22);
             this.tabFunction.Name = "tabFunction";
-            this.tabFunction.Size = new System.Drawing.Size(368, 238);
+            this.tabFunction.Size = new System.Drawing.Size(368, 237);
             this.tabFunction.TabIndex = 2;
             this.tabFunction.Text = "Cavebot";
             this.tabFunction.UseVisualStyleBackColor = true;
@@ -1546,7 +1559,7 @@
             this.tabPage1.Controls.Add(this.fullhitcheck);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(368, 238);
+            this.tabPage1.Size = new System.Drawing.Size(368, 237);
             this.tabPage1.TabIndex = 7;
             this.tabPage1.Text = "Em testes";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1578,7 +1591,7 @@
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(368, 238);
+            this.tabPage2.Size = new System.Drawing.Size(368, 237);
             this.tabPage2.TabIndex = 8;
             this.tabPage2.Text = "Outros";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1603,11 +1616,89 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // Curabox
+            // 
+            this.Curabox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Curabox.FormattingEnabled = true;
+            this.Curabox.Items.AddRange(new object[] {
+            "M1",
+            "M2",
+            "M3",
+            "M4",
+            "M5",
+            "M6",
+            "M7",
+            "M8",
+            "M9",
+            "M10"});
+            this.Curabox.Location = new System.Drawing.Point(107, 76);
+            this.Curabox.Name = "Curabox";
+            this.Curabox.Size = new System.Drawing.Size(41, 21);
+            this.Curabox.TabIndex = 24;
+            this.Curabox.SelectedIndexChanged += new System.EventHandler(this.Curabox_SelectedIndexChanged);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(75, 79);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(32, 13);
+            this.label29.TabIndex = 25;
+            this.label29.Text = "Usar:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(152, 79);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(91, 13);
+            this.label34.TabIndex = 26;
+            this.label34.Text = "com % da HP em:";
+            // 
+            // hppercent
+            // 
+            this.hppercent.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.hppercent.Location = new System.Drawing.Point(243, 76);
+            this.hppercent.Maximum = new decimal(new int[] {
+            95,
+            0,
+            0,
+            0});
+            this.hppercent.Name = "hppercent";
+            this.hppercent.Size = new System.Drawing.Size(44, 20);
+            this.hppercent.TabIndex = 3;
+            this.hppercent.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.hppercent.ValueChanged += new System.EventHandler(this.hppercent_ValueChanged);
+            // 
+            // hpuse
+            // 
+            this.hpuse.AutoSize = true;
+            this.hpuse.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hpuse.Location = new System.Drawing.Point(289, 78);
+            this.hpuse.Name = "hpuse";
+            this.hpuse.Size = new System.Drawing.Size(53, 17);
+            this.hpuse.TabIndex = 27;
+            this.hpuse.Text = "Ativar";
+            this.hpuse.UseVisualStyleBackColor = true;
+            this.hpuse.CheckedChanged += new System.EventHandler(this.hpuse_CheckedChanged);
+            // 
+            // memBindingSource
+            // 
+            this.memBindingSource.DataSource = typeof(FeebasBot.Classes.Bot.Mem);
+            // 
             // Configuracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 303);
+            this.ClientSize = new System.Drawing.Size(376, 302);
             this.Controls.Add(this.bPlayer2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1656,6 +1747,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hppercent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1787,5 +1880,11 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.ComboBox Curabox;
+        private System.Windows.Forms.BindingSource memBindingSource;
+        private System.Windows.Forms.CheckBox hpuse;
+        private System.Windows.Forms.NumericUpDown hppercent;
+        private System.Windows.Forms.Label label34;
     }
 }

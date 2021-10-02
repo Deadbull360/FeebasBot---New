@@ -43,5 +43,29 @@ namespace FeebasBot.Properties {
                 return ((string)(this["Configuração"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string curamove {
+            get {
+                return ((string)(this["curamove"]));
+            }
+            set {
+                this["curamove"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool cura {
+            get {
+                return ((bool)(this["cura"]));
+            }
+            set {
+                this["cura"] = value;
+            }
+        }
     }
 }

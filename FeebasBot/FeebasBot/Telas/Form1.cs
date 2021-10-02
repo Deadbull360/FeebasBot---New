@@ -2,6 +2,7 @@
 using FeebasBot.Classes.Bot;
 using FeebasBot.Classes.Funcoes;
 using FeebasBot.Forms;
+using FeebasBot.Properties;
 using FeebasBot.Telas;
 //using MySql.Data.MySqlClient;
 using System;
@@ -435,6 +436,15 @@ namespace FeebasBot
             Thread mem = new Thread(Mem.Memory);
             //if (!mem.IsAlive) mem.Start();
             mem.Start();
+        }
+
+        private void curar_Tick(object sender, EventArgs e)
+        {
+            if(Settings.Default.cura)
+            {
+                if((int)Setting.PokeHPPercent < Setting.hpcura)
+                    Ataque.Curar();
+            }
         }
     }
 }

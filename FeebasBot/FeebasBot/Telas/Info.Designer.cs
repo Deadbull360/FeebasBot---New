@@ -37,7 +37,6 @@
             this.fish = new System.Windows.Forms.Label();
             this.pescados = new System.Windows.Forms.Label();
             this.chat = new System.Windows.Forms.Label();
-            this.ping = new System.Windows.Forms.Label();
             this.attacked = new System.Windows.Forms.Label();
             this.lastlabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -121,21 +120,11 @@
             this.chat.TabIndex = 6;
             this.chat.Text = "X: ";
             // 
-            // ping
-            // 
-            this.ping.AutoSize = true;
-            this.ping.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ping.Location = new System.Drawing.Point(0, 91);
-            this.ping.Name = "ping";
-            this.ping.Size = new System.Drawing.Size(20, 13);
-            this.ping.TabIndex = 7;
-            this.ping.Text = "X: ";
-            // 
             // attacked
             // 
             this.attacked.AutoSize = true;
             this.attacked.Dock = System.Windows.Forms.DockStyle.Top;
-            this.attacked.Location = new System.Drawing.Point(0, 104);
+            this.attacked.Location = new System.Drawing.Point(0, 91);
             this.attacked.Name = "attacked";
             this.attacked.Size = new System.Drawing.Size(17, 13);
             this.attacked.TabIndex = 8;
@@ -145,7 +134,7 @@
             // 
             this.lastlabel.AutoSize = true;
             this.lastlabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lastlabel.Location = new System.Drawing.Point(0, 117);
+            this.lastlabel.Location = new System.Drawing.Point(0, 104);
             this.lastlabel.Name = "lastlabel";
             this.lastlabel.Size = new System.Drawing.Size(17, 13);
             this.lastlabel.TabIndex = 9;
@@ -157,7 +146,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(0, 206);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 23);
+            this.button1.Size = new System.Drawing.Size(168, 23);
             this.button1.TabIndex = 10;
             this.button1.Text = "Fechar";
             this.button1.UseVisualStyleBackColor = true;
@@ -167,7 +156,7 @@
             // 
             this.mouse.AutoSize = true;
             this.mouse.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mouse.Location = new System.Drawing.Point(0, 130);
+            this.mouse.Location = new System.Drawing.Point(0, 117);
             this.mouse.Name = "mouse";
             this.mouse.Size = new System.Drawing.Size(17, 13);
             this.mouse.TabIndex = 11;
@@ -177,7 +166,7 @@
             // 
             this.battle.AutoSize = true;
             this.battle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.battle.Location = new System.Drawing.Point(0, 143);
+            this.battle.Location = new System.Drawing.Point(0, 130);
             this.battle.Name = "battle";
             this.battle.Size = new System.Drawing.Size(17, 13);
             this.battle.TabIndex = 12;
@@ -187,13 +176,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(130, 229);
+            this.ClientSize = new System.Drawing.Size(168, 229);
             this.Controls.Add(this.battle);
             this.Controls.Add(this.mouse);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lastlabel);
             this.Controls.Add(this.attacked);
-            this.Controls.Add(this.ping);
             this.Controls.Add(this.chat);
             this.Controls.Add(this.pescados);
             this.Controls.Add(this.fish);
@@ -223,7 +211,6 @@
         private System.Windows.Forms.Label fish;
         private System.Windows.Forms.Label pescados;
         private System.Windows.Forms.Label chat;
-        private System.Windows.Forms.Label ping;
         private System.Windows.Forms.Label attacked;
         private System.Windows.Forms.Label lastlabel;
         private System.Windows.Forms.Button button1;

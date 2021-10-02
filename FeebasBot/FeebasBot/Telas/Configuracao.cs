@@ -1,6 +1,7 @@
 ﻿using FeebasBot.Classes;
 using FeebasBot.Classes.Bot;
 using FeebasBot.Classes.Funcoes;
+using FeebasBot.Properties;
 //using MySql.Data.MySqlClient;
 using System;
 using System.Drawing;
@@ -18,6 +19,9 @@ namespace FeebasBot.Telas
 
         private void basescreen_Load(object sender, EventArgs e)
         {
+            hpuse.Checked = Settings.Default.cura;
+            Curabox.Text = Settings.Default.curamove;
+            hppercent.Value = Setting.hpcura;
             this.Name = Rdn.randomname();
             this.Text = this.Name;
             if (Setting.waytime == 0) Setting.waytime = 130;
@@ -878,6 +882,64 @@ namespace FeebasBot.Telas
         private void timer2_Tick(object sender, EventArgs e)
         {
             Ataque.fuckthisgunk();
+        }
+
+        private void Curabox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(Curabox.Text.ToString())
+            {
+                case "M1":
+                    cm1.Checked = false;
+                    Settings.Default.curamove = "M1";
+                    break;
+                case "M2":
+                    cm2.Checked = false;
+                    Settings.Default.curamove = "M2";
+                    break;
+                case "M3":
+                    cm3.Checked = false;
+                    Settings.Default.curamove = "M3";
+                    break;
+                case "M4":
+                    cm4.Checked = false;
+                    Settings.Default.curamove = "M4";
+                    break;
+                case "M5":
+                    cm5.Checked = false;
+                    Settings.Default.curamove = "M5";
+                    break;
+                case "M6":
+                    cm6.Checked = false;
+                    Settings.Default.curamove = "M6";
+                    break;
+                case "M7":
+                    cm7.Checked = false;
+                    Settings.Default.curamove = "M7";
+                    break;
+                case "M8":
+                    cm8.Checked = false;
+                    Settings.Default.curamove = "M8";
+                    break;
+                case "M9":
+                    cm9.Checked = false;
+                    Settings.Default.curamove = "M9";
+                    break;
+                case "M10":
+                    cm10.Checked = false;
+                    Settings.Default.curamove = "M10";
+                    break;
+
+            }
+        }
+
+        private void hppercent_ValueChanged(object sender, EventArgs e)
+        {
+            Setting.hpcura = (int)hppercent.Value;
+        }
+
+        private void hpuse_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.cura = hpuse.Checked;
         }
     }
 }
