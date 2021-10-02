@@ -78,7 +78,7 @@ namespace FeebasBot
 
             Mem.Battle();
             if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
-            if (Setting.version == 0) Setting.version = 5;
+            if (Setting.version == 0) Setting.version = 6;
             updater.update();
             Mem.startmem();
             Mem.Fish();
