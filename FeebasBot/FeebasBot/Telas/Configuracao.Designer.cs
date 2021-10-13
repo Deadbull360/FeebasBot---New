@@ -426,6 +426,7 @@
             // 
             this.hpuse.AutoSize = true;
             this.hpuse.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hpuse.Enabled = false;
             this.hpuse.Location = new System.Drawing.Point(289, 78);
             this.hpuse.Name = "hpuse";
             this.hpuse.Size = new System.Drawing.Size(53, 17);

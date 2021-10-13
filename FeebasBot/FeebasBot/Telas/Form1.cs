@@ -14,7 +14,7 @@ namespace FeebasBot
 {
     public partial class Form1 : Form
     {
-        int version = 7;
+        readonly int version = 8;
         #region Form
         #region Form Functions
         public Form1()

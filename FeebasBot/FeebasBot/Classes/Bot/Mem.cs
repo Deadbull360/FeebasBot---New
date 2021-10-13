@@ -65,9 +65,9 @@ namespace FeebasBot.Classes.Bot
         #region Offsets DirectX
         //position
         //static int dx_position = 0x00122E28;
-        static readonly int dx_position = 0x00A4BFF0;
-        static readonly int dx_xoff = 0x308;
-        static readonly int dx_yoff = 0x30C;
+        static readonly int dx_position = 0x00060780;
+        static readonly int dx_xoff = 0x23C;
+        static readonly int dx_yoff = 0x240;
         //hp
         static readonly int dx_hp = 0x00A4BFF0;
         static readonly int dx_hpoff = 0x4E8;
@@ -79,13 +79,13 @@ namespace FeebasBot.Classes.Bot
         static readonly int dx_ping = 0x0;
         static readonly int dx_pingoff = 0x0;
         //chat
-        static readonly int dx_chat = 0x00A4C9B4;
-        static readonly int[] dx_chatoffset = new int[] { 0x44, 0x4, 0x28, 0x14, 0x4C, 0xC0, 0x18, 0x8, 0x18, 0xD8 };
+        static readonly int dx_chat = 0x00A52DE4; 
+        static readonly int[] dx_chatoffset = new int[] { 0x44, 0x4, 0x28, 0x3C, 0x1C, 0x270, 0x14, 0x8, 0x18, 0xD8 };
         //peixe
-        static readonly int dx_fish = 0x00A4C9B4;
-        static readonly int[] dx_fishoffset = new int[] { 0x0, 0x4, 0x28, 0x0, 0x14, 0x138, 0x30, 0x0, 0x18, 0xD8 };
+        static readonly int dx_fish = 0x00A52DE4;
+        static readonly int[] dx_fishoffset = new int[] { 0x0, 0xC, 0x28, 0x3C, 0x1C, 0x138, 0x30, 0x0, 0x18, 0xD8 };
         //batalha x y
-        static readonly int dx_battlex = 0x00A4C9B4;
+        static readonly int dx_battlex = 0x00A4C9B4; 
         static readonly int[] dx_battlexoff = new int[] { 0x40, 0x4, 0x28, 0x3C, 0x1C, 0x1A8, 0x28, 0x78, 0x38, 0x1E4 };
         static readonly int dx_battley = 0x00A4C9B4;
         static readonly int[] dx_battleyoff = new int[] { 0x74, 0x4, 0x28, 0x0, 0x14, 0x70, 0xB8, 0x30, 0x18, 0x1F0 };

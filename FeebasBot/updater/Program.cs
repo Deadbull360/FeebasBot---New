@@ -9,7 +9,7 @@ namespace updater
     {
 
 
-        static void Main(string[] args)
+        static void Main()
         {
             int down = 0;
 
