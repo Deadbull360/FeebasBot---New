@@ -104,8 +104,9 @@ namespace FeebasBot.Classes.Funcoes
             {
                 if (int.Parse(getOSInfo()) > 7)
                 {
-                    Setting.version = Setting.newversion;
-                    Setting.SaveSettings();
+                    //Setting.version = Setting.newversion;
+                    //Setting.SaveSettings();
+                    MessageBox.Show("Nova versão disponivel, tentando atualizador automatico\nse falhar, baixe a nova versão no link do discord");
                     Process.Start("Updater.exe");
                     Application.Exit();
                 }

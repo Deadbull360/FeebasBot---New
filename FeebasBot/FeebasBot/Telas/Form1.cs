@@ -14,6 +14,7 @@ namespace FeebasBot
 {
     public partial class Form1 : Form
     {
+        int version = 7;
         #region Form
         #region Form Functions
         public Form1()
@@ -75,10 +76,10 @@ namespace FeebasBot
         {
             _globalKeyboardHook = new GlobalKeyboardHook(new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.Escape });
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
-
+            
             Mem.Battle();
             if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
-            if (Setting.version == 0) Setting.version = 6;
+            if (Setting.version < version) Setting.version = version;
             updater.update();
             Mem.startmem();
             Mem.Fish();

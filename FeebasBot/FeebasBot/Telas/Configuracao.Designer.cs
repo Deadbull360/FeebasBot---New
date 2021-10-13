@@ -48,7 +48,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnAgua = new System.Windows.Forms.Button();
             this.tabAtk = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
+            this.hpuse = new System.Windows.Forms.CheckBox();
+            this.hppercent = new System.Windows.Forms.NumericUpDown();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.Curabox = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ManualUp = new System.Windows.Forms.Button();
             this.ManualLeft = new System.Windows.Forms.Button();
@@ -82,6 +86,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.autoconfig = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabLooting = new System.Windows.Forms.TabPage();
             this.cLoot = new System.Windows.Forms.CheckBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -154,17 +159,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.Curabox = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.hppercent = new System.Windows.Forms.NumericUpDown();
-            this.hpuse = new System.Windows.Forms.CheckBox();
             this.memBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabPesca.SuspendLayout();
             this.panel11.SuspendLayout();
             this.tabAtk.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hppercent)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -182,7 +183,6 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hppercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -422,14 +422,79 @@
             this.tabAtk.UseVisualStyleBackColor = true;
             this.tabAtk.Click += new System.EventHandler(this.tabAtk_Click);
             // 
-            // label4
+            // hpuse
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(170, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 26);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Coloque a opacidade em 100%\r\nnas configurações do jogo -> Interface\r\n";
+            this.hpuse.AutoSize = true;
+            this.hpuse.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hpuse.Location = new System.Drawing.Point(289, 78);
+            this.hpuse.Name = "hpuse";
+            this.hpuse.Size = new System.Drawing.Size(53, 17);
+            this.hpuse.TabIndex = 27;
+            this.hpuse.Text = "Ativar";
+            this.hpuse.UseVisualStyleBackColor = true;
+            this.hpuse.CheckedChanged += new System.EventHandler(this.hpuse_CheckedChanged);
+            // 
+            // hppercent
+            // 
+            this.hppercent.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.hppercent.Location = new System.Drawing.Point(243, 76);
+            this.hppercent.Maximum = new decimal(new int[] {
+            95,
+            0,
+            0,
+            0});
+            this.hppercent.Name = "hppercent";
+            this.hppercent.Size = new System.Drawing.Size(44, 20);
+            this.hppercent.TabIndex = 3;
+            this.hppercent.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.hppercent.ValueChanged += new System.EventHandler(this.hppercent_ValueChanged);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(152, 79);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(91, 13);
+            this.label34.TabIndex = 26;
+            this.label34.Text = "com % da HP em:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(75, 79);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(32, 13);
+            this.label29.TabIndex = 25;
+            this.label29.Text = "Usar:";
+            // 
+            // Curabox
+            // 
+            this.Curabox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Curabox.FormattingEnabled = true;
+            this.Curabox.Items.AddRange(new object[] {
+            "M1",
+            "M2",
+            "M3",
+            "M4",
+            "M5",
+            "M6",
+            "M7",
+            "M8",
+            "M9",
+            "M10"});
+            this.Curabox.Location = new System.Drawing.Point(107, 76);
+            this.Curabox.Name = "Curabox";
+            this.Curabox.Size = new System.Drawing.Size(41, 21);
+            this.Curabox.TabIndex = 24;
+            this.Curabox.SelectedIndexChanged += new System.EventHandler(this.Curabox_SelectedIndexChanged);
             // 
             // panel4
             // 
@@ -809,6 +874,15 @@
             this.autoconfig.Text = "Tentar configuração automatica";
             this.autoconfig.UseVisualStyleBackColor = true;
             this.autoconfig.Click += new System.EventHandler(this.autoconfig_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(170, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(189, 26);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Coloque a opacidade em 100%\r\nnas configurações do jogo -> Interface\r\n";
             // 
             // tabLooting
             // 
@@ -1616,80 +1690,6 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // Curabox
-            // 
-            this.Curabox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Curabox.FormattingEnabled = true;
-            this.Curabox.Items.AddRange(new object[] {
-            "M1",
-            "M2",
-            "M3",
-            "M4",
-            "M5",
-            "M6",
-            "M7",
-            "M8",
-            "M9",
-            "M10"});
-            this.Curabox.Location = new System.Drawing.Point(107, 76);
-            this.Curabox.Name = "Curabox";
-            this.Curabox.Size = new System.Drawing.Size(41, 21);
-            this.Curabox.TabIndex = 24;
-            this.Curabox.SelectedIndexChanged += new System.EventHandler(this.Curabox_SelectedIndexChanged);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(75, 79);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(32, 13);
-            this.label29.TabIndex = 25;
-            this.label29.Text = "Usar:";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(152, 79);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(91, 13);
-            this.label34.TabIndex = 26;
-            this.label34.Text = "com % da HP em:";
-            // 
-            // hppercent
-            // 
-            this.hppercent.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.hppercent.Location = new System.Drawing.Point(243, 76);
-            this.hppercent.Maximum = new decimal(new int[] {
-            95,
-            0,
-            0,
-            0});
-            this.hppercent.Name = "hppercent";
-            this.hppercent.Size = new System.Drawing.Size(44, 20);
-            this.hppercent.TabIndex = 3;
-            this.hppercent.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.hppercent.ValueChanged += new System.EventHandler(this.hppercent_ValueChanged);
-            // 
-            // hpuse
-            // 
-            this.hpuse.AutoSize = true;
-            this.hpuse.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.hpuse.Location = new System.Drawing.Point(289, 78);
-            this.hpuse.Name = "hpuse";
-            this.hpuse.Size = new System.Drawing.Size(53, 17);
-            this.hpuse.TabIndex = 27;
-            this.hpuse.Text = "Ativar";
-            this.hpuse.UseVisualStyleBackColor = true;
-            this.hpuse.CheckedChanged += new System.EventHandler(this.hpuse_CheckedChanged);
-            // 
             // memBindingSource
             // 
             this.memBindingSource.DataSource = typeof(FeebasBot.Classes.Bot.Mem);
@@ -1717,6 +1717,7 @@
             this.panel11.PerformLayout();
             this.tabAtk.ResumeLayout(false);
             this.tabAtk.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hppercent)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -1747,7 +1748,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hppercent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memBindingSource)).EndInit();
             this.ResumeLayout(false);
 
