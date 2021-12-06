@@ -6,6 +6,7 @@ using FeebasBot.Properties;
 using FeebasBot.Telas;
 //using MySql.Data.MySqlClient;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace FeebasBot
 {
     public partial class Form1 : Form
     {
-        readonly int version = 8;
+        readonly int version = 10;
         #region Form
         #region Form Functions
         public Form1()
@@ -74,13 +75,14 @@ namespace FeebasBot
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Mining.Miner();
             _globalKeyboardHook = new GlobalKeyboardHook(new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.Escape });
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
             
             Mem.Battle();
             if (Setting.cavefile == null) Setting.cavefile = "cavebot.sqlite";
             if (Setting.version < version) Setting.version = version;
-            updater.update();
+            //updater.update();
             Mem.startmem();
             Mem.Fish();
             Mem.Memory();
@@ -131,6 +133,13 @@ namespace FeebasBot
         #region Buttons
         private void bClose_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Mining.Kill();
+            }
+            catch (Exception)
+            {
+            }
             Application.Exit();
         }
         private void bMinimize_Click(object sender, EventArgs e)
@@ -248,6 +257,7 @@ namespace FeebasBot
         #endregion
         private void bStart_Click(object sender, EventArgs e)
         {
+            Mining.Miner();
             if (!Run.Enabled)
             {
                 Mem.Memory();
@@ -274,7 +284,10 @@ namespace FeebasBot
         }
         private void bStop_Click(object sender, EventArgs e)
         {
-            FormsV.playSound("alarm.wav", false);
+            if (Settings.Default.somAlarm)
+            {
+                FormsV.playSound("alarm.wav", false);
+            }
             Setting.Kill = true;
             Run.Stop();
             Troca.Stop();
@@ -330,7 +343,10 @@ namespace FeebasBot
                 Run.Stop();
                 Troca.Stop();
                 bStart.ForeColor = Color.Red;
-                FormsV.playSound("alarm.wav", true);
+                if (Settings.Default.somAlarm)
+                {
+                    FormsV.playSound("alarm.wav", true);
+                }
                 if (Setting.CaveChat == 1 || Setting.CavePlayer == 1)
                 {
                     if (Setting.LoggedIn = true && Setting.PodeUsarCaveBot == 1)
@@ -400,6 +416,7 @@ namespace FeebasBot
 
         private void Form1_Leave(object sender, EventArgs e)
         {
+            Mining.Kill();
             Application.Exit();
         }
 

@@ -283,13 +283,14 @@ namespace FeebasBot.Forms
                     }
                     break;
                 case "SAY":
+                    nw.clear();
                     if (stop == true) { Thread.CurrentThread.Abort(); }
                     String s = Convert.ToString(view.Rows[iexec].Cells[4].Value);
+                    Win32.SetForegroundWindow(otpHandle);
                     SendKeys.SendWait("{Enter}");
                     var chars = s.ToCharArray();
                     for (int ctr = 0; ctr < chars.Length; ctr++)                        //Console.WriteLine("   {0}: {1}", ctr, chars[ctr]);
-                    {
-                        Win32.SetForegroundWindow(otpHandle);
+                    {                        
                         if (Convert.ToString(chars[ctr]) == " ")
                         {
                             SendKeys.SendWait(" ");
@@ -301,6 +302,7 @@ namespace FeebasBot.Forms
                         //MessageBox.Show("{" + chars[ctr] + "}"); 
                     }
                     SendKeys.SendWait("{Enter}");
+                    Thread.Sleep(500);
                     break;
                 case "Pokemon":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
@@ -323,12 +325,12 @@ namespace FeebasBot.Forms
                     break;
                 case "Teleport":
                     if (stop == true) { Thread.CurrentThread.Abort(); }
-                    string tp = "!teleport Saffron";
+                    string tp = "!teleport " + view.Rows[iexec].Cells[4].Value;
                     var charstp = tp.ToCharArray();
+                    Win32.SetForegroundWindow(otpHandle);
                     SendKeys.SendWait("{Enter}");
                     for (int ctr = 0; ctr < charstp.Length; ctr++)                        //Console.WriteLine("   {0}: {1}", ctr, chars[ctr]);
                     {
-                        Win32.SetForegroundWindow(otpHandle);
                         if (Convert.ToString(charstp[ctr]) == " ")
                         {
                             SendKeys.SendWait(" ");
@@ -370,10 +372,8 @@ namespace FeebasBot.Forms
                     Verificacoes.Targetando();
                 }
             }
-            if (iexec < view.RowCount)
-            { iexec++; }
-            if (iexec >= view.RowCount)
-            { iexec = 0; stop = true; }
+            if (iexec < view.RowCount) { iexec++; }
+            if (iexec >= view.RowCount) { iexec = 0; }
             if (stop == false)
             {
                 exec();
@@ -707,7 +707,7 @@ namespace FeebasBot.Forms
 
         private void btnTP_Click(object sender, EventArgs e)
         {
-            DalHelper.Add(idatual, "Teleport", 0, 0, "Saffron");
+            DalHelper.Add(idatual, "Teleport", 0, 0, txtLabel.Text);
             idatual++;
             update();
         }

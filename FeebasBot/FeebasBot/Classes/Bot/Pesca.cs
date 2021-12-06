@@ -9,7 +9,6 @@ namespace FeebasBot.Classes.Bot
 {
     class Pesca
     {
-
         static public void minus(int x, int y)
         {
             foreach (Process proc in Mem.processes)
@@ -133,7 +132,9 @@ namespace FeebasBot.Classes.Bot
                     {
                         //total de pescas
                         Setting.pescados += 1;
-                        FormsV.playResource(Resources.agua1);
+                        if (Settings.Default.somPesca) {
+                            FormsV.playResource(Resources.agua1);
+                        }
                         //ativar vara e clicar na agua
                         foreach (Process proc in Mem.processes)
                         {

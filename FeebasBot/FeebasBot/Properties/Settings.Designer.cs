@@ -67,5 +67,41 @@ namespace FeebasBot.Properties {
                 this["cura"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool somPesca {
+            get {
+                return ((bool)(this["somPesca"]));
+            }
+            set {
+                this["somPesca"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool somAlarm {
+            get {
+                return ((bool)(this["somAlarm"]));
+            }
+            set {
+                this["somAlarm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool somChat {
+            get {
+                return ((bool)(this["somChat"]));
+            }
+            set {
+                this["somChat"] = value;
+            }
+        }
     }
 }

@@ -12,7 +12,16 @@ namespace FeebasBot.Classes.Bot
         public const uint WM_KEYDOWN = 0x0100;
         public const uint WM_KEYUP = 0x0101;
 
-
+        public static void clear()
+        {
+            foreach (Process proc in Mem.processes)
+            {
+                PostMessage(proc.MainWindowHandle, WM_KEYUP, (int)Keys.D, 0);
+                PostMessage(proc.MainWindowHandle, WM_KEYUP, (int)Keys.W, 0);
+                PostMessage(proc.MainWindowHandle, WM_KEYUP, (int)Keys.S, 0);
+                PostMessage(proc.MainWindowHandle, WM_KEYUP, (int)Keys.A, 0);
+            }
+        }
         public static void right()
         {
             foreach (Process proc in Mem.processes)

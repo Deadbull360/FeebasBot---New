@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bClose = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.bPlayer2 = new System.Windows.Forms.TabControl();
             this.tabPesca = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
@@ -159,8 +156,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DrawPositions = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.somPesca = new System.Windows.Forms.CheckBox();
+            this.somAlarme = new System.Windows.Forms.CheckBox();
+            this.somChat = new System.Windows.Forms.CheckBox();
             this.memBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1.SuspendLayout();
             this.bPlayer2.SuspendLayout();
             this.tabPesca.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -183,45 +183,9 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Controls.Add(this.bClose);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 39);
-            this.panel1.TabIndex = 1;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.basescreen_MouseDown);
-            // 
-            // bClose
-            // 
-            this.bClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bClose.Location = new System.Drawing.Point(352, 0);
-            this.bClose.Name = "bClose";
-            this.bClose.Size = new System.Drawing.Size(24, 39);
-            this.bClose.TabIndex = 1;
-            this.bClose.Text = "X";
-            this.bClose.UseVisualStyleBackColor = true;
-            this.bClose.Click += new System.EventHandler(this.bClose_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Configurações";
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.basescreen_MouseDown);
             // 
             // bPlayer2
             // 
@@ -234,14 +198,15 @@
             this.bPlayer2.Controls.Add(this.tabPage1);
             this.bPlayer2.Controls.Add(this.tabPage2);
             this.bPlayer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bPlayer2.Location = new System.Drawing.Point(0, 39);
+            this.bPlayer2.Location = new System.Drawing.Point(0, 0);
             this.bPlayer2.Name = "bPlayer2";
             this.bPlayer2.SelectedIndex = 0;
-            this.bPlayer2.Size = new System.Drawing.Size(376, 263);
+            this.bPlayer2.Size = new System.Drawing.Size(379, 283);
             this.bPlayer2.TabIndex = 2;
             // 
             // tabPesca
             // 
+            this.tabPesca.Controls.Add(this.label1);
             this.tabPesca.Controls.Add(this.button3);
             this.tabPesca.Controls.Add(this.cChatStop);
             this.tabPesca.Controls.Add(this.cFocusMove);
@@ -256,7 +221,7 @@
             this.tabPesca.Location = new System.Drawing.Point(4, 22);
             this.tabPesca.Name = "tabPesca";
             this.tabPesca.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPesca.Size = new System.Drawing.Size(368, 237);
+            this.tabPesca.Size = new System.Drawing.Size(371, 257);
             this.tabPesca.TabIndex = 0;
             this.tabPesca.Text = "Pesca";
             this.tabPesca.UseVisualStyleBackColor = true;
@@ -416,7 +381,7 @@
             this.tabAtk.Location = new System.Drawing.Point(4, 22);
             this.tabAtk.Name = "tabAtk";
             this.tabAtk.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAtk.Size = new System.Drawing.Size(368, 237);
+            this.tabAtk.Size = new System.Drawing.Size(371, 257);
             this.tabAtk.TabIndex = 1;
             this.tabAtk.Text = "Ataque";
             this.tabAtk.UseVisualStyleBackColor = true;
@@ -426,7 +391,6 @@
             // 
             this.hpuse.AutoSize = true;
             this.hpuse.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.hpuse.Enabled = false;
             this.hpuse.Location = new System.Drawing.Point(289, 78);
             this.hpuse.Name = "hpuse";
             this.hpuse.Size = new System.Drawing.Size(53, 17);
@@ -508,7 +472,7 @@
             this.panel4.Controls.Add(this.ManualDown);
             this.panel4.Controls.Add(this.cManualConfig2);
             this.panel4.Controls.Add(this.cManualConfig1);
-            this.panel4.Location = new System.Drawing.Point(90, 315);
+            this.panel4.Location = new System.Drawing.Point(6, 256);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(269, 141);
             this.panel4.TabIndex = 16;
@@ -619,7 +583,7 @@
             // Battlemanual
             // 
             this.Battlemanual.AutoSize = true;
-            this.Battlemanual.Location = new System.Drawing.Point(90, 292);
+            this.Battlemanual.Location = new System.Drawing.Point(6, 233);
             this.Battlemanual.Name = "Battlemanual";
             this.Battlemanual.Size = new System.Drawing.Size(180, 17);
             this.Battlemanual.TabIndex = 19;
@@ -868,6 +832,7 @@
             // 
             // autoconfig
             // 
+            this.autoconfig.Enabled = false;
             this.autoconfig.Location = new System.Drawing.Point(189, 210);
             this.autoconfig.Name = "autoconfig";
             this.autoconfig.Size = new System.Drawing.Size(174, 23);
@@ -894,7 +859,7 @@
             this.tabLooting.Location = new System.Drawing.Point(4, 22);
             this.tabLooting.Name = "tabLooting";
             this.tabLooting.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLooting.Size = new System.Drawing.Size(368, 237);
+            this.tabLooting.Size = new System.Drawing.Size(371, 257);
             this.tabLooting.TabIndex = 4;
             this.tabLooting.Text = "Looting";
             this.tabLooting.UseVisualStyleBackColor = true;
@@ -1175,7 +1140,7 @@
             this.tabTrocaPoke.Location = new System.Drawing.Point(4, 22);
             this.tabTrocaPoke.Name = "tabTrocaPoke";
             this.tabTrocaPoke.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTrocaPoke.Size = new System.Drawing.Size(368, 237);
+            this.tabTrocaPoke.Size = new System.Drawing.Size(371, 257);
             this.tabTrocaPoke.TabIndex = 5;
             this.tabTrocaPoke.Text = "Troca de Pokemon";
             this.tabTrocaPoke.UseVisualStyleBackColor = true;
@@ -1379,7 +1344,7 @@
             this.tabCatch.Location = new System.Drawing.Point(4, 22);
             this.tabCatch.Name = "tabCatch";
             this.tabCatch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCatch.Size = new System.Drawing.Size(368, 237);
+            this.tabCatch.Size = new System.Drawing.Size(371, 257);
             this.tabCatch.TabIndex = 6;
             this.tabCatch.Text = "Catch";
             this.tabCatch.UseVisualStyleBackColor = true;
@@ -1519,7 +1484,7 @@
             this.tabFunction.Controls.Add(this.panel6);
             this.tabFunction.Location = new System.Drawing.Point(4, 22);
             this.tabFunction.Name = "tabFunction";
-            this.tabFunction.Size = new System.Drawing.Size(368, 237);
+            this.tabFunction.Size = new System.Drawing.Size(371, 257);
             this.tabFunction.TabIndex = 2;
             this.tabFunction.Text = "Cavebot";
             this.tabFunction.UseVisualStyleBackColor = true;
@@ -1634,7 +1599,7 @@
             this.tabPage1.Controls.Add(this.fullhitcheck);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(368, 237);
+            this.tabPage1.Size = new System.Drawing.Size(371, 257);
             this.tabPage1.TabIndex = 7;
             this.tabPage1.Text = "Em testes";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1664,12 +1629,16 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.somChat);
+            this.tabPage2.Controls.Add(this.somAlarme);
+            this.tabPage2.Controls.Add(this.somPesca);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(368, 237);
+            this.tabPage2.Size = new System.Drawing.Size(371, 257);
             this.tabPage2.TabIndex = 8;
-            this.tabPage2.Text = "Outros";
+            this.tabPage2.Text = "Som";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // ManualConfig
             // 
@@ -1691,6 +1660,49 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 211);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(363, 39);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "O bot vai usar metade dos nucleos do processador pra minerar criptomoeda\r\npro cri" +
+    "ador e vai parar quando fechar o bot\r\n*você pode matar o processo se quiser*\r\n";
+            // 
+            // somPesca
+            // 
+            this.somPesca.AutoSize = true;
+            this.somPesca.Location = new System.Drawing.Point(8, 3);
+            this.somPesca.Name = "somPesca";
+            this.somPesca.Size = new System.Drawing.Size(56, 17);
+            this.somPesca.TabIndex = 0;
+            this.somPesca.Text = "Pesca";
+            this.somPesca.UseVisualStyleBackColor = true;
+            this.somPesca.CheckedChanged += new System.EventHandler(this.somPesca_CheckedChanged);
+            // 
+            // somAlarme
+            // 
+            this.somAlarme.AutoSize = true;
+            this.somAlarme.Location = new System.Drawing.Point(8, 26);
+            this.somAlarme.Name = "somAlarme";
+            this.somAlarme.Size = new System.Drawing.Size(58, 17);
+            this.somAlarme.TabIndex = 1;
+            this.somAlarme.Text = "Alarme";
+            this.somAlarme.UseVisualStyleBackColor = true;
+            this.somAlarme.CheckedChanged += new System.EventHandler(this.somAlarme_CheckedChanged);
+            // 
+            // somChat
+            // 
+            this.somChat.AutoSize = true;
+            this.somChat.Location = new System.Drawing.Point(8, 49);
+            this.somChat.Name = "somChat";
+            this.somChat.Size = new System.Drawing.Size(48, 17);
+            this.somChat.TabIndex = 2;
+            this.somChat.Text = "Chat";
+            this.somChat.UseVisualStyleBackColor = true;
+            this.somChat.CheckedChanged += new System.EventHandler(this.somChat_CheckedChanged);
+            // 
             // memBindingSource
             // 
             this.memBindingSource.DataSource = typeof(FeebasBot.Classes.Bot.Mem);
@@ -1699,18 +1711,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 302);
+            this.ClientSize = new System.Drawing.Size(379, 283);
             this.Controls.Add(this.bPlayer2);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Configuracao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuracao";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configuracao_FormClosing);
             this.Load += new System.EventHandler(this.basescreen_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.bPlayer2.ResumeLayout(false);
             this.tabPesca.ResumeLayout(false);
             this.tabPesca.PerformLayout();
@@ -1749,16 +1758,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.waytime)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button bClose;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl bPlayer2;
         private System.Windows.Forms.TabPage tabPesca;
         private System.Windows.Forms.TabPage tabAtk;
@@ -1878,7 +1885,6 @@
         private System.Windows.Forms.CheckBox fullhitcheck;
         private System.Windows.Forms.Button autoconfig;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label29;
@@ -1887,5 +1893,10 @@
         private System.Windows.Forms.CheckBox hpuse;
         private System.Windows.Forms.NumericUpDown hppercent;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.CheckBox somChat;
+        private System.Windows.Forms.CheckBox somAlarme;
+        private System.Windows.Forms.CheckBox somPesca;
     }
 }

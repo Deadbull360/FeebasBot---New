@@ -19,6 +19,9 @@ namespace FeebasBot.Telas
 
         private void basescreen_Load(object sender, EventArgs e)
         {
+            somPesca.Checked = Settings.Default.somPesca;
+            somAlarme.Checked = Settings.Default.somAlarm;
+            somChat.Checked = Settings.Default.somChat;
             hpuse.Checked = Settings.Default.cura;
             Curabox.Text = Settings.Default.curamove;
             hppercent.Value = Setting.hpcura;
@@ -940,6 +943,26 @@ namespace FeebasBot.Telas
         private void hpuse_CheckedChanged(object sender, EventArgs e)
         {
             Settings.Default.cura = hpuse.Checked;
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void somPesca_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.somPesca = somPesca.Checked;
+        }
+
+        private void somAlarme_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.somAlarm = somAlarme.Checked;
+        }
+
+        private void somChat_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.somChat = somChat.Checked;
         }
     }
 }

@@ -80,7 +80,8 @@ namespace FeebasBot.Classes.Funcoes
             return operatingSystem;
         }
         //http://atm6.duckdns.org:25565/feebas
-        public static void update()
+        public static void update() { }
+        public static void updatea()
         {
             using (var client = new WebClient())
             {

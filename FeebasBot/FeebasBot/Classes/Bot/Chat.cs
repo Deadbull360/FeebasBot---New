@@ -1,4 +1,5 @@
 ﻿using FeebasBot.Classes.Funcoes;
+using FeebasBot.Properties;
 using System.Windows.Forms;
 
 namespace FeebasBot.Classes.Bot
@@ -57,7 +58,7 @@ namespace FeebasBot.Classes.Bot
         }
         public static void CheckChat(bool audio)
         {
-            if (Setting.Chat == 1216 && audio == true) FormsV.playSound("chat.wav", true);
+            if (Setting.Chat == 1216 && Settings.Default.somChat) FormsV.playSound("chat.wav", true);
         }
     }
 }
